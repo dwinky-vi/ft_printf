@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/25 15:00:46 by dwinky            #+#    #+#             */
-/*   Updated: 2020/11/25 18:06:48 by dwinky           ###   ########.fr       */
+/*   Created: 2020/11/25 15:00:51 by dwinky            #+#    #+#             */
+/*   Updated: 2020/11/25 17:47:42 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int		ft_printf(char const *comand_line, ...)
-{
-	(comand_line) = "";
-	return (0);
-}
+# include "./libft/libft.h"
+
+int ft_printf(char const *comand_line, ...);
+
+#endif

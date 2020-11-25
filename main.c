@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/25 15:00:46 by dwinky            #+#    #+#             */
-/*   Updated: 2020/11/25 18:06:48 by dwinky           ###   ########.fr       */
+/*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
+/*   Updated: 2020/11/25 17:55:41 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "ft_printf.h"
 
-int		ft_printf(char const *comand_line, ...)
+int	main (void)
 {
-	(comand_line) = "";
+	ft_putstr_fd("Hello", 1);
 	return (0);
 }

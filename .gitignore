@@ -4,3 +4,5 @@ libftptintf.a
 /libft/a.out
 /libft/libft.a
 /libft/*.o
+.vscode
+.DS_Store

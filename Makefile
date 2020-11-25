@@ -1,7 +1,8 @@
 
-SRCS	= \ ft_printf.c
+SRCS	= \
+			ft_printf.c
 
-SRCS = \
+BONUS_SRCS = \
 
 NAME	= libftprintf.a
 
@@ -17,11 +18,12 @@ OBJS	= 	$(patsubst %.c, %.o, $(SRCS))
 
 BONUS_OBJS	= $(patsubst %.c, %.o, $(BONUS_SRCS))
 
-all:		 
+all:		make_libft $(NAME)
+
+make_libft:
 			@cd $(LIBFT) && $(MAKE)
 
 $(NAME): 	$(OBJS)
-			# ./libft/make
 			@echo "$(BLUE)$(UNDER_LINE)ft_printf is done!$(NO_COLOR)"
 			@ar rc libft.a $(OBJS)
 
@@ -30,14 +32,13 @@ bonus:		$(BONUS_OBJS) $(OBJS)
 			@ar rc libft.a $(BONUS_OBJS) $(OBJS)
 
 %.o:		%.c Makefile
-			$(MAKE)
 			@echo "$(LIGHT_PURPLE)$(UNDER_LINE)Compiling: $@ $(NO_COLOR)"
 			@$(CC) $(CFLAGS) -c $<
 
 clean:
 			@rm -rf $(OBJS) $(BONUS_OBJS)
 			@cd $(LIBFT) && make clean
-#			@echo "$(RED)$(UNDER_LINE)Object files deleted.$(NO_COLOR)" 
+			@echo "$(RED)$(UNDER_LINE)Object files deleted.$(NO_COLOR)" 
 
 fclean: 	clean
 			@rm -rf $(NAME)
@@ -47,7 +48,7 @@ fclean: 	clean
 re: 		fclean all
 
 .PHONY: $(NAME)	all bonus clean fclean re
-.PHONY: SRCS SRCS LIBS LIBFT CC CFLAGS OBJS BONUS_OBJS
+.PHONY: SRCS BONUS_SRCS LIBS LIBFT CC CFLAGS OBJS BONUS_OBJS
 
 UNDER_LINE	= \033[4m
 BOULD	 	= \033[1m
