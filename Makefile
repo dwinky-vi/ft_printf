@@ -25,11 +25,11 @@ make_libft:
 
 $(NAME): 	$(OBJS)
 			@echo "$(BLUE)$(UNDER_LINE)ft_printf is done!$(NO_COLOR)"
-			@ar rc libft.a $(OBJS)
+			@ar rc $(NAME) $(OBJS)
 
 bonus:		$(BONUS_OBJS) $(OBJS)
 			@echo "$(LIGHT_GREEN)$(UNDER_LINE)Bonuses are made!$(NO_COLOR)"
-			@ar rc libft.a $(BONUS_OBJS) $(OBJS)
+			@ar rc $(NAME) $(BONUS_OBJS) $(OBJS)
 
 %.o:		%.c Makefile
 			@echo "$(LIGHT_PURPLE)$(UNDER_LINE)Compiling: $@ $(NO_COLOR)"

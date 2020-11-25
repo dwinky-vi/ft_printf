@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:46 by dwinky            #+#    #+#             */
-/*   Updated: 2020/11/25 18:06:48 by dwinky           ###   ########.fr       */
+/*   Updated: 2020/11/25 20:12:28 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 int		ft_printf(char const *comand_line, ...)
 {
 	(comand_line) = "";
+	ft_putstr_fd("Hello", 1);
 	return (0);
 }

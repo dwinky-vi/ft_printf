@@ -1,5 +1,5 @@
 a.out
-libftptintf.a
+libftprintf.a
 *.o
 /libft/a.out
 /libft/libft.a
