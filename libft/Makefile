@@ -38,16 +38,16 @@ $(NAME): 	$(OBJS) libft.h
 			@ar rc libft.a $(OBJS)
 
 bonus:		$(BONUS_OBJS) $(OBJS)
-			@echo "$(LIGHT_GREEN)Bonuses are made!$(NO_COLOR)"
+#			@echo "$(LIGHT_GREEN)Bonuses are made!$(NO_COLOR)"
 			@ar rc libft.a $(BONUS_OBJS) $(OBJS)
 
 %.o:		%.c Makefile libft.h
-			@echo "$(LIGHT_BLUE)Compiling: $@ $(NO_COLOR)"
+#			@echo "$(LIGHT_BLUE)Compiling: $@ $(NO_COLOR)"
 			@$(CC) $(CFLAGS) -I $(LIBS) -c $<
 
 clean:
 			@rm -rf $(OBJS) $(BONUS_OBJS)
-			@echo "$(LIGHT_RED)Object files deleted.$(NO_COLOR)" 
+#			@echo "$(LIGHT_RED)Object files deleted.$(NO_COLOR)" 
 
 fclean: 	clean
 			@rm -rf $(NAME)
@@ -56,6 +56,7 @@ fclean: 	clean
 re: 		fclean all
 
 .PHONY:	all bonus clean fclean re
+.PHONY: SRCS SRCS LIBS LIBFT CC CFLAGS OBJS BONUS_OBJS
 
 UNDER_LINE	= \033[4m
 BOULD	 	= \033[1m

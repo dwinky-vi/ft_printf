@@ -1,11 +1,13 @@
 
 SRCS	= \ ft_printf.c
 
-BONUS_SRCS = \
+SRCS = \
 
 NAME	= libftprintf.a
 
 LIBS	= libft.h
+
+LIBFT	= ./libft
 
 CC		= gcc
 
@@ -15,32 +17,37 @@ OBJS	= 	$(patsubst %.c, %.o, $(SRCS))
 
 BONUS_OBJS	= $(patsubst %.c, %.o, $(BONUS_SRCS))
 
-all:		$(NAME)
+all:		 
+			@cd $(LIBFT) && $(MAKE)
 
 $(NAME): 	$(OBJS)
-			./libft/make
-			@echo "$(BLUE)ft_printf is done!$(NO_COLOR)"
+			# ./libft/make
+			@echo "$(BLUE)$(UNDER_LINE)ft_printf is done!$(NO_COLOR)"
 			@ar rc libft.a $(OBJS)
 
 bonus:		$(BONUS_OBJS) $(OBJS)
-			@echo "$(LIGHT_GREEN)Bonuses are made!$(NO_COLOR)"
+			@echo "$(LIGHT_GREEN)$(UNDER_LINE)Bonuses are made!$(NO_COLOR)"
 			@ar rc libft.a $(BONUS_OBJS) $(OBJS)
 
 %.o:		%.c Makefile
-			@echo "$(LIGHT_PURPLE)Compiling: $@ $(NO_COLOR)"
+			$(MAKE)
+			@echo "$(LIGHT_PURPLE)$(UNDER_LINE)Compiling: $@ $(NO_COLOR)"
 			@$(CC) $(CFLAGS) -c $<
 
 clean:
 			@rm -rf $(OBJS) $(BONUS_OBJS)
-			@echo "$(RED)Object files deleted.$(NO_COLOR)" 
+			@cd $(LIBFT) && make clean
+#			@echo "$(RED)$(UNDER_LINE)Object files deleted.$(NO_COLOR)" 
 
 fclean: 	clean
 			@rm -rf $(NAME)
-			@echo "$(RED)$(NAME) deleted.$(NO_COLOR)"
+			@cd $(LIBFT) && make fclean
+			@echo "$(RED)$(UNDER_LINE)$(NAME) deleted.$(NO_COLOR)"
 
 re: 		fclean all
 
-.PHONY:	all bonus clean fclean re
+.PHONY: $(NAME)	all bonus clean fclean re
+.PHONY: SRCS SRCS LIBS LIBFT CC CFLAGS OBJS BONUS_OBJS
 
 UNDER_LINE	= \033[4m
 BOULD	 	= \033[1m

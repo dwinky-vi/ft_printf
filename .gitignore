@@ -1,0 +1,6 @@
+a.out
+libftptintf.a
+*.o
+/libft/a.out
+/libft/libft.a
+/libft/*.o
