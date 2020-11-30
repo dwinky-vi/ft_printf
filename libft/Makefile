@@ -6,9 +6,7 @@ SRCS	= \
 		ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_tolower.c ft_toupper.c \
 		ft_substr.c  ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
 		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-		ft_max.c ft_min.c ft_isspace.c ft_swap.c ft_abs.c
-
-BONUS_SRCS = \
+		ft_max.c ft_min.c ft_isspace.c ft_swap.c ft_abs.c \
 		ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_front.c ft_lstadd_back.c \
 		ft_lstiter.c ft_lstdelone.c ft_lstclear.c ft_lstmap.c
 
@@ -29,34 +27,28 @@ CFLAGS	= -Wall -Wextra -Werror
 
 OBJS	= 	$(patsubst %.c, %.o, $(SRCS))
 
-BONUS_OBJS	= $(patsubst %.c, %.o, $(BONUS_SRCS))
-
 all:		$(NAME)
 
 $(NAME): 	$(OBJS) libft.h
-			@echo "$(LIGHT_GREEN)Libft is done!$(NO_COLOR)"
 			@ar rc libft.a $(OBJS)
-
-bonus:		$(BONUS_OBJS) $(OBJS)
-#			@echo "$(LIGHT_GREEN)Bonuses are made!$(NO_COLOR)"
-			@ar rc libft.a $(BONUS_OBJS) $(OBJS)
+			@echo "$(LIGHT_GREEN)Libft is done!$(NO_COLOR)"
 
 %.o:		%.c Makefile libft.h
-#			@echo "$(LIGHT_BLUE)Compiling: $@ $(NO_COLOR)"
 			@$(CC) $(CFLAGS) -I $(LIBS) -c $<
+#			@echo "$(LIGHT_BLUE)Compiling: $@ $(NO_COLOR)"
 
 clean:
-			@rm -rf $(OBJS) $(BONUS_OBJS)
+			@rm -rf $(OBJS)
 #			@echo "$(LIGHT_RED)Object files deleted.$(NO_COLOR)" 
 
 fclean: 	clean
 			@rm -rf $(NAME)
-			@echo "$(LIGHT_RED)$(NAME) deleted.$(NO_COLOR)"
+#			@echo "$(LIGHT_RED)$(NAME) deleted.$(NO_COLOR)"
 
 re: 		fclean all
 
-.PHONY:	all bonus clean fclean re
-.PHONY: SRCS SRCS LIBS LIBFT CC CFLAGS OBJS BONUS_OBJS
+.PHONY:	all clean fclean re
+.PHONY: SRCS SRCS LIBS LIBFT CC CFLAGS OBJS
 
 UNDER_LINE	= \033[4m
 BOULD	 	= \033[1m

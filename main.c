@@ -12,10 +12,11 @@
 
 #include <stdio.h>
 #include "ft_printf.h"
-// #include "libft/libft.h"
 
 int	main (void)
 {
-	ft_putstr_fd("Hello", 1);
+	ft_putstr_fd("tttt111tttttt", 1);
+	// printf("sas");
+	ft_printf("");
 	return (0);
 }

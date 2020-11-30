@@ -15,6 +15,6 @@
 int		ft_printf(char const *comand_line, ...)
 {
 	(comand_line) = "";
-	ft_putstr_fd("Hello", 1);
+	ft_putnbr_fd(55555, 1);
 	return (0);
 }

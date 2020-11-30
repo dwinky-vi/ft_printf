@@ -2,7 +2,7 @@
 SRCS	= \
 			ft_printf.c
 
-BONUS_SRCS = \
+# BONUS_SRCS = \
 
 NAME	= libftprintf.a
 
@@ -16,29 +16,33 @@ CFLAGS	= -Wall -Wextra -Werror
 
 OBJS	= 	$(patsubst %.c, %.o, $(SRCS))
 
-BONUS_OBJS	= $(patsubst %.c, %.o, $(BONUS_SRCS))
+# BONUS_OBJS	= $(patsubst %.c, %.o, $(BONUS_SRCS))
 
 all:		make_libft $(NAME)
 
 make_libft:
-			@cd $(LIBFT) && $(MAKE)
+			@make -C ./libft
+			@cp libft/libft.a ./$(NAME)
 
 $(NAME): 	$(OBJS)
-			@echo "$(BLUE)$(UNDER_LINE)ft_printf is done!$(NO_COLOR)"
 			@ar rc $(NAME) $(OBJS)
+			@echo "$(LIGHT_GREEN)$(UNDER_LINE)ft_printf is done!$(NO_COLOR)"
 
-bonus:		$(BONUS_OBJS) $(OBJS)
-			@echo "$(LIGHT_GREEN)$(UNDER_LINE)Bonuses are made!$(NO_COLOR)"
-			@ar rc $(NAME) $(BONUS_OBJS) $(OBJS)
+# bonus:		$(BONUS_OBJS) $(OBJS)
+# 			@echo "$(LIGHT_GREEN)$(UNDER_LINE)Bonuses are made!$(NO_COLOR)"
+# 			@ar rc $(NAME) $(BONUS_OBJS) $(OBJS)
 
 %.o:		%.c Makefile
+			@$(CC) $(CFLAGS) -I ft_printf.h -c $<
 			@echo "$(LIGHT_PURPLE)$(UNDER_LINE)Compiling: $@ $(NO_COLOR)"
-			@$(CC) $(CFLAGS) -c $<
+
+run:		
+			gcc -Wall -Werror -Wextra -L. -lftprintf main.c
 
 clean:
 			@rm -rf $(OBJS) $(BONUS_OBJS)
 			@cd $(LIBFT) && make clean
-			@echo "$(RED)$(UNDER_LINE)Object files deleted.$(NO_COLOR)" 
+#			@echo "$(RED)$(UNDER_LINE)Object files deleted.$(NO_COLOR)" 
 
 fclean: 	clean
 			@rm -rf $(NAME)
