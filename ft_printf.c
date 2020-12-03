@@ -14,7 +14,44 @@
 
 int		ft_printf(char const *comand_line, ...)
 {
-	(comand_line) = "";
-	ft_putnbr_fd(55555, 1);
+	va_list ap;
+	size_t	k;
+
+	if (comand_line == NULL)
+		return (-1);
+	k = 0;
+	va_start(ap, comand_line);
+	while (comand_line[k])
+	{
+		if (comand_line[k] == '%')
+		{
+			if (comand_line[k + 1] == '%')
+			{
+				ft_putstr_fd("%%", 1);
+				k++;
+			}
+			else if (comand_line[k + 1] == 'c' || comand_line[k + 1] == 'C')
+			{
+				ft_putchar_fd(va_arg(ap, int), 1);
+				k++;
+			}
+			else if (comand_line[k + 1] == 'd' || comand_line[k + 1] == 'D')
+			{
+				ft_putnbr_fd(va_arg(ap, int), 1);
+				k++;
+			}
+			// else if (comand_line[k + 1] == 's')
+			// {
+			// 	ft_putchar_fd(va_arg(ap, int), 1);
+			// 	k++;
+			// }
+		}
+		else
+		{
+			ft_putchar_fd(comand_line[k], 1);
+		}
+		k++;
+	}
+	va_end(ap);
 	return (0);
 }

@@ -13,10 +13,44 @@
 #include <stdio.h>
 #include "ft_printf.h"
 
-int	main (void)
+int		main(void)
 {
-	ft_putstr_fd("tttt111tttttt", 1);
-	// printf("sas");
-	ft_printf("");
+	int x;
+
+	x = 42;
+	// printf("%d\n", x);
+	// printf("%0d\n", x);
+	// printf("%5d\n", x);
+	// printf("%-5d\n", x);
+	// printf("%2d\n", x);
+	// printf("%-2d\n", x);
+	// // printf(NULL);
+	// printf("");
+	// printf("%%");
+	ft_printf("%d\n", 42);
+	ft_printf("%-d\n", 42);
+	ft_printf("%D\n", 42);
+	ft_printf("%dd\n", 0);
+	ft_printf("%ddd\n", -42);
+	ft_printf("%d\n", 1234567890);
+	ft_printf("%c, %c, %c\n", 'a', 'b', 'c');
+	ft_printf("%c, %d, %c, %d\n", 'a', 1, 'b', 2);
+	// ft_printf("%s\n", "hello");
+	// ft_printf("%s%s%s\n", "print", "", "f");
+	// ft_printf("%s%s%c\n", "lo", NULL, 'l');
+	
+	ft_printf("\n******\n\n");
+
+	printf("%d\n", 42);
+	printf("%d\n", 42);
+	printf("%D\n", 42);
+	printf("%dd\n", 0);
+	printf("%ddd\n", -42);
+	printf("%d\n", 1234567890);
+	printf("%c, %-c, %c\n", 'a', 'b', 'c');
+	printf("%c, %d, %c, %d\n", 'a', 1, 'b', 2);
+	// printf("%s\n", "hello");
+	// printf("%s%s%s\n", "print", "", "f");
+	// printf("%s%s%c\n", "lo", NULL, 'l');
 	return (0);
 }
