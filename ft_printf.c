@@ -16,6 +16,9 @@ int		ft_printf(char const *comand_line, ...)
 {
 	va_list ap;
 	size_t	k;
+	size_t	width;// ширина
+	size_t	precision; // точность
+	size_t	was_written; // сколько всего символов было записано
 
 	if (comand_line == NULL)
 		return (-1);
@@ -40,11 +43,16 @@ int		ft_printf(char const *comand_line, ...)
 				ft_putnbr_fd(va_arg(ap, int), 1);
 				k++;
 			}
-			// else if (comand_line[k + 1] == 's')
-			// {
-			// 	ft_putchar_fd(va_arg(ap, int), 1);
-			// 	k++;
-			// }
+			else if (comand_line[k + 1] == 's' || comand_line[k + 1] == 'S')
+			{
+				char *str;
+				str = va_arg(ap, char *);
+				if (str == NULL)
+					ft_putstr_fd("(null)", 1);
+				else
+					ft_putstr_fd(str, 1);
+				k++;
+			}
 		}
 		else
 		{
