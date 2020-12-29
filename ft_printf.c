@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:46 by dwinky            #+#    #+#             */
-/*   Updated: 2020/12/29 21:19:39 by dwinky           ###   ########.fr       */
+/*   Updated: 2020/12/29 21:36:41 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,43 @@
 **	size_t	width;// ширина
 **	size_t	precision; // точность
 **	size_t	was_written; // сколько всего символов было записано
-** flag '0' добавляет нули в начало числа
+**  flag '0' добавляет нули в начало числа
 */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-int		processor()
+int		processor(t_unit *unit)
 {
-
-}
-
-t_unit	*creat_new_unit(t_unit **unit)
-{
-	*unit = (t_unit *)calloc(1, (sizeof(char) + sizeof(int) * 2));
-	if (unit == NULL)
-		return (NULL);
-	// unit->flag = 0;
-	// unit->precision = 0;
-	// unit->width = 0;
-	// unit->type = 0;
-	return (*unit);
-}
-
-void	print_unit(t_unit *unit)
-{
-	if (unit->flag != 0)
-		printf("flag = %c ", unit->flag);
-	if (unit->width != 0)
-		printf("width = %d ", unit->width);
-	if (unit->precision != 0)
-		printf("precision = %d ", unit->precision);
-	if (unit->type != 0)
-		printf("type = %c\n", unit->type);
+	if (unit->type == 'd' || unit->type == 'i' || unit->type == 'D' || unit->type == 'I')
+	{
+		print_d();
+	}
+	else if (unit->type == 'u' || unit->type == 'U')
+	{
+		print_u();
+	}
+	else if (unit->type == 'x' || unit->type == 'X')
+	{
+		print_x();
+	}
+	else if (unit->type == 'X')
+	{
+		print_X();
+	}
+	else if (unit->type == 'c' || unit->type == 'C')
+	{
+		print_c();
+	}
+	else if (unit->type == 's' || unit->type == 'S')
+	{
+		print_s();
+	}
+	else if (unit->type = 'p' || unit->type == 'P')
+	{
+		print_p();
+	}
+	return (0);
 }
 
 int		len_of_num(char const *str)
@@ -79,7 +83,7 @@ int		ft_printf(char const *comand_line, ...)
 		{
 			if ((unit = parser(comand_line + k + 1, &ap)) == NULL)
 				return (-1);
-			processor();
+			processor(unit);
 			
 		}
 		else
