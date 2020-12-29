@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:46 by dwinky            #+#    #+#             */
-/*   Updated: 2020/12/29 20:47:47 by dwinky           ###   ########.fr       */
+/*   Updated: 2020/12/29 21:19:39 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 
 #include "ft_printf.h"
 #include <stdio.h>
+
+int		processor()
+{
+
+}
 
 t_unit	*creat_new_unit(t_unit **unit)
 {
@@ -58,6 +63,7 @@ int		ft_printf(char const *comand_line, ...)
 {
 	va_list ap;
 	size_t	k;
+	t_unit *unit;
 
 	if (comand_line == NULL)
 		return (-1);
@@ -65,9 +71,16 @@ int		ft_printf(char const *comand_line, ...)
 	va_start(ap, comand_line);
 	while (comand_line[k])
 	{
-		if (comand_line[k] == '%')
+		if (comand_line[k] == '%' && comand_line[k + 1] == '%')
 		{
-			parser(comand_line + k + 1, &ap);
+			ft_putstr_fd("%%", 1);
+		}
+		else if (comand_line[k] == '%')
+		{
+			if ((unit = parser(comand_line + k + 1, &ap)) == NULL)
+				return (-1);
+			processor();
+			
 		}
 		else
 			ft_putchar_fd(comand_line[k], 1);

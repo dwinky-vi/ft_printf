@@ -6,20 +6,20 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 20:30:39 by dwinky            #+#    #+#             */
-/*   Updated: 2020/12/29 20:33:28 by dwinky           ###   ########.fr       */
+/*   Updated: 2020/12/29 21:15:40 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	parser(char const *str, va_list *ap)
+t_unit	*parser(char const *str, va_list *ap)
 {
 	int		k;
 	t_unit	*unit;
 
 	k = 0;
 	if (creat_new_unit(&unit) == NULL)
-		return (-1);
+		return (NULL);
 	if (str[k] == '-' || str[k] == '0')
 	{
 		unit->flag = str[k];
@@ -50,5 +50,5 @@ int	parser(char const *str, va_list *ap)
 		}
 	}
 	unit->type = str[k];
-	return (0);
+	return (unit);
 }
