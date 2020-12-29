@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:46 by dwinky            #+#    #+#             */
-/*   Updated: 2020/12/29 21:36:41 by dwinky           ###   ########.fr       */
+/*   Updated: 2020/12/29 21:45:25 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
-int		processor(t_unit *unit)
+int		processor(t_unit *unit, va_list *ap)
 {
 	if (unit->type == 'd' || unit->type == 'i' || unit->type == 'D' || unit->type == 'I')
 	{
-		print_d();
+		print_d(unit, va_arg(*ap, int));
 	}
 	else if (unit->type == 'u' || unit->type == 'U')
 	{
@@ -33,10 +33,6 @@ int		processor(t_unit *unit)
 	else if (unit->type == 'x' || unit->type == 'X')
 	{
 		print_x();
-	}
-	else if (unit->type == 'X')
-	{
-		print_X();
 	}
 	else if (unit->type == 'c' || unit->type == 'C')
 	{
@@ -75,15 +71,11 @@ int		ft_printf(char const *comand_line, ...)
 	va_start(ap, comand_line);
 	while (comand_line[k])
 	{
-		if (comand_line[k] == '%' && comand_line[k + 1] == '%')
-		{
-			ft_putstr_fd("%%", 1);
-		}
-		else if (comand_line[k] == '%')
+		if (comand_line[k] == '%')
 		{
 			if ((unit = parser(comand_line + k + 1, &ap)) == NULL)
 				return (-1);
-			processor(unit);
+			processor(unit, &ap);
 			
 		}
 		else
