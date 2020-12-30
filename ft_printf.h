@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:51 by dwinky            #+#    #+#             */
-/*   Updated: 2020/12/29 19:54:14 by dwinky           ###   ########.fr       */
+/*   Updated: 2020/12/30 16:06:54 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 # include "./libft/libft.h"
 # include <stdarg.h>
+# include <stdio.h>
 
-int ft_printf(char const *comand_line, ...);
+int		ft_printf(char const *comand_line, ...);
 
 typedef struct	s_unit
 {
@@ -24,6 +25,17 @@ typedef struct	s_unit
 	int			width;
 	int			precision;
 	char		type;
+	int			length;
 }				t_unit;
+
+t_unit	*creat_new_unit(t_unit **unit);
+
+void	print_unit(t_unit *unit);
+
+t_unit	*parser(char const *str, va_list *ap);
+
+int		len_of_num(char const *str);
+
+void	ft_print_d(t_unit *unit, int num);
 
 #endif

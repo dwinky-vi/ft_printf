@@ -1,6 +1,6 @@
 
 SRCS	= \
-			ft_printf.c
+			ft_printf.c parser.c len_of_num.c t_unit.c ft_print_d.c
 
 # BONUS_SRCS = \
 

@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:46 by dwinky            #+#    #+#             */
-/*   Updated: 2020/12/29 21:45:25 by dwinky           ###   ########.fr       */
+/*   Updated: 2020/12/30 16:08:34 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,46 +24,36 @@ int		processor(t_unit *unit, va_list *ap)
 {
 	if (unit->type == 'd' || unit->type == 'i' || unit->type == 'D' || unit->type == 'I')
 	{
-		print_d(unit, va_arg(*ap, int));
+		ft_print_d(unit, va_arg(*ap, int));
 	}
 	else if (unit->type == 'u' || unit->type == 'U')
 	{
-		print_u();
+		// ft_print_u();
 	}
 	else if (unit->type == 'x' || unit->type == 'X')
 	{
-		print_x();
+		// ft_print_x();
 	}
 	else if (unit->type == 'c' || unit->type == 'C')
 	{
-		print_c();
+		// ft_print_c();
 	}
 	else if (unit->type == 's' || unit->type == 'S')
 	{
-		print_s();
+		// ft_print_s();
 	}
-	else if (unit->type = 'p' || unit->type == 'P')
+	else if (unit->type == 'p' || unit->type == 'P')
 	{
-		print_p();
+		// ft_print_p();
 	}
 	return (0);
-}
-
-int		len_of_num(char const *str)
-{
-	int k;
-
-	k = 0;
-	while (ft_isdigit(str[k]))
-		k++;
-	return (k);
 }
 
 int		ft_printf(char const *comand_line, ...)
 {
 	va_list ap;
 	size_t	k;
-	t_unit *unit;
+	t_unit	*unit;
 
 	if (comand_line == NULL)
 		return (-1);
@@ -75,6 +65,7 @@ int		ft_printf(char const *comand_line, ...)
 		{
 			if ((unit = parser(comand_line + k + 1, &ap)) == NULL)
 				return (-1);
+			k += unit->length; // =========
 			processor(unit, &ap);
 			
 		}
