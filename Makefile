@@ -37,7 +37,7 @@ $(NAME): 	$(OBJS)
 			@echo "$(LIGHT_PURPLE)$(UNDER_LINE)Compiling: $@ $(NO_COLOR)"
 
 run:		
-			@echo "$(YELLOW)gcc -Wall -Werror -Wextra -L. -lftprintf main.c && ./a.out | cat -e$(NO_COLOR)"
+			@echo "$(YELLOW)gcc -Wall -Werror -Wextra -L. -lftprintf main.c && ./a.out$(NO_COLOR)"
 			@gcc $(CFLAGS) -L. -lftprintf main.c && ./a.out
 
 clean:
