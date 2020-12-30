@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 21:45:39 by dwinky            #+#    #+#             */
-/*   Updated: 2020/12/30 19:22:28 by dwinky           ###   ########.fr       */
+/*   Updated: 2020/12/30 21:05:22 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,51 +30,71 @@ void	put_counts_char(char ch, int count)
 	while (count-- > 0)
 		ft_putchar_fd(ch, 1);
 }
+
+void put_nbr(int nbr)
+{
+	ft_putnbr_fd(nbr, 1);
+}
+
 void	ft_print_d(t_unit *unit, int num)
 {
-	int k;
-	int j;
+	int len_num;
 
+	len_num = len_of_num2(num);
+	if (unit)
 	if (unit->flag == '-')
 	{
-		k = unit->width - len_of_num2(num);
 		if (unit->precision)
 		{
-			j =  unit->precision - len_of_num2(num);
-			k -= j;
-			put_counts_char('0', j);
-			ft_putnbr_fd(num, 1);
+			put_counts_char('0', unit->precision - len_num);
+			put_nbr(num);
 			if (unit->width > unit->precision)
-			{
-				put_counts_char(' ', unit->width - len_of_num2(num));
-			}
+				put_counts_char(' ', unit->width - len_num);
 		}
 		else
 		{
-			ft_putnbr_fd(num, 1);
-			while(k-- > 0)
-				ft_putchar_fd(' ', 1);
+			put_nbr(num);
+			put_counts_char(' ', unit->width - len_num);
 		}
 	}
 	else if (unit->flag == '0')
 	{
-		k = unit->width - len_of_num2(num);
-		if (!(unit->precision))
+		if (unit->width > len_num)
 		{
-			while(k-- > 0)
-				ft_putchar_fd('0', 1);
-			ft_putnbr_fd(num, 1);
+			if (unit->precision > len_num)
+			{
+				put_counts_char(' ', unit->width - unit->precision);
+				put_counts_char('0', unit->precision - len_num);
+			}
+			else
+			{
+				put_counts_char(' ', unit->width - len_num);
+			}
 		}
-		else
+		else if (unit->precision > len_num)
 		{
-			while(k-- > 0)
-				ft_putchar_fd(' ', 1);
-			ft_putnbr_fd(num, 1);
+			put_counts_char('0', unit->precision - len_num);
 		}
-			
+		put_nbr(num);
 	}
 	else
 	{
-		ft_putnbr_fd(num, 1);
+		if (unit->width > len_num)
+		{
+			if (unit->precision > len_num)
+			{
+				put_counts_char(' ', unit->width - unit->precision);
+				put_counts_char('0', unit->precision - len_num);
+			}
+			else
+			{
+				put_counts_char(' ', unit->width - len_num);
+			}
+		}
+		else if (unit->precision > len_num)
+		{
+			put_counts_char('0', unit->precision - len_num);
+		}
+		put_nbr(num);
 	}
 }
