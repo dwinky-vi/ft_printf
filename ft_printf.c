@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:46 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/02 17:26:08 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/02 19:30:42 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,12 @@
 
 int		processor(t_unit *unit, va_list *ap)
 {
+	size_t res;
+
+	res = -1;
 	if (unit->type == 'd' || unit->type == 'i' || unit->type == 'D' || unit->type == 'I')
 	{
-		ft_print_d(unit, va_arg(*ap, int));
+		res = ft_print_d(unit, va_arg(*ap, int));
 	}
 	else if (unit->type == 'u' || unit->type == 'U')
 	{
@@ -46,15 +49,17 @@ int		processor(t_unit *unit, va_list *ap)
 	{
 		// ft_print_p();
 	}
-	return (0);
+	return (res);
 }
 
 int		ft_printf(char const *comand_line, ...)
 {
 	va_list ap;
 	size_t	k;
+	size_t	was_written;
 	t_unit	*unit;
 
+	was_written = 0;
 	if (comand_line == NULL)
 		return (-1);
 	k = 0;
@@ -65,15 +70,18 @@ int		ft_printf(char const *comand_line, ...)
 		{
 			if ((unit = parser(comand_line + k + 1, &ap)) == NULL)
 				return (-1);
-			k += unit->length; // =========
-			processor(unit, &ap);
+			k += unit->length;
+			was_written += processor(unit, &ap);
 		}
 		else
+		{			
 			ft_putchar_fd(comand_line[k], 1);
+			was_written++;
+		}
 		k++;
 	}
 	va_end(ap);
-	return (0);
+	return (was_written);
 }
 /**
 		// 	if (comand_line[k + 1] == '%')

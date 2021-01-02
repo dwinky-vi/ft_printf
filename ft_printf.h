@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:51 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/02 17:28:44 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/02 19:38:40 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "./libft/libft.h"
 # include <stdarg.h>
 # include <stdio.h>
+# define LOL printf("\ntyk\n");
 
 int		ft_printf(char const *comand_line, ...);
 
@@ -38,6 +39,6 @@ int		len_of_num(char const *str);
 
 int		len_of_num2(long long nbr);
 
-void	ft_print_d(t_unit *unit, int num);
+int		ft_print_d(t_unit *unit, int num);
 
 #endif

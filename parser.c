@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 20:30:39 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/02 17:34:19 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/02 20:08:54 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ t_unit	*parser(char const *str, va_list *ap)
 	if (str[k] == '0')
 	{
 		unit->flag = '0';
-		k++;
+		while (str[k] == '0')
+			k++;
+		if (str[k] == '-')
+			return (NULL);
 	}
 	if (str[k] == '*')
 	{
