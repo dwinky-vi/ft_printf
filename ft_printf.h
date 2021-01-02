@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:51 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/02 20:46:27 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/02 21:42:08 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ int				len_of_num(char const *str);
 
 int				len_of_num2(long long nbr);
 
-int				ft_print_c(t_unit *unit, int num);
+int				ft_print_c(t_unit *unit, int ch);
 
 int				ft_print_d(t_unit *unit, int num);
 
 int				ft_print_p(t_unit *unit, int num);
 
-int				ft_print_s(t_unit *unit, int num);
+int				ft_print_s(t_unit *unit, char *str);
 
 int				ft_print_u(t_unit *unit, unsigned int num);
 
