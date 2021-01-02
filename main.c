@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/02 16:57:24 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/02 17:38:05 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 
 int		main(void)
 {
-	int x;
+	int ft_z;
+	int z;
 
-	x = 42;
+	ft_z = 0;
+	z = 0;
 	// Проверить!!!
 	// printf("|%-0d|\n", 124);
 /*
@@ -123,10 +125,19 @@ int		main(void)
 	ft_printf("|%-*d|\n", 4, -123);
 	   printf("|%-*d|\n", 4, -124);
 	printf("===\n");
-
-
-	ft_printf("|%*d|\n", 10, 123);
-	   printf("|%*d|\n", 10, 124);
+	ft_printf("|%----*d|\n", 10, 123);
+	   printf("|%----*d|\n", 10, 124);
 	printf("===\n");
+	ft_printf("|%-----*d|\n", 10, 123);
+	   printf("|%-----*d|\n", 10, 124);
+	printf("===\n");
+	ft_printf("|%-------------.*d|\n", 10, 123);
+	   printf("|%-------------.*d|\n", 10, 124);
+	printf("===\n");
+
+	ft_z = ft_printf("|%*d|\n", 1, -123);
+	z = printf("|%*d|\n", 1, -124);
+	printf("ft_z == %d\nz == %d\n===\n", ft_z, z);
+
 	return (0);
 }

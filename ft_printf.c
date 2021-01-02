@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:46 by dwinky            #+#    #+#             */
-/*   Updated: 2020/12/30 16:08:34 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/02 17:26:08 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		processor(t_unit *unit, va_list *ap)
 	}
 	else if (unit->type == 'u' || unit->type == 'U')
 	{
-		// ft_print_u();
+		//  ft_print_u();
 	}
 	else if (unit->type == 'x' || unit->type == 'X')
 	{
@@ -67,7 +67,6 @@ int		ft_printf(char const *comand_line, ...)
 				return (-1);
 			k += unit->length; // =========
 			processor(unit, &ap);
-			
 		}
 		else
 			ft_putchar_fd(comand_line[k], 1);
@@ -76,15 +75,7 @@ int		ft_printf(char const *comand_line, ...)
 	va_end(ap);
 	return (0);
 }
-
-
-
-
-
-
-
-
-
+/**
 		// 	if (comand_line[k + 1] == '%')
 		// 	{
 		// 		ft_putstr_fd("%%", 1);
@@ -111,3 +102,4 @@ int		ft_printf(char const *comand_line, ...)
 		// 		k++;
 		// 	}
 		// }
+**/

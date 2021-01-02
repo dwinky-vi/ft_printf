@@ -6,26 +6,11 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 21:45:39 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/02 16:55:15 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/02 17:35:32 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int		len_of_num2(long long nbr)
-{
-	int k;
-
-	if (nbr < 0)
-		nbr = -nbr;
-	k = 1;
-	while (nbr > 9)
-	{
-		nbr /= 10;
-		k++;
-	}
-	return (k);
-}
 
 void	put_counts_char(char ch, int count)
 {
@@ -33,22 +18,24 @@ void	put_counts_char(char ch, int count)
 		ft_putchar_fd(ch, 1);
 }
 
-void put_nbr(int nbr)
+void	put_nbr(int nbr)
 {
 	ft_putnbr_fd(nbr, 1);
 }
 
-
 void	ft_print_d(t_unit *unit, int num)
 {
 	int len_num;
+	int	res;
 
+	res = 0;
 	len_num = len_of_num2(num);
 	if (unit->width == 0 && unit->precision == 0 && num == 0)
 		return ;
 	else if (unit->precision == 0 && num == 0)
 	{
 		ft_putchar_fd(' ', 1);
+		res++;
 		return ;
 	}
 	// if (num < 0)
@@ -124,4 +111,5 @@ void	ft_print_d(t_unit *unit, int num)
 		}
 		put_nbr(ft_abs(num));
 	}
+	// print_unit(unit);
 }
