@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2020/12/30 22:10:26 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/02 16:57:24 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,6 @@ int		main(void)
 	// Проверить!!!
 	// printf("|%-0d|\n", 124);
 /*
-	ft_printf("%d\n", 42);
-	ft_printf("%i\n", 42);
-	ft_printf("%D\n", 42);
-	ft_printf("%dd\n", 0);
-	ft_printf("%ddd\n", -42);
-	ft_printf("%d\n", 1234567890);
-	ft_printf("%c, %c, %c\n", 'a', 'b', 'c');
-	ft_printf("%c, %d, %c, %d\n", 'a', 1, 'b', 2);
-	ft_printf("%s\n", "hello");
-	ft_printf("%s%s%s\n", "print", "", "f");
-	ft_printf("%s%s%c\n", "lo", NULL, 'l');
-	ft_printf("%s\n", "%");
-	ft_printf("%s_%d\n", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%X", 42);
-	
-	ft_printf("\n******\n\n");
-
 	printf("%d\n", 42);
 	printf("%i\n", 42);
 	printf("%D\n", 42);
@@ -51,7 +35,98 @@ int		main(void)
 	printf("%s\n", "%");
 	printf("%s_%d\n", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%X", 42);
 */
-	ft_printf("|%1.1d|\n", -123);
-	   printf("|%1.1d|\n", -124);
+	ft_printf("|%*.*d|\n", 0, 0, 0);
+	   printf("|%*.*d|\n", 0, 0, 0);
+	printf("===\n");
+	ft_printf("|%*.*d|\n", 1, 0, 0);
+	   printf("|%*.*d|\n", 1, 0, 0);
+	printf("===\n");
+	ft_printf("|%*.*d|\n", 0, 1, 0);
+	   printf("|%*.*d|\n", 0, 1, 0);
+	printf("===\n");
+	ft_printf("|%*.*d|\n", 0, 0, 1);
+	   printf("|%*.*d|\n", 0, 0, 1);
+	printf("===\n");
+	ft_printf("|%*.*d|\n", 1, 0, 1);
+	   printf("|%*.*d|\n", 1, 0, 1);
+	printf("===\n");
+	ft_printf("|%*.*d|\n", 0, 1, 1);
+	   printf("|%*.*d|\n", 0, 1, 1);
+	printf("===\n");
+	ft_printf("|%*.*d|\n", 1, 1, 0);
+	   printf("|%*.*d|\n", 1, 1, 0);
+	printf("===\n");
+	ft_printf("|%*.*d|\n", 0, 0, 123);
+	   printf("|%*.*d|\n", 0, 0, 124);
+	printf("===\n");
+	ft_printf("|%*.*d|\n", -0, 10, 123);
+	   printf("|%*.*d|\n", -0, 10, 124);
+	printf("===\n");
+	ft_printf("|%*.*d|\n", 0, 10, 123);
+	   printf("|%*.*d|\n", 0, 10, 124);
+	printf("===\n");
+	ft_printf("|%*.*d|\n", 1, -10, 123);
+	   printf("|%*.*d|\n", 1, -10, 124);
+	printf("===\n");
+	ft_printf("|%*.*d|\n", 4, 3, 123);
+	   printf("|%*.*d|\n", 4, 3, 124);
+	printf("===\n");
+	ft_printf("|%*.*d|\n", 3, 3, 123);
+	   printf("|%*.*d|\n", 3, 3, 124);
+	printf("===\n");
+	ft_printf("|%*.*d|\n", -3, 1, 123);
+	   printf("|%*.*d|\n", -3, 1, 124);
+	printf("===\n");
+	ft_printf("|%*.*d|\n", -3, 10, 123);
+	   printf("|%*.*d|\n", -3, 10, 124);
+	printf("===\n");
+	ft_printf("|%*.*d|\n", 10, 10, 123);
+	   printf("|%*.*d|\n", 10, 10, 124);
+	printf("===\n");
+	ft_printf("|%*.*d|\n", 1, 10, INT_MAX);
+	   printf("|%*.*d|\n", 1, 10, INT_MAX);
+	printf("===\n");
+	// ft_printf("|%*.*d|\n", 1, 16, -INT_MAX - 1);
+	//    printf("|%*.*d|\n", 1, 16, -INT_MAX - 1);
+	// printf("===\n");
+	// ???????????????????????
+	// ft_printf("|%*.*d|\n", 1, 10, INT_MIN);
+	//    printf("|%*.*d|\n", 1, 10, INT_MIN);
+	// printf("===\n");
+	ft_printf("|%*d|\n", 10, 123);
+	   printf("|%*d|\n", 10, 124);
+	printf("===\n");
+	ft_printf("|%*d|\n", 1, 123);
+	   printf("|%*d|\n", 1, 124);
+	printf("===\n");
+	ft_printf("|%*d|\n", 3, 123);
+	   printf("|%*d|\n", 3, 124);
+	printf("===\n");
+	ft_printf("|%*d|\n", 4, 123);
+	   printf("|%*d|\n", 4, 124);
+	printf("===\n");
+	ft_printf("|%-*d|\n", 10, 123);
+	   printf("|%-*d|\n", 10, 124);
+	printf("===\n");
+	ft_printf("|%-*d|\n", 3, 123);
+	   printf("|%-*d|\n", 3, 124);
+	printf("===\n");
+	ft_printf("|%-*d|\n", 4, 123);
+	   printf("|%-*d|\n", 4, 124);
+	printf("===\n");
+	ft_printf("|%-*d|\n", 5, 123);
+	   printf("|%-*d|\n", 5, 124);
+	printf("===\n");
+	ft_printf("|%-*d|\n", 3, -123);
+	   printf("|%-*d|\n", 3, -124);
+	printf("===\n");
+	ft_printf("|%-*d|\n", 4, -123);
+	   printf("|%-*d|\n", 4, -124);
+	printf("===\n");
+
+
+	ft_printf("|%*d|\n", 10, 123);
+	   printf("|%*d|\n", 10, 124);
+	printf("===\n");
 	return (0);
 }

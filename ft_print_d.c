@@ -6,17 +6,17 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 21:45:39 by dwinky            #+#    #+#             */
-/*   Updated: 2020/12/30 22:11:04 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/02 16:55:15 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		len_of_num2(int nbr)
+int		len_of_num2(long long nbr)
 {
 	int k;
 
-	if (nbr < 0) // переполнение
+	if (nbr < 0)
 		nbr = -nbr;
 	k = 1;
 	while (nbr > 9)
@@ -38,6 +38,7 @@ void put_nbr(int nbr)
 	ft_putnbr_fd(nbr, 1);
 }
 
+
 void	ft_print_d(t_unit *unit, int num)
 {
 	int len_num;
@@ -50,23 +51,21 @@ void	ft_print_d(t_unit *unit, int num)
 		ft_putchar_fd(' ', 1);
 		return ;
 	}
-	if (num < 0)
-		unit->width -= 1;
+	// if (num < 0)
+	// 	unit->width -= 1;
 	if (unit->flag == '-')
 	{
 		if (num < 0)
 			ft_putchar_fd('-', 1);
-		if (unit->precision)
+		if (unit->width > unit->precision)
 		{
-			put_counts_char('0', unit->precision - len_num);
 			put_nbr(ft_abs(num));
-			if (unit->width > unit->precision) // ?????????
-				put_counts_char(' ', unit->width - unit->precision);
+			put_counts_char(' ', unit->width - len_num - (num < 0 ? 1 : 0));
 		}
 		else
 		{
+			put_counts_char('0', unit->precision - len_num);
 			put_nbr(ft_abs(num));
-			put_counts_char(' ', unit->width - len_num);
 		}
 	}
 	else if (unit->flag == '0')
