@@ -1,38 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   len_of_num.c                                       :+:      :+:    :+:   */
+/*   ft_print_x.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/30 16:00:47 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/02 20:27:26 by dwinky           ###   ########.fr       */
+/*   Created: 2021/01/02 20:33:30 by dwinky            #+#    #+#             */
+/*   Updated: 2021/01/02 20:53:08 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		len_of_num(char const *str)
+int	ft_print_x(t_unit *unit, int num)
 {
-	int k;
-
-	k = 0;
-	while (ft_isdigit(str[k]))
-		k++;
-	return (k);
-}
-
-int		len_of_num2(long long nbr)
-{
-	int k;
-
-	if (nbr < 0)
-		nbr = -nbr;
-	k = 1;
-	while (nbr > 9)
-	{
-		nbr /= 10;
-		k++;
-	}
-	return (k);
+	unit->flag = 0;
+	num = 1;
+	return (0);
 }

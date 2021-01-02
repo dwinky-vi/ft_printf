@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/02 20:24:32 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/02 21:38:06 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,6 +180,29 @@ void		test_d(int n)
 	//    printf("|%-------------.*d, %d, %d, 1.4%d, 4.1%d1234567890-=qwertyuiop[]asdfghjkl;'zxcvbnm,./!@#$^&*()_+QWERTYUIOP{}ASDFGHJKL:ZXCVBNM<>?\t\f|\n", 10, 123, 0, -1234567890, -42, -21);
 	// printf("===\n");
 }
+
+
+void		test_c()
+{
+	ft_printf("|%3c|\n", 'a');
+		printf("|%3c|\n", 'a');
+	ft_printf("|%1c|\n", 'a');
+		printf("|%1c|\n", 'a');
+	ft_printf("|%2c|\n", 'a');
+		printf("|%2c|\n", 'a');
+	ft_printf("|%-3c|\n", 'a');
+		printf("|%-3c|\n", 'a');
+	ft_printf("|%-1c|\n", 'a');
+		printf("|%-1c|\n", 'a');
+	ft_printf("|%-c|\n", 'a');
+		printf("|%-c|\n", 'a');
+	ft_printf("|%c|\n", 'a');
+		printf("|%c|\n", 'a');
+	ft_printf("|%-10c|\n", 'a');
+		printf("|%-10c|\n", 'a');
+	ft_printf("|%c, %-c, %c|\n", 'a', 'b', 'c');
+		printf("|%c, %-c, %c|\n", 'a', 'b', 'c');
+}
 int		main(void)
 {
 	int ft_z;
@@ -196,7 +219,6 @@ int		main(void)
 	printf("%dd\n", 0);
 	printf("%ddd\n", -42);
 	printf("%d\n", 1234567890);
-	printf("%c, %-c, %c\n", 'a', 'b', 'c');
 	printf("%c, %d, %c, %d\n", 'a', 1, 'b', 2);
 	printf("%s\n", "hello");
 	printf("%s%s%s\n", "print", "", "f");
@@ -206,10 +228,12 @@ int		main(void)
 */
 	test_d(-1);
 	test_d(1);
+	test_c();
+ 
 /*
-	ft_z = ft_printf("");
-	z =       printf("");
-	printf("ft_z == %d\nz == %d\n===\n", ft_z, z);
+	ft_z = ft_printf("|%-1c|\n", 'a');
+		z =    printf("|%-1c|\n", 'a');
+	printf("ft_z == %d\n   z == %d\n", ft_z, z);
 */
 	return (0);
 }

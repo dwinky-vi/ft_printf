@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 21:45:39 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/02 20:25:47 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/02 20:28:26 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,14 @@ static void	flag_zero(int num, int len_num, t_unit *unit, int *res)
 	}
 	else if (num < 0)
 	{
-			ft_putchar_fd('-', 1);
-			(*res)++;
+		ft_putchar_fd('-', 1);
+		(*res)++;
 	}
 	put_nbr(ft_abs(num));
 	*res += len_num;
 }
 
-static void no_flag(int num, int len_num, t_unit *unit, int *res)
+static void	no_flag(int num, int len_num, t_unit *unit, int *res)
 {
 	if (unit->width > len_num)
 	{
@@ -136,7 +136,7 @@ static void no_flag(int num, int len_num, t_unit *unit, int *res)
 	res += len_num;
 }
 
-int		ft_print_d(t_unit *unit, int num)
+int			ft_print_d(t_unit *unit, int num)
 {
 	int len_num;
 	int	res;

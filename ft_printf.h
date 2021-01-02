@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:51 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/02 19:38:40 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/02 20:46:27 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # include <stdio.h>
 # define LOL printf("\ntyk\n");
 
-int		ft_printf(char const *comand_line, ...);
-
 typedef struct	s_unit
 {
 	char		flag;
@@ -29,16 +27,29 @@ typedef struct	s_unit
 	int			length;
 }				t_unit;
 
-t_unit	*creat_new_unit(t_unit **unit);
+int				ft_printf(char const *comand_line, ...);
 
-void	print_unit(t_unit *unit);
+t_unit			*parser(char const *str, va_list *ap);
 
-t_unit	*parser(char const *str, va_list *ap);
+int				processor(t_unit *unit, va_list *ap);
 
-int		len_of_num(char const *str);
+t_unit			*creat_new_unit(t_unit **unit);
 
-int		len_of_num2(long long nbr);
+void			print_unit(t_unit *unit);
 
-int		ft_print_d(t_unit *unit, int num);
+int				len_of_num(char const *str);
 
+int				len_of_num2(long long nbr);
+
+int				ft_print_c(t_unit *unit, int num);
+
+int				ft_print_d(t_unit *unit, int num);
+
+int				ft_print_p(t_unit *unit, int num);
+
+int				ft_print_s(t_unit *unit, int num);
+
+int				ft_print_u(t_unit *unit, unsigned int num);
+
+int				ft_print_x(t_unit *unit, int num);
 #endif

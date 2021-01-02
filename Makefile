@@ -1,8 +1,12 @@
 
 SRCS	= \
-			ft_printf.c parser.c len_of_num.c t_unit.c ft_print_d.c
-
-# BONUS_SRCS = \
+			ft_printf.c parser.c processor.c \
+			ft_print_c.c \
+			ft_print_d.c len_of_num.c t_unit.c \
+			ft_print_p.c \
+			ft_print_s.c \
+			ft_print_u.c \
+			ft_print_x.c \
 
 NAME	= libftprintf.a
 
@@ -15,8 +19,6 @@ CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 
 OBJS	= 	$(patsubst %.c, %.o, $(SRCS))
-
-# BONUS_OBJS	= $(patsubst %.c, %.o, $(BONUS_SRCS))
 
 all:		make_libft $(NAME)
 
