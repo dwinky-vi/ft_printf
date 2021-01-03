@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 20:31:13 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/02 21:42:33 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/03 18:51:52 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		processor(t_unit *unit, va_list *ap)
 {
-	size_t res;
+	int res;
 
 	res = -1;
 	if (unit->type == 'd' || unit->type == 'i')

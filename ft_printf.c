@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:46 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/02 20:55:19 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/03 18:52:30 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_printf(char const *comand_line, ...)
 {
 	va_list ap;
 	size_t	k;
-	size_t	was_written;
+	int	was_written;
 	t_unit	*unit;
 
 	if (comand_line == NULL)

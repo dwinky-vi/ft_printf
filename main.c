@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/03 16:09:16 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/03 18:56:39 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,7 +214,7 @@ void		test_c()
 void		test_s()
 {
 	ft_printf("|%s|\n", "hello");
-		printf("|%s|\n", "hello");
+	printf("|%s|\n", "hello");
 printf("===\n");
 	ft_printf("|%s%s%s|\n", "print", "", "f");
 		printf("|%s%s%s|\n", "print", "", "f");
@@ -331,7 +331,7 @@ printf("=======\n");
 		printf("|%s_%d|\n", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%X", 42);
 	ft_printf("|%s|\n", "%");
 		printf("|%s|\n", "%");
-		ft_printf("|%8s|\n", "12345");
+	ft_printf("|%8s|\n", "12345");
 		printf("|%8s|\n", "12345");
 	ft_printf("|%8.6s|\n", "12345");
 		printf("|%8.6s|\n", "12345");
@@ -357,23 +357,6 @@ printf("=======\n");
 		printf("|%3.5s|\n", "1234");
 	ft_printf("|%8.6s|\n", "1234");
 		printf("|%8.6s|\n", "1234");
-}
-
-int		main(void)
-{
-	// int ft_z = 0;
-	// int z = 0;
-
-	// Проверить!!!
-	// printf("|%-0d|\n", 124);
-	// printf("%D\n", 42);
-
-
-	// test_d(-1);
-	// test_d(1);
-	// test_c();
-	test_s();
-
 	ft_printf("|%-1s|\n", "1234");
 		printf("|%-1s|\n", "1234");
 	ft_printf("|%-2s|\n", "1234");
@@ -422,9 +405,26 @@ int		main(void)
 		printf("|%-4.3s|\n", "1234");
 	ft_printf("|%-4.4s|\n", "1234");
 		printf("|%-4.4s|\n", "1234");
+}
 
-	// ft_z = ft_printf("|%9.0s|\n", NULL);
-	// 	z =    printf("|%9.0s|\n", NULL);
+int		main(void)
+{
+	// int ft_z = 0;
+	// int z = 0;
+
+	// Проверить!!!
+	// printf("|%-0d|\n", 124);
+	// printf("%D\n", 42);
+
+
+	test_d(-1);
+	test_d(1);
+	test_c();
+	test_s();
+
+	// printf("%s %c %d", );
+	// ft_z = ft_printf("|%6.10s|\n", "1234");
+	// 	z =    printf("|%6.10s|\n", "1234");
 	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
 
 	return (0);

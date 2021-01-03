@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dwinky <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:55:03 by dwinky            #+#    #+#             */
-/*   Updated: 2020/11/03 17:27:11 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/03 18:32:03 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,17 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 void				ft_putchar_fd(char c, int fd);
 
+void				ft_putchar(char c);
+
 void				ft_putstr_fd(char *s, int fd);
+
+void				ft_putstr(char *s);
 
 void				ft_putendl_fd(char *s, int fd);
 
 void				ft_putnbr_fd(int n, int fd);
+
+void				ft_putnbr(long long n);
 
 typedef	struct		s_list
 {
