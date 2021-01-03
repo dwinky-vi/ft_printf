@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/03 14:34:30 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/03 15:18:50 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -272,12 +272,39 @@ printf("===\n");
 printf("===\n");
 	ft_printf("|%10.7s|\n", NULL);
 		printf("|%10.7s|\n", NULL);
+
 printf("===\n");
-/*
+	ft_printf("|%.20s|\n", NULL);
+		printf("|%.20s|\n", NULL);
+printf("===\n");
+	ft_printf("|%1.20s|\n", NULL);
+		printf("|%1.20s|\n", NULL);
+printf("===\n");
+	ft_printf("|%10.20s|\n", NULL);
+		printf("|%10.20s|\n", NULL);
+printf("===\n");
+	ft_printf("|%10.5s|\n", NULL);
+		printf("|%10.5s|\n", NULL);
+printf("===\n");
+	ft_printf("|%10.6s|\n", NULL);
+		printf("|%10.6s|\n", NULL);
+printf("===\n");
+	ft_printf("|%10.7s|\n", NULL);
+		printf("|%10.7s|\n", NULL);
+printf("===\n");
+	ft_printf("|%10.8s|\n", NULL);
+		printf("|%10.8s|\n", NULL);
+printf("===\n");
+	ft_printf("|%10.9s|\n", NULL);
+		printf("|%10.9s|\n", NULL);
+printf("===\n");
+	ft_printf("|%10.10s|\n", NULL);
+		printf("|%10.10s|\n", NULL);
+printf("=======\n");
+	ft_printf("|%s_%d|\n", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%X", 42);
+		printf("|%s_%d|\n", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%X", 42);
 	ft_printf("|%s|\n", "%");
 		printf("|%s|\n", "%");
-	ft_printf("|%s_%d|\n", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%X", 42);
-		printf("|%s_%d|\n", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%X", 42);
 		ft_printf("|%8s|\n", "12345");
 		printf("|%8s|\n", "12345");
 	ft_printf("|%8.6s|\n", "12345");
@@ -304,7 +331,6 @@ printf("===\n");
 		printf("|%3.5s|\n", "1234");
 	ft_printf("|%8.6s|\n", "1234");
 		printf("|%8.6s|\n", "1234");
-*/
 }
 
 int		main(void)
@@ -324,14 +350,18 @@ int		main(void)
 	printf("%ddd\n", -42);
 	printf("%d\n", 1234567890);
 */
-	test_d(-1);
-	test_d(1);
-	test_c();
+	// test_d(-1);
+	// test_d(1);
+	// test_c();
 	test_s();
-/*
-	ft_z = ft_printf("|%-1c|\n", 'a');
-		z =    printf("|%-1c|\n", 'a');
+
+	// ft_printf("|%-9s|\n", "1234");
+	// 	printf("|%-9s|\n", "1234");	
+printf("===\n");
+
+	ft_z = ft_printf("|%.20s|\n", NULL);
+		z =    printf("|%.20s|\n", NULL);
 	printf("ft_z == %d\n   z == %d\n", ft_z, z);
-*/
+
 	return (0);
 }

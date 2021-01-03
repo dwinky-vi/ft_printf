@@ -6,10 +6,11 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 20:33:15 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/03 14:31:29 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/03 15:21:05 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/** что делать с флагом 0 **/
 #include "ft_printf.h"
 
 static void		put_counts_char(char ch, int count)
@@ -18,16 +19,17 @@ static void		put_counts_char(char ch, int count)
 		ft_putchar_fd(ch, 1);
 }
 
-static int		ft_print_null(int len)
+static int		ft_print_null(int len, int width)
 {
-	char str_null[7];
+	char	str_null[7];
+	int		count_spaces;
 
-	if (len >= 6 || len == -1)
-	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	
+	// if (len >= 6 || len == -1)
+	// {
+	// 	ft_putstr_fd("(null)", 1);
+	// 	return (6);
+	// }
+	len = (len > 6 ? 6 : len);
 	str_null[0] = '(';
 	str_null[1] = 'n';
 	str_null[2] = 'u';
@@ -35,9 +37,15 @@ static int		ft_print_null(int len)
 	str_null[4] = 'l';
 	str_null[5] = ')';
 	str_null[6] = '\0';
+	count_spaces = 0;
 	str_null[len] = '\0';
+	if (width != -1)
+	{
+		count_spaces = width - (len > 6 ? 6 : len);
+		put_counts_char(' ', count_spaces);
+	}
 	ft_putstr_fd(str_null, 1);
-	return (len);
+	return (len + count_spaces);
 }
 
 int			ft_print_s(t_unit *unit, char *str)
@@ -47,17 +55,7 @@ int			ft_print_s(t_unit *unit, char *str)
 	int count_spaces;
 
 	if (str == NULL)
-	{
-		if (unit->width == -1)
-		{
-			return (ft_print_null(unit->precision));
-		}
-		else
-		{
-			put_counts_char(' ', unit->width - (unit->precision > 6 ? 6 : unit->precision));
-			return (ft_print_null(unit->precision));
-		}
-	}
+		return (ft_print_null(unit->precision, unit->width));
 	len_str = ft_strlen(str);
 	k = 0;
 	if (len_str > unit->precision && unit->precision != -1)
