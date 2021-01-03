@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/03 15:18:50 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/03 16:09:16 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 void		test_d(int n)
 {
+	ft_printf("%dd\n", 0);
+		printf("%dd\n", 0);
+	printf("===\n");
+	ft_printf("%ddd\n", -42);
+		printf("%ddd\n", -42);
+	printf("===\n");
 	ft_printf("|%*.*d|\n", 0, 0, 0 * n);
 	   printf("|%*.*d|\n", 0, 0, 0 * n);
 	printf("===\n");
@@ -272,7 +278,6 @@ printf("===\n");
 printf("===\n");
 	ft_printf("|%10.7s|\n", NULL);
 		printf("|%10.7s|\n", NULL);
-
 printf("===\n");
 	ft_printf("|%.20s|\n", NULL);
 		printf("|%.20s|\n", NULL);
@@ -300,6 +305,27 @@ printf("===\n");
 printf("===\n");
 	ft_printf("|%10.10s|\n", NULL);
 		printf("|%10.10s|\n", NULL);
+printf("=======\n");
+	ft_printf("|%1s|\n", NULL);
+		printf("|%1s|\n", NULL);
+printf("=======\n");
+	ft_printf("|%2s|\n", NULL);
+		printf("|%2s|\n", NULL);
+printf("=======\n");
+	ft_printf("|%3s|\n", NULL);
+		printf("|%3s|\n", NULL);
+printf("=======\n");
+	ft_printf("|%4s|\n", NULL);
+		printf("|%4s|\n", NULL);
+printf("=======\n");
+	ft_printf("|%5s|\n", NULL);
+		printf("|%5s|\n", NULL);
+printf("=======\n");
+	ft_printf("|%6s|\n", NULL);
+		printf("|%6s|\n", NULL);
+printf("=======\n");
+	ft_printf("|%7s|\n", NULL);
+		printf("|%7s|\n", NULL);
 printf("=======\n");
 	ft_printf("|%s_%d|\n", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%X", 42);
 		printf("|%s_%d|\n", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%X", 42);
@@ -335,33 +361,71 @@ printf("=======\n");
 
 int		main(void)
 {
-	int ft_z;
-	int z;
+	// int ft_z = 0;
+	// int z = 0;
 
-	ft_z = 0;
-	z = 0;
 	// Проверить!!!
 	// printf("|%-0d|\n", 124);
-/*
-	printf("%d\n", 42);
-	printf("%i\n", 42);
-	printf("%D\n", 42);
-	printf("%dd\n", 0);
-	printf("%ddd\n", -42);
-	printf("%d\n", 1234567890);
-*/
+	// printf("%D\n", 42);
+
+
 	// test_d(-1);
 	// test_d(1);
 	// test_c();
 	test_s();
 
-	// ft_printf("|%-9s|\n", "1234");
-	// 	printf("|%-9s|\n", "1234");	
-printf("===\n");
+	ft_printf("|%-1s|\n", "1234");
+		printf("|%-1s|\n", "1234");
+	ft_printf("|%-2s|\n", "1234");
+		printf("|%-2s|\n", "1234");
+	ft_printf("|%-3s|\n", "1234");
+		printf("|%-3s|\n", "1234");
+	ft_printf("|%-4s|\n", "1234");
+		printf("|%-4s|\n", "1234");
+	ft_printf("|%-5s|\n", "1234");
+		printf("|%-5s|\n", "1234");
+	ft_printf("|%-6s|\n", "1234");
+		printf("|%-6s|\n", "1234");
+	ft_printf("|%-7s|\n", "1234");
+		printf("|%-7s|\n", "1234");
+	ft_printf("|%-8s|\n", "1234");
+		printf("|%-8s|\n", "1234");
+	ft_printf("|%-9s|\n", "1234");
+		printf("|%-9s|\n", "1234");
+	ft_printf("|%-10.1s|\n", "1234");
+		printf("|%-10.1s|\n", "1234");
+	ft_printf("|%-10.5s|\n", "1234");
+		printf("|%-10.5s|\n", "1234");
+	ft_printf("|%-10.4s|\n", "1234");
+		printf("|%-10.4s|\n", "1234");
+	ft_printf("|%-.1s|\n", "1234");
+		printf("|%-.1s|\n", "1234");
+	ft_printf("|%-.4s|\n", "1234");
+		printf("|%-.4s|\n", "1234");
+	ft_printf("|%-.5s|\n", "1234");
+		printf("|%-.5s|\n", "1234");
+	ft_printf("|%-9.0s|\n", "1234");
+		printf("|%-9.0s|\n", "1234");
+	ft_printf("|%-1.10s|\n", "1234");
+		printf("|%-1.10s|\n", "1234");
+	ft_printf("|%-1.3s|\n", "1234");
+		printf("|%-1.3s|\n", "1234");
+	ft_printf("|%-1.4s|\n", "1234");
+		printf("|%-1.4s|\n", "1234");
+	ft_printf("|%-1.5s|\n", "1234");
+		printf("|%-1.5s|\n", "1234");
+	ft_printf("|%-3.3s|\n", "1234");
+		printf("|%-3.3s|\n", "1234");
+	ft_printf("|%-3.4s|\n", "1234");
+		printf("|%-3.4s|\n", "1234");
+	ft_printf("|%-4.3s|\n", "1234");
+		printf("|%-4.3s|\n", "1234");
+	ft_printf("|%-4.4s|\n", "1234");
+		printf("|%-4.4s|\n", "1234");
 
-	ft_z = ft_printf("|%.20s|\n", NULL);
-		z =    printf("|%.20s|\n", NULL);
-	printf("ft_z == %d\n   z == %d\n", ft_z, z);
+	// ft_z = ft_printf("|%9.0s|\n", NULL);
+	// 	z =    printf("|%9.0s|\n", NULL);
+	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
 
 	return (0);
 }
