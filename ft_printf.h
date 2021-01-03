@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:51 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/02 21:42:08 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/03 19:14:17 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "./libft/libft.h"
 # include <stdarg.h>
 # include <stdio.h>
-# define LOL printf("\ntyk\n");
+# define PR printf("\n(****)\n");
 
 typedef struct	s_unit
 {
@@ -52,4 +52,5 @@ int				ft_print_s(t_unit *unit, char *str);
 int				ft_print_u(t_unit *unit, unsigned int num);
 
 int				ft_print_x(t_unit *unit, int num);
+
 #endif

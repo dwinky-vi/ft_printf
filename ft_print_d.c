@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 21:45:39 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/03 18:45:59 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/03 19:39:14 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void		put_counts_char(char ch, int count)
 
 static void	flag_minus(int num, int len_num, t_unit *unit, int *res)
 {
+	int z;
+
 	if (num < 0)
 	{
 		ft_putchar('-');
@@ -28,14 +30,15 @@ static void	flag_minus(int num, int len_num, t_unit *unit, int *res)
 	if (unit->width > unit->precision)
 	{
 		ft_putnbr(ft_abs(num));
-		put_counts_char(' ', unit->width - len_num - (num < 0 ? 1 : 0));
-		*res += len_num + (unit->width - len_num - (num < 0 ? 1 : 0));
+		z = unit->width - len_num - (num < 0 ? 1 : 0);
+		put_counts_char(' ', z);
+		*res += len_num + (z < 0 ? 0 : z);	
 	}
 	else
 	{
 		put_counts_char('0', unit->precision - len_num);
 		ft_putnbr(ft_abs(num));
-		*res += (unit->precision - len_num) + len_num;
+		*res += (unit->precision <= len_num ? 0 : unit->precision - len_num) + len_num;
 	}
 }
 
@@ -96,19 +99,19 @@ static void	no_flag(int num, int len_num, t_unit *unit, int *res)
 			if (num < 0)
 			{
 				ft_putchar('-');
-				res++;
+				(*res)++;
 			}
 			put_counts_char('0', unit->precision - len_num);
-			res += (unit->precision - len_num);
+			*res += (unit->precision - len_num);
 		}
 		else
 		{
 			put_counts_char(' ', unit->width - (len_num + (num < 0 ? 1 : 0)));
-			res += (unit->width - (len_num + (num < 0 ? 1 : 0)));
+			*res += (unit->width - (len_num + (num < 0 ? 1 : 0)));
 			if (num < 0)
 			{
 				ft_putchar('-');
-				res++;
+				(*res)++;
 			}
 		}
 	}
@@ -117,18 +120,18 @@ static void	no_flag(int num, int len_num, t_unit *unit, int *res)
 		if (num < 0)
 		{
 			ft_putchar('-');
-			res++;
+			(*res)++;
 		}
 		put_counts_char('0', unit->precision - len_num);
-		res += (unit->precision - len_num);
+		*res += (unit->precision - len_num);
 	}
 	else if (num < 0)
 	{
 		ft_putchar('-');
-		res++;
+		(*res)++;
 	}
 	ft_putnbr(ft_abs(num));
-	res += len_num;
+	*res += len_num;
 }
 
 int			ft_print_d(t_unit *unit, int num)
@@ -152,5 +155,6 @@ int			ft_print_d(t_unit *unit, int num)
 		flag_zero(num, len_num, unit, &res);
 	else
 		no_flag(num, len_num, unit, &res);
+	// printf("\n*%d*\n", res);
 	return (res);
 }
