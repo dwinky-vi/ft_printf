@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/02 21:54:58 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/03 14:34:30 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,7 +181,6 @@ void		test_d(int n)
 	// printf("===\n");
 }
 
-
 void		test_c()
 {
 	ft_printf("|%3c|\n", 'a');
@@ -208,11 +207,104 @@ void		test_c()
 
 void		test_s()
 {
-	printf("|%s|\n", "hello");
-	printf("|%s%s%s|\n", "print", "", "f");
-	printf("|%s%s%c|\n", "lo", NULL, 'l');
-	printf("|%s|\n", "%");
-	printf("|%s_%d|\n", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%X", 42);
+	ft_printf("|%s|\n", "hello");
+		printf("|%s|\n", "hello");
+printf("===\n");
+	ft_printf("|%s%s%s|\n", "print", "", "f");
+		printf("|%s%s%s|\n", "print", "", "f");
+printf("===\n");
+	ft_printf("|%s%s%c|\n", "lo", NULL, 'l');
+		printf("|%s%s%c|\n", "lo", NULL, 'l');
+printf("===\n");
+	ft_printf("|%.0s|\n", NULL);
+		printf("|%.0s|\n", NULL);
+printf("===\n");
+	ft_printf("|%.1s|\n", NULL);
+		printf("|%.1s|\n", NULL);
+printf("===\n");
+	ft_printf("|%.2s|\n", NULL);
+		printf("|%.2s|\n", NULL);
+printf("===\n");
+	ft_printf("|%.3s|\n", NULL);
+		printf("|%.3s|\n", NULL);
+printf("===\n");
+	ft_printf("|%.4s|\n", NULL);
+		printf("|%.4s|\n", NULL);
+printf("===\n");
+	ft_printf("|%.5s|\n", NULL);
+		printf("|%.5s|\n", NULL);
+printf("===\n");
+	ft_printf("|%.6s|\n", NULL);
+		printf("|%.6s|\n", NULL);
+printf("===\n");
+	ft_printf("|%.7s|\n", NULL);
+		printf("|%.7s|\n", NULL);
+printf("===\n");
+	ft_printf("|%1.0s|\n", NULL);
+		printf("|%1.0s|\n", NULL);
+printf("===\n");
+	ft_printf("|%2.1s|\n", NULL);
+		printf("|%2.1s|\n", NULL);
+printf("===\n");
+	ft_printf("|%3.2s|\n", NULL);
+		printf("|%3.2s|\n", NULL);
+printf("===\n");
+	ft_printf("|%4.3s|\n", NULL);
+		printf("|%4.3s|\n", NULL);
+printf("===\n");
+	ft_printf("|%5.4s|\n", NULL);
+		printf("|%5.4s|\n", NULL);
+printf("===\n");
+	ft_printf("|%6.5s|\n", NULL);
+		printf("|%6.5s|\n", NULL);
+printf("===\n");
+	ft_printf("|%7.6s|\n", NULL);
+		printf("|%7.6s|\n", NULL);
+printf("===\n");
+	ft_printf("|%8.7s|\n", NULL);
+		printf("|%8.7s|\n", NULL);
+printf("===\n");
+	ft_printf("|%9.7s|\n", NULL);
+		printf("|%9.7s|\n", NULL);
+printf("===\n");
+	ft_printf("|%9.7s|\n", NULL);
+		printf("|%9.7s|\n", NULL);
+printf("===\n");
+	ft_printf("|%10.7s|\n", NULL);
+		printf("|%10.7s|\n", NULL);
+printf("===\n");
+/*
+	ft_printf("|%s|\n", "%");
+		printf("|%s|\n", "%");
+	ft_printf("|%s_%d|\n", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%X", 42);
+		printf("|%s_%d|\n", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%X", 42);
+		ft_printf("|%8s|\n", "12345");
+		printf("|%8s|\n", "12345");
+	ft_printf("|%8.6s|\n", "12345");
+		printf("|%8.6s|\n", "12345");
+	ft_printf("|%8.6s|\n", "1234");
+		printf("|%8.6s|\n", "1234");
+	ft_printf("|%8.5s|\n", "1234");
+		printf("|%8.5s|\n", "1234");
+	ft_printf("|%8.4s|\n", "1234");
+		printf("|%8.4s|\n", "1234");
+	ft_printf("|%8.3s|\n", "1234");
+		printf("|%8.3s|\n", "1234");
+	ft_printf("|%8.2s|\n", "1234");
+		printf("|%8.2s|\n", "1234");
+	ft_printf("|%8.1s|\n", "1234");
+		printf("|%8.1s|\n", "1234");
+	ft_printf("|%8.0s|\n", "1234");
+		printf("|%8.0s|\n", "1234");
+	ft_printf("|%4s|\n", "1234");
+		printf("|%4s|\n", "1234");
+	ft_printf("|%1s|\n", "1234");
+		printf("|%1s|\n", "1234");
+	ft_printf("|%3.5s|\n", "1234");
+		printf("|%3.5s|\n", "1234");
+	ft_printf("|%8.6s|\n", "1234");
+		printf("|%8.6s|\n", "1234");
+*/
 }
 
 int		main(void)
@@ -235,9 +327,7 @@ int		main(void)
 	test_d(-1);
 	test_d(1);
 	test_c();
-	
-	ft_printf("|%10s|\n", "12345");
-		printf("|%10s|\n", "12345");
+	test_s();
 /*
 	ft_z = ft_printf("|%-1c|\n", 'a');
 		z =    printf("|%-1c|\n", 'a');
