@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 21:45:39 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/03 19:39:14 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/03 22:19:15 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,10 @@ static void	no_flag(int num, int len_num, t_unit *unit, int *res)
 		ft_putchar('-');
 		(*res)++;
 	}
-	ft_putnbr(ft_abs(num));
+	if (num == INT_MIN)
+		ft_putstr("2147483648");
+	else
+		ft_putnbr(ft_abs(num));
 	*res += len_num;
 }
 
@@ -155,6 +158,5 @@ int			ft_print_d(t_unit *unit, int num)
 		flag_zero(num, len_num, unit, &res);
 	else
 		no_flag(num, len_num, unit, &res);
-	// printf("\n*%d*\n", res);
 	return (res);
 }

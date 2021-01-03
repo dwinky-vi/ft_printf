@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 20:30:39 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/02 20:08:54 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/03 21:58:20 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,20 @@ t_unit	*parser(char const *str, va_list *ap)
 		if (str[k] == '*')
 		{
 			unit->precision = va_arg(*ap, int);
+			unit->precision = (unit->precision < 0 ? -1 : unit->precision);
 			k++;
 		}
 		else if (ft_isdigit(str[k]))
 		{
 			unit->precision = atoi(str + k);
 			k += len_of_num(str + k);
+			// if (unit->flag == '0')
+			// 	unit->flag = 0;
 		}
+		else
+			unit->precision = 0;
+		if (unit->flag == '0' && unit->precision >= 0)
+				unit->flag = 0;
 	}
 	unit->type = str[k];
 	k++;

@@ -6,11 +6,12 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/03 19:39:27 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/03 22:20:39 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <limits.h>
 #include "ft_printf.h"
 
 void		test_d(int n)
@@ -96,9 +97,9 @@ void		test_d(int n)
 	ft_printf("|%-*.*d|\n", 1, 10, INT_MAX * n);
 	   printf("|%-*.*d|\n", 1, 10, INT_MAX * n);
 	printf("===\n");
-	// ft_printf("|%*.*d|\n", 1, 16, -INT_MAX - 1);
-	//    printf("|%*.*d|\n", 1, 16, -INT_MAX - 1);
-	// printf("===\n");
+	ft_printf("|%*.*d|\n", 1, 16, -INT_MAX - 1);
+	   printf("|%*.*d|\n", 1, 16, -INT_MAX - 1);
+	printf("===\n");
 	// ???????????????????????
 	// ft_printf("|%*.*d|\n", 1, 10, INT_MIN);
 	//    printf("|%*.*d|\n", 1, 10, INT_MIN);
@@ -181,7 +182,85 @@ void		test_d(int n)
 	ft_printf("|%000000000000.*d|\n", 10, 123 * n);
 	   printf("|%000000000000.*d|\n", 10, 124 * n);
 	printf("===\n");
-
+	ft_printf("|%0000010.d|\n", 123);
+	   printf("|%0000010.d|\n", 124);
+	printf("===\n");
+	ft_printf("|%10.d|\n", 123);
+	   printf("|%10.d|\n", 124);
+	printf("===\n");
+	ft_printf("|%0000010d|\n", 123);
+	   printf("|%0000010d|\n", 124);
+	printf("===\n");
+	ft_printf("|%00000d|\n", 123);
+	   printf("|%00000d|\n", 124);
+	printf("===\n");
+	ft_printf("|%0000010.6d|\n", 123);
+	   printf("|%0000010.6d|\n", 124);
+	printf("===\n");
+	ft_printf("|%010.1d|\n", 123);
+	   printf("|%010.1d|\n", 124);
+	printf("===\n");
+	ft_printf("|%010.0d|\n", 123);
+	   printf("|%010.0d|\n", 124);
+	printf("===\n");
+	ft_printf("|%-.*d|\n", -10, 123);
+	   printf("|%-.*d|\n", -10, 124);
+	printf("===\n");
+	ft_printf("|%-.*d|\n", 10, 123);
+	   printf("|%-.*d|\n", 10, 124);
+	printf("===\n");
+	ft_printf("|%010.1d|\n", 123);
+	   printf("|%010.1d|\n", 124);
+	printf("===\n");
+	ft_printf("|%.*d|\n", -10, 123);
+	   printf("|%.*d|\n", -10, 124);
+	printf("===\n");
+	ft_printf("|%0.*d|\n", -10, 123);
+	   printf("|%0.*d|\n", -10, 124);
+	printf("===\n");
+	ft_printf("|%010.*d|\n", -10, 123);
+	   printf("|%010.*d|\n", -10, 124);
+	printf("===\n");
+	ft_printf("|%010.*d|\n", -1, 123);
+	   printf("|%010.*d|\n", -1, 124);
+	printf("===\n");
+	ft_printf("|%010.*d|\n", -0, 123);
+	   printf("|%010.*d|\n", -0, 124);
+	printf("===\n");
+	ft_printf("|%010.*d|\n", 0, 123);
+	   printf("|%010.*d|\n", 0, 124);
+	printf("===\n");
+	ft_printf("|%10.*d|\n", 1, 123);
+	   printf("|%10.*d|\n", 1, 124);
+	printf("===\n");
+	ft_printf("|%0000010.0d|\n", 123);
+	   printf("|%0000010.0d|\n", 124);
+	printf("===\n");
+	ft_printf("|%10.0d|\n", 123);
+	   printf("|%10.0d|\n", 124);
+	printf("===\n");
+	ft_printf("|%0.0d|\n", 123);
+	   printf("|%0.0d|\n", 124);
+	printf("===\n");
+	ft_printf("|%0000010.*d|\n", 0, 123);
+	   printf("|%0000010.*d|\n", 0, 124);
+	printf("===\n");
+	ft_printf("|%d|\n", -INT_MAX - 1);
+	   printf("|%d|\n", -INT_MAX - 1);
+	printf("===\n");
+	ft_printf("|%d|\n", -INT_MAX);
+	   printf("|%d|\n", -INT_MAX);
+	printf("===\n");
+	ft_printf("|%d|\n", INT_MAX);
+	   printf("|%d|\n", INT_MAX);
+	printf("===\n");
+	ft_printf("|%d|\n", INT_MIN);
+	   printf("|%d|\n", INT_MIN);
+	printf("===\n");
+	ft_printf("|%d|\n", -INT_MIN);
+	   printf("|%d|\n", -INT_MIN);
+	printf("===\n");
+	printf("===\n");
 	// ft_printf("|%-------------.*d, %d, %d, 1.4%d, 4.1%d1234567890-=qwertyuiop[]asdfghjkl;'zxcvbnm,./!@#$^&*()_+QWERTYUIOP{}ASDFGHJKL:ZXCVBNM<>?\t\f|\n", 10, 123, 0, -1234567890, -42, -21);
 	//    printf("|%-------------.*d, %d, %d, 1.4%d, 4.1%d1234567890-=qwertyuiop[]asdfghjkl;'zxcvbnm,./!@#$^&*()_+QWERTYUIOP{}ASDFGHJKL:ZXCVBNM<>?\t\f|\n", 10, 123, 0, -1234567890, -42, -21);
 	// printf("===\n");
@@ -409,22 +488,26 @@ printf("=======\n");
 
 int		main(void)
 {
-	int ft_z = 0;
-	int z = 0;
+	// int ft_z = 0;
+	// int z = 0;
 
 	// Проверить!!!
 	// printf("|%-0d|\n", 124);
 	// printf("%D\n", 42);
 
 
-	// test_d(-1);
-	// test_d(1);
-	// test_c();
-	// test_s();
+	test_d(-1);
+	test_d(1);
+	test_c();
+	test_s();
 
-	ft_z = ft_printf("|%d %d %d    %01.0d %10.1d|\n", 12, 0, 12345, -1, -12345);
-		z =    printf("|%d %d %d    %01.0d %10.1d|\n", 12, 0, 12345, -1, -12345);
-	printf("ft_z == %d\n   z == %d\n", ft_z, z);
+	// ft_z = ft_printf("|%d %d %d    %01.0d %10.1d|\n", 12, 0, 12345, -1, -12345);
+	// 	z =    printf("|%d %d %d    %01.0d %10.1d|\n", 12, 0, 12345, -1, -12345);
+	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
+
+	// ft_z = ft_printf("|%-5.d|\n", 123);
+	// 	z =    printf("|%-5.d|\n", 123);
+	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
 
 	return (0);
 }

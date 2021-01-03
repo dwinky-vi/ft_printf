@@ -1,8 +1,8 @@
 #include "libft.h"
 
-int	ft_abs(int nbr)
+long long	ft_abs(long long nbr)
 {
 	if (nbr == INT_MIN)
-		return (-1);
+		return (INT_MIN);
 	return (nbr < 0 ? -nbr : nbr);
 }
