@@ -6,16 +6,16 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 21:45:39 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/03 22:19:15 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 14:58:39 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		put_counts_char(char ch, int count)
+static void	put_counts_char(char ch, int count)
 {
 	while (count-- > 0)
-		ft_putchar_fd(ch, 1);
+		ft_putchar(ch);
 }
 
 static void	flag_minus(int num, int len_num, t_unit *unit, int *res)
@@ -32,7 +32,7 @@ static void	flag_minus(int num, int len_num, t_unit *unit, int *res)
 		ft_putnbr(ft_abs(num));
 		z = unit->width - len_num - (num < 0 ? 1 : 0);
 		put_counts_char(' ', z);
-		*res += len_num + (z < 0 ? 0 : z);	
+		*res += len_num + (z < 0 ? 0 : z);
 	}
 	else
 	{
