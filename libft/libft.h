@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:55:03 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 18:05:04 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 21:38:35 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,9 @@ void				ft_putendl_fd(char *s, int fd);
 
 void				ft_putnbr_fd(int n, int fd);
 
-void				ft_putnbr(long long n);
+void				ft_putnbr(int n);
+
+void				ft_putnbr_u_int(unsigned int n);
 
 typedef	struct		s_list
 {
@@ -132,13 +134,13 @@ t_list				*ft_lstmap(t_list *lst,
 								void *(*f)(void *),
 								void (*del)(void *));
 
-int					ft_max(int x, int y);
+int					ft_max(long long x, long long y);
 
-int					ft_min(int x, int y);
+int					ft_min(long long x, long long y);
 
 int					ft_isspace(int c);
 
-void				ft_swap(int *x, int *y);
+void				ft_swap(long long *x, long long *y);
 
 long long			ft_abs(long long nbr);
 

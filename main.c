@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 18:34:11 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 21:57:21 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -577,24 +577,51 @@ printf("=======\n");
 		printf("|%.5s|\n", str);
 }
 
+ void	test_crazy(unsigned int n)
+{
+	// ft_printf("|%", 1);
+	// printf("\n");
+	// 	printf("|%", 1);
+	// printf("\n");
+	// int ft_z = 0;
+	// int z = 0;
+	// ft_z = ft_printf("|%d %z0%dnbfxgnstrh %d 7|\n", 1, 9, 2);
+	// 	z =    printf("|%d %z0%dnbfxgnstrh %d 7|\n", 1, 9, 2);
+	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
+	// ft_printf("|%-010d|\n", 124);
+	// 	printf("|%-010d|\n", 124);
+	// ft_printf("|d|\n", 124);
+	// 	printf("|d|\n", 124);
+	// ft_printf("|%d|\n", 124, 1);
+	// 	printf("|%d|\n", 124, 1);
+	// ft_printf("|%d|\n");
+	// 	printf("|%d|\n");
+	// ft_printf("|%s|\n", 1);
+	// 	printf("|%s|\n", 1);
+}
+
 int		main(void)
 {
 	// int ft_z = 0;
 	// int z = 0;
 
 	// Проверить!!!
-	// printf("|%-0d|\n", 124);
 	// printf("%D\n", 42);
 
 
-	test_d(-1);
-	test_d(1);
+	// test_d(-1);
+	// test_d(1);
 	// test_c();
 	// test_s();
-
+	// test_crazy();
 	
-	// ft_z = ft_printf("|%-5.5d|\n", 34);
-	// 	z =    printf("|%-5.5d|\n", 34);
+// проверить ft_abs() и сравнить с abs()
+
+
+	// ft_printf("%%04.5i 42 == |%04.5i|\n", 42);
+	// 	printf("%%04.5i 42 == |%04.5i|\n", 42);
+	// ft_z = ft_printf("|%4.5i|\n", 42);
+	// 	z =    printf("|%4.5i|\n", 42);
 	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
 
 	

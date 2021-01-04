@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:51 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 17:48:30 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 21:26:42 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,7 @@ int				ft_print_s(t_unit *unit, char *str);
 int				ft_print_u(t_unit *unit, unsigned int num);
 
 int				ft_print_x(t_unit *unit, int num);
+
+int				ft_print_percent(t_unit *unit);
 
 #endif

@@ -6,15 +6,15 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 15:03:12 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 15:03:26 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 19:57:18 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_swap(int *x, int *y)
+void	ft_swap(long long *x, long long *y)
 {
-	int z;
+	long long z;
 
 	z = *x;
 	*x = *y;

@@ -1,12 +1,14 @@
 
 SRCS	= \
 			ft_printf.c parser.c processor.c \
+			utils.c t_unit.c \
 			ft_print_c.c \
-			ft_print_d.c utils.c t_unit.c \
+			ft_print_d.c \
 			ft_print_p.c \
 			ft_print_s.c \
 			ft_print_u.c \
 			ft_print_x.c \
+			ft_print_percent.c\
 
 NAME	= libftprintf.a
 
@@ -16,8 +18,7 @@ LIBFT	= ./libft
 
 CC		= gcc
 
-CFLAGS	= -Wall -Wextra -Werror
-
+CFLAGS	= 
 OBJS	= 	$(patsubst %.c, %.o, $(SRCS))
 
 NORMI 	= /Users/dwinky/.scripts/colorised_norm.sh

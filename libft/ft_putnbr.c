@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 18:29:14 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 15:02:53 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 19:54:18 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 #include "libft.h"
 
-void	ft_putnbr(long long n)
+void	ft_putnbr(int n)
 {
 	char num;
 

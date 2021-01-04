@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:46 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 17:53:58 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 20:49:01 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,17 @@
 */
 
 /*
-**	Undefine behaviors
-** 345
+**	Undefine behaviors test
+**  130
 */
 
 #include "ft_printf.h"
 
+int		ft_error(va_list *ap)
+{
+	va_end(*ap);
+	return (-1);
+}
 int		ft_printf(char const *comand_line, ...)
 {
 	va_list ap;
@@ -49,15 +54,12 @@ int		ft_printf(char const *comand_line, ...)
 		if (comand_line[k] == '%')
 		{
 			if ((unit = parser(comand_line + k + 1, &ap)) == NULL)
-				return (-1);
+				return (ft_error(&ap));
 			k += unit->length;
 			was_written += processor(unit, &ap);
 		}
 		else
-		{
-			ft_putchar_fd(comand_line[k], 1);
-			was_written++;
-		}
+			was_written += ft_putchar(comand_line[k]);
 		k++;
 	}
 	va_end(ap);
