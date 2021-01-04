@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 14:42:52 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 16:38:34 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -260,6 +260,35 @@ void		test_d(int n)
 	ft_printf("|%d|\n", -INT_MIN);
 	   printf("|%d|\n", -INT_MIN);
 	printf("===\n");
+	int ft_z = 0;
+	int z = 0;
+	ft_z = ft_printf("|%07d|\n", -54);
+		z =    printf("|%07d|\n", -54);
+	printf("ft_z == %d\n   z == %d\n", ft_z, z);
+	ft_z = ft_printf("|%06d|\n", -54);
+		z =    printf("|%06d|\n", -54);
+	printf("ft_z == %d\n   z == %d\n", ft_z, z);
+
+	ft_z = ft_printf("|%04d|\n", -54);
+		z =    printf("|%04d|\n", -54);
+	printf("ft_z == %d\n   z == %d\n", ft_z, z);
+	ft_z = ft_printf("|%05d|\n", -54);
+		z =    printf("|%05d|\n", -54);
+	printf("ft_z == %d\n   z == %d\n", ft_z, z);
+
+	ft_z = ft_printf("|%03d|\n", -54);
+		z =    printf("|%03d|\n", -54);
+	printf("ft_z == %d\n   z == %d\n", ft_z, z);
+	ft_z = ft_printf("|%02d|\n", -54);
+		z =    printf("|%02d|\n", -54);
+	printf("ft_z == %d\n   z == %d\n", ft_z, z);
+	
+	ft_z = ft_printf("|%01d|\n", -54);
+		z =    printf("|%01d|\n", -54);
+	printf("ft_z == %d\n   z == %d\n", ft_z, z);
+	ft_z = ft_printf("|%02d|\n", -543);
+		z =    printf("|%02d|\n", -543);
+	printf("ft_z == %d\n   z == %d\n", ft_z, z);
 	printf("===\n");
 	// ft_printf("|%-------------.*d, %d, %d, 1.4%d, 4.1%d1234567890-=qwertyuiop[]asdfghjkl;'zxcvbnm,./!@#$^&*()_+QWERTYUIOP{}ASDFGHJKL:ZXCVBNM<>?\t\f|\n", 10, 123, 0, -1234567890, -42, -21);
 	//    printf("|%-------------.*d, %d, %d, 1.4%d, 4.1%d1234567890-=qwertyuiop[]asdfghjkl;'zxcvbnm,./!@#$^&*()_+QWERTYUIOP{}ASDFGHJKL:ZXCVBNM<>?\t\f|\n", 10, 123, 0, -1234567890, -42, -21);
@@ -520,9 +549,48 @@ int		main(void)
 	// test_c();
 	// test_s();
 
-	// ft_z = ft_printf("|%09s|\n", "hi low");
-	// 	z =    printf("|%09s|\n", "hi low");
+	// ft_z = ft_printf("|%-8.5d|\n", 34);
+	// 	z =    printf("|%-8.5d|\n", 34);
+	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
+	
+	// ft_z = ft_printf("|%-8.4d|\n", 34);
+	// 	z =    printf("|%-8.4d|\n", 34);
 	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
 
+	// ft_z = ft_printf("|%-8.3d|\n", 34);
+	// 	z =    printf("|%-8.3d|\n", 34);
+	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
+
+	// ft_z = ft_printf("|%-8.2d|\n", 34);
+	// 	z =    printf("|%-8.2d|\n", 34);
+	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
+
+	// ft_z = ft_printf("|%-8.1d|\n", 34);
+	// 	z =    printf("|%-8.1d|\n", 34);
+	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
+
+	// ft_z = ft_printf("|%-8.0d|\n", 34);
+	// 	z =    printf("|%-8.0d|\n", 34);
+	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
+
+	// ft_z = ft_printf("|%-7.5d|\n", 34);
+	// 	z =    printf("|%-7.5d|\n", 34);
+	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
+
+	// ft_z = ft_printf("|%-6.5d|\n", 34);
+	// 	z =    printf("|%-6.5d|\n", 34);
+	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
+
+	// ft_z = ft_printf("|%-5.5d|\n", 34);
+	// 	z =    printf("|%-5.5d|\n", 34);
+	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
+
+	// ft_z = ft_printf("|%7d|\n", -14);
+	// 	z =    printf("|%7d|\n", -14);
+	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
+
+	// ft_z = ft_printf("|%.7d|\n", -14);
+	// 	z =    printf("|%.7d|\n", -14);
+	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
 	return (0);
 }
