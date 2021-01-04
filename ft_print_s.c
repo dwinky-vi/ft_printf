@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 20:33:15 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 13:42:29 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 14:19:55 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int				ft_print_s(t_unit *unit, char *str)
 	k = 0;
 	if (len_str > unit->precision && unit->precision != -1)
 	{
-		count_spaces = unit->width - unit->precision;
+		count_spaces = (unit->width == -1 ? 0 : unit->width) - unit->precision;
 		len_str = unit->precision;
 	}
 	else
@@ -88,6 +88,8 @@ int				ft_print_s(t_unit *unit, char *str)
 	// 	put_counts_char(' ', count_spaces);
 	// }
 	// printf("\n%d, %d\n", count_spaces, len_str);
+	if (count_spaces < 0)
+		count_spaces = 0;
 	if (unit->flag != '-')
 		put_counts_char(' ', count_spaces);
 	while (len_str > k)
