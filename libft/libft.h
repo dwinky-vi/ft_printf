@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:55:03 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 21:38:35 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 22:26:39 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,8 @@ int					ft_isspace(int c);
 
 void				ft_swap(long long *x, long long *y);
 
-long long			ft_abs(long long nbr);
+int					ft_abs(int nbr);
+
+long long			ft_abs_ll(long long nbr);
 
 #endif

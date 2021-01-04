@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 21:45:39 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 21:56:41 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 22:34:31 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,7 @@ static void	flag_minus(int num, int len_num, t_unit *unit, int *res)
 		put_counts_char('0', unit->precision - len_num);
 		*res += unit->precision - len_num;
 	}
-	if (num == INT_MIN)
-		ft_putstr("2147483648");
-	else
-		ft_putnbr(ft_abs(num));
+	ft_putnbr_u_int(ft_abs_ll(num));
 	*res += len_num;
 	if (unit->width > ft_max(len_num, unit->precision))
 	{
@@ -55,21 +52,7 @@ static void	flag_zero(int num, int len_num, t_unit *unit, int *res)
 		put_counts_char('0', unit->width - len_num - (num < 0 ? 1 : 0));
 		*res += (unit->width - len_num);
 	}
-	// FIX
-	// FIX
-	// FIX
-	// FIX
-	// FIX  оперделиться: может просто печатать с помощью ft_putnbr_u_int()
-	// FIX
-	// FIX
-	// FIX
-	// FIX
-	// FIX
-	// FIX
-	if (num == INT_MIN)
-		ft_putstr("2147483648");
-	else
-		ft_putnbr(ft_abs(num));
+	ft_putnbr_u_int(ft_abs_ll(num));
 	*res += len_num;
 	if (unit->width <= len_num && num < 0)
 		(*res)++;
@@ -94,10 +77,7 @@ static void	no_flag(int num, int len_num, t_unit *unit, int *res)
 	}
 	if (num < 0)
 		(*res)++;
-	if (num == INT_MIN)
-		ft_putstr("2147483648");
-	else
-		ft_putnbr(ft_abs(num));
+	ft_putnbr_u_int(ft_abs_ll(num));
 	*res += len_num;
 }
 
