@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 17:35:31 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 18:34:11 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -579,23 +579,23 @@ printf("=======\n");
 
 int		main(void)
 {
-	int ft_z = 0;
-	int z = 0;
+	// int ft_z = 0;
+	// int z = 0;
 
 	// Проверить!!!
 	// printf("|%-0d|\n", 124);
 	// printf("%D\n", 42);
 
 
-	// test_d(-1);
-	// test_d(1);
+	test_d(-1);
+	test_d(1);
 	// test_c();
 	// test_s();
 
 	
-	ft_z = ft_printf("|%-5.5d|\n", 34);
-		z =    printf("|%-5.5d|\n", 34);
-	printf("ft_z == %d\n   z == %d\n", ft_z, z);
+	// ft_z = ft_printf("|%-5.5d|\n", 34);
+	// 	z =    printf("|%-5.5d|\n", 34);
+	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
 
 	
 	return (0);

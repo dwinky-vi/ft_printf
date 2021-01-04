@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 21:45:39 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 17:59:04 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 18:37:12 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ static void	flag_minus(int num, int len_num, t_unit *unit, int *res)
 	int z;
 
 	if (num < 0)
-	{
-		ft_putchar('-');
-		(*res)++;
-	}
+		*res += ft_putchar('-');
 	if (unit->precision > len_num)
 	{
 		put_counts_char('0', unit->precision - len_num);
@@ -38,45 +35,22 @@ static void	flag_minus(int num, int len_num, t_unit *unit, int *res)
 
 static void	flag_zero(int num, int len_num, t_unit *unit, int *res)
 {
-	if (unit->width > len_num)
+	if (unit->width > len_num && unit->precision > len_num)
 	{
-		if (unit->precision > len_num)
-		{
-			put_counts_char(' ', unit->width - unit->precision);
-			*res += (unit->width - unit->precision);
-			if (num < 0)
-			{
-				ft_putchar_fd('-', 1);
-				// (*res)++;
-			}
-			put_counts_char('0', unit->precision - len_num);
-			*res += (unit->precision - len_num);
-		}
-		else
-		{
-			if (num < 0)
-			{
-				ft_putchar('-');
-				// (*res)++;
-			}
-			put_counts_char('0', unit->width - len_num - (num < 0 ? 1 : 0));
-			*res += (unit->width - len_num);
-		}
+		put_counts_char(' ', unit->width - unit->precision);
+		*res += (unit->width - unit->precision);
 	}
-	else if (unit->precision > len_num)
+	if (num < 0)
+		ft_putchar('-');
+	if (unit->precision > len_num)
 	{
-		if (num < 0)
-		{
-			ft_putchar('-');
-			// (*res)++;
-		}
 		put_counts_char('0', unit->precision - len_num);
 		*res += (unit->precision - len_num);
 	}
-	else if (num < 0)
+	else if (unit->width > len_num)
 	{
-		ft_putchar('-');
-		// (*res)++;
+		put_counts_char('0', unit->width - len_num - (num < 0 ? 1 : 0));
+		*res += (unit->width - len_num);
 	}
 	ft_putnbr(ft_abs(num));
 	*res += len_num;
