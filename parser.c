@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 20:30:39 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 14:47:20 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 18:17:55 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,35 @@ static char	which_flag(char const *str, int *k)
 	}
 	*k = k2;
 	return (flag);
+}
+
+// static void parsing_precision(t_unit *unit, char *str, int *k)
+// {
+// 	k++;
+// 	if (str[k] == '*')
+// 	{
+// 		unit->precision = va_arg(*ap, int);
+// 		unit->precision = (unit->precision < 0 ? -1 : unit->precision);
+// 		k++;
+// 	}
+// 	else if (ft_isdigit(str[k]))
+// 	{
+// 		unit->precision = atoi(str + k);
+// 		k += len_of_num(str + k);
+// 	}
+// 	else
+// 		unit->precision = 0;
+// 	if (unit->flag == '0' && unit->precision >= 0)
+// 		unit->flag = 0;
+// }
+
+static char check_type(char type)
+{
+	if (type != 'c' && type != 's' && type != 'p' && type != 'd' &&
+	type != 'i' && type != 'u' && type != 'x' && type != 'X' && type != '%')
+		return ('$');
+	else
+		return (type);
 }
 
 t_unit		*parser(char const *str, va_list *ap)
@@ -74,8 +103,8 @@ t_unit		*parser(char const *str, va_list *ap)
 		if (unit->flag == '0' && unit->precision >= 0)
 			unit->flag = 0;
 	}
-	unit->type = str[k];
-	k++;
+	if ((unit->type = check_type(str[k++])) == '$')
+		return (NULL);
 	unit->length = k;
 	return (unit);
 }

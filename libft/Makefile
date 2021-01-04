@@ -28,6 +28,8 @@ CFLAGS	= -Wall -Wextra -Werror
 
 OBJS	= 	$(patsubst %.c, %.o, $(SRCS))
 
+NORMI 	= /Users/dwinky/.scripts/colorised_norm.sh
+
 all:		$(NAME)
 
 $(NAME): 	$(OBJS) libft.h
@@ -45,6 +47,9 @@ clean:
 fclean: 	clean
 			@rm -rf $(NAME)
 #			@echo "$(LIGHT_RED)$(NAME) deleted.$(NO_COLOR)"
+
+normi:		
+			@$(NORMI) $(SRCS) libft.h
 
 re: 		fclean all
 

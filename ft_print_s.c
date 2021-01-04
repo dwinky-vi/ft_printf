@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 20:33:15 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 14:53:21 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 17:56:56 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,7 @@
 */
 #include "ft_printf.h"
 
-static void		put_counts_char(char ch, int count)
-{
-	while (count-- > 0)
-		ft_putchar(ch);
-}
-
-int				ft_print_s(t_unit *unit, char *str)
+int	ft_print_s(t_unit *unit, char *str)
 {
 	int k;
 	int len_str;
@@ -44,10 +38,7 @@ int				ft_print_s(t_unit *unit, char *str)
 	if (unit->flag != '-')
 		put_counts_char(' ', count_spaces);
 	while (len_str > k)
-	{
-		ft_putchar(str[k]);
-		k++;
-	}
+		k += ft_putchar(str[k]);
 	if (unit->flag == '-')
 		put_counts_char(' ', count_spaces);
 	return (len_str + count_spaces);

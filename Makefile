@@ -2,7 +2,7 @@
 SRCS	= \
 			ft_printf.c parser.c processor.c \
 			ft_print_c.c \
-			ft_print_d.c len_of_num.c t_unit.c \
+			ft_print_d.c utils.c t_unit.c \
 			ft_print_p.c \
 			ft_print_s.c \
 			ft_print_u.c \
@@ -19,6 +19,8 @@ CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 
 OBJS	= 	$(patsubst %.c, %.o, $(SRCS))
+
+NORMI 	= /Users/dwinky/.scripts/colorised_norm.sh
 
 all:		make_libft $(NAME)
 
@@ -41,6 +43,12 @@ $(NAME): 	$(OBJS)
 run:		
 			@echo "$(YELLOW)gcc -Wall -Werror -Wextra -L. -lftprintf main.c && ./a.out$(NO_COLOR)"
 			@gcc $(CFLAGS) -L. -lftprintf main.c && ./a.out
+
+normi:		
+			@$(NORMI) $(SRCS) ft_printf.h
+
+normi_lib:	
+			@cd $(LIBFT) && make normi
 
 clean:
 			@rm -rf $(OBJS) $(BONUS_OBJS)

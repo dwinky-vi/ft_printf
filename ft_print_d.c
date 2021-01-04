@@ -6,17 +6,11 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 21:45:39 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 16:35:34 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 17:59:04 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static void	put_counts_char(char ch, int count)
-{
-	while (count-- > 0)
-		ft_putchar(ch);
-}
 
 static void	flag_minus(int num, int len_num, t_unit *unit, int *res)
 {
@@ -27,19 +21,18 @@ static void	flag_minus(int num, int len_num, t_unit *unit, int *res)
 		ft_putchar('-');
 		(*res)++;
 	}
-	if (unit->width > unit->precision)
+	if (unit->precision > len_num)
 	{
-		ft_putnbr(ft_abs(num));
-		z = unit->width - len_num - (num < 0 ? 1 : 0);
-		put_counts_char(' ', z);
-		*res += len_num + (z < 0 ? 0 : z);
-	}
-	else
-	{
-	// printf("(%d)\n", len_num);
 		put_counts_char('0', unit->precision - len_num);
-		ft_putnbr(ft_abs(num));
-		*res += (unit->precision <= len_num ? 0 : unit->precision - len_num) + len_num;
+		*res += unit->precision - len_num;
+	}
+	ft_putnbr(ft_abs(num));
+	*res += len_num;
+	if (unit->width > ft_max(len_num, unit->precision))
+	{
+		z = unit->width - ft_max(len_num, unit->precision) - (num < 0 ? 1 : 0);
+		put_counts_char(' ', z);
+		*res += z;
 	}
 }
 
@@ -101,7 +94,7 @@ static void	no_flag(int num, int len_num, t_unit *unit, int *res)
 		*res += (unit->width - ft_max(unit->precision, len_num));
 	}
 	if (num < 0)
-			ft_putchar('-');
+		ft_putchar('-');
 	if (unit->precision > len_num)
 	{
 		put_counts_char('0', unit->precision - len_num);
@@ -128,7 +121,7 @@ int			ft_print_d(t_unit *unit, int num)
 	else if (unit->precision == 0 && num == 0)
 	{
 		put_counts_char(' ', unit->width);
-		return (unit->width);
+		return (unit->width == -1 ? 0 : unit->width);
 	}
 	if (unit->flag == '-')
 		flag_minus(num, len_num, unit, &res);

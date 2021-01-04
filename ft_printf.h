@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:51 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/03 19:14:17 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 17:48:30 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void			print_unit(t_unit *unit);
 int				len_of_num(char const *str);
 
 int				len_of_num2(long long nbr);
+
+int				put_counts_char(char ch, int count);
 
 int				ft_print_c(t_unit *unit, int ch);
 
