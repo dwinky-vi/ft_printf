@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 20:33:15 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/03 18:42:31 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 13:42:29 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static void		put_counts_char(char ch, int count)
 {
 	while (count-- > 0)
-		ft_putchar_fd(ch, 1);
+		ft_putchar(ch);
 }
 
 // static int		ft_print_null(int width, int len)

@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:55:03 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/03 22:16:05 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 13:39:11 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 void				ft_putchar_fd(char c, int fd);
 
-void				ft_putchar(char c);
+void				ft_putchar(int c);
 
 void				ft_putstr_fd(char *s, int fd);
 

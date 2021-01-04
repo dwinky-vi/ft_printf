@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/03 22:20:39 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/04 13:49:29 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -288,6 +288,16 @@ void		test_c()
 		printf("|%c, %-c, %c|\n", 'a', 'b', 'c');
 	ft_printf("|%c, %d, %c, %d|\n", 'a', 1, 'b', 2);
 		printf("|%c, %d, %c, %d|\n", 'a', 1, 'b', 2);
+	ft_printf("|%c|\n", (char)-130);
+		printf("|%c|\n", (char)-130);
+	ft_printf("|%c|\n", (char)-200);
+		printf("|%c|\n", (char)-200);
+	ft_printf("|%c|\n", (char)-129);
+		printf("|%c|\n", (char)-129);
+	ft_printf("|%c|\n", 128);
+		printf("|%c|\n", 128);
+	ft_printf("|%c|\n", 131);
+		printf("|%c|\n", 131);
 }
 
 void		test_s()
@@ -484,26 +494,31 @@ printf("=======\n");
 		printf("|%-4.3s|\n", "1234");
 	ft_printf("|%-4.4s|\n", "1234");
 		printf("|%-4.4s|\n", "1234");
+	char str[9] = {'H', 'e', 'l', 'l', 'o', '!', '!', '!', '!'};
+	ft_printf("|%.14s|\n", str);
+		printf("|%.14s|\n", str);
+	ft_printf("|%.9s|\n", str);
+		printf("|%.9s|\n", str);
+	ft_printf("|%.8s|\n", str);
+		printf("|%.8s|\n", str);
+	ft_printf("|%.5s|\n", str);
+		printf("|%.5s|\n", str);
 }
 
 int		main(void)
 {
-	// int ft_z = 0;
-	// int z = 0;
+// 	int ft_z = 0;
+// 	int z = 0;
 
 	// Проверить!!!
 	// printf("|%-0d|\n", 124);
 	// printf("%D\n", 42);
 
 
-	test_d(-1);
-	test_d(1);
-	test_c();
-	test_s();
-
-	// ft_z = ft_printf("|%d %d %d    %01.0d %10.1d|\n", 12, 0, 12345, -1, -12345);
-	// 	z =    printf("|%d %d %d    %01.0d %10.1d|\n", 12, 0, 12345, -1, -12345);
-	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
+	// test_d(-1);
+	// test_d(1);
+	// test_c();
+	// test_s();
 
 	// ft_z = ft_printf("|%-5.d|\n", 123);
 	// 	z =    printf("|%-5.d|\n", 123);
