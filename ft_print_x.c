@@ -103,5 +103,6 @@ int				ft_print_x(t_unit *unit, unsigned int num)
 	else
 		no_flag(hex_num, len_num, unit, &res);
 	free(hex_num);
+	free(unit);
 	return (res);
 }

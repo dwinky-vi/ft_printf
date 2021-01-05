@@ -12,9 +12,11 @@
 
 #include "ft_printf.h"
 
-int	ft_print_p(t_unit *unit, int num)
+int	ft_print_p(t_unit *unit, unsigned int num)
 {
+	
 	unit->flag = 0;
 	num = 1;
+	free(unit);
 	return (0);
 }

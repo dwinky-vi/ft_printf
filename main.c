@@ -577,7 +577,24 @@ printf("=======\n");
 		printf("|%.5s|\n", str);
 }
 
- void	test_crazy()
+void	test_x()
+{
+	ft_printf("%05.7x\n", 1234);
+		printf("%05.7x\n", 1234);
+	ft_printf("%0x\n", 1234);
+		printf("%0x\n", 1234);
+	ft_printf("%05.7x\n", 1234);
+		printf("%05.7x\n", 1234);
+	
+	ft_printf("%05.X\n", 1234);
+		printf("%05.X\n", 1234);
+	ft_printf("%-5.7X\n", 1234);
+		printf("%-5.7X\n", 1234);
+	ft_printf("%x\n", 4294967295u);
+		printf("%x\n", 4294967295u);
+}
+
+void	test_crazy()
 {
 
 	// ft_printf("|%", 1);
@@ -614,45 +631,45 @@ printf("=======\n");
 	// 	printf("%05.7%\n");
 }
 
+void    print_hex(unsigned char value, int index)
+{
+    if (index < 2)
+    {
+        print_hex(value / 16, index + 1);
+        if (value % 16 >= 10)
+            ft_putchar('a' + value % 16 % 10);
+        else
+            ft_putchar('0' + value % 16);
+    }
+}
+
 int		main(void)
 {
 	int ft_z = 0;
 	int z = 0;
-
 	// Проверить!!!
 	// printf("%D\n", 42);
 	// невалидный случай
 	// ft_printf("%0z5.7zd\n", 3);
 	// 	printf("%0z5.7zd\n", 3);
 
-	
-	// ??!!!!!!!!!!!!!!!!!!!!
-	// проверить %%
-// !!!!!!!!!!!!!!!!!!!!
 
 
 	// test_d(-1);
 	// test_d(1);
 	// test_c();
 	// test_s();
+	// test_x();
 	// test_crazy();
+	
+	int number = 42;
+	int *p_number = &number;
 
-	// ft_printf("%05.7x\n", 1234);
-	// 	printf("%05.7x\n", 1234);
-	// ft_printf("%0x\n", 1234);
-	// 	printf("%0x\n", 1234);
-	// ft_printf("%05.7x\n", 1234);
-	// 	printf("%05.7x\n", 1234);
+	char *ptr = (char *)p_number;
+	ft_putstr("|0x");
+	ft_putstr(ft_dec_to_hex(ptr));
 	
-	// ft_printf("%05.X\n", 1234);
-	// 	printf("%05.X\n", 1234);
-	ft_printf("%08.3x", 8375);
-		printf("%08.3x", 8375);
-	// ft_printf("%-5.7X\n", 1234);
-	// 	printf("%-5.7X\n", 1234);
-	// ft_printf("%x\n", 4294967295u);
-	// 	printf("%x\n", 4294967295u);
-	
+	printf("|\n|%p|\n", (void *)p_number);
 	// ft_printf("%t", 1);
 	// 	printf("%t", 1);
 	// ft_z = ft_printf("%05.7%\n");

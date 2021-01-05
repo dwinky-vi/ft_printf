@@ -49,7 +49,7 @@ int				ft_print_c(t_unit *unit, int ch);
 
 int				ft_print_d(t_unit *unit, int num);
 
-int				ft_print_p(t_unit *unit, int num);
+int				ft_print_p(t_unit *unit, unsigned int num);
 
 int				ft_print_s(t_unit *unit, char *str);
 

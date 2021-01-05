@@ -27,7 +27,7 @@
 
 /*
 **	Undefine behaviors test
-**  130
+**  test: 9, 130
 */
 
 #include "ft_printf.h"
@@ -58,8 +58,7 @@ int		ft_printf(char const *comand_line, ...)
 			if ((unit = parser(comand_line + k + 1, &ap)) == NULL)
 				return (ft_error(&ap));
 			k += unit->length;
-			z = processor(unit, &ap);
-			if (z == -1)
+			if ((z = processor(unit, &ap)) == -1)
 				return (ft_error(&ap));
 			was_written += z;
 		}

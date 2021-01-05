@@ -20,6 +20,7 @@
 int	ft_print_c(t_unit *unit, int ch)
 {
 	int		k;
+	int		ret;
 
 	k = unit->width - 1;
 	if (unit->flag == '-')
@@ -34,5 +35,7 @@ int	ft_print_c(t_unit *unit, int ch)
 			ft_putchar(' ');
 		ft_putchar(ch);
 	}
-	return (ft_max(unit->width, 1));
+	ret = ft_max(unit->width, 1);
+	free(unit);
+	return (ret);
 }

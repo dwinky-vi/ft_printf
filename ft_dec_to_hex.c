@@ -32,49 +32,12 @@ static char		*ft_reverse_str(char *str)
 	free(str);
 	return (rev_str);
 }
-/*
-static which_letter(char *str, int *nbr)
+
+static void		to_hex(char *str, long long nbr)
 {
 	size_t k;
 	size_t	remainder;
 
-	k = 0;
-	while (*nbr > 0)
-	{
-		remainder = *nbr % 16;
-		if (remainder == 10)
-			str[k] = 'a';
-		else if (remainder == 11)
-			str[k] = 'b';
-		else if (remainder == 12)
-			str[k] = 'c';
-		else if (remainder == 13)
-			str[k] = 'd';
-		else if (remainder == 14)
-			str[k] = 'e';
-		else if (remainder == 15)
-			str[k] = 'f';
-		else
-			str[k] = *nbr % 16 + '0';
-		*nbr /= 16;
-		k++;
-	}
-}
-*/
-char			*ft_dec_to_hex(long long nbr)
-{
-	char	*str;
-	size_t	remainder;
-	size_t	k;
-
-	str = (char *)ft_calloc(1, len_of_num2(nbr) + 1);
-	if (str == NULL)
-		return (NULL);
-	if (nbr == 0)
-	{
-		str[0] = '0';
-		return (str);
-	}
 	k = 0;
 	while (nbr > 0)
 	{
@@ -92,9 +55,27 @@ char			*ft_dec_to_hex(long long nbr)
 		else if (remainder == 15)
 			str[k] = 'f';
 		else
-			str[k] = (nbr % 16) + '0';
+			str[k] = nbr % 16 + '0';
 		nbr /= 16;
 		k++;
 	}
+}
+
+char			*ft_dec_to_hex(long long nbr)
+{
+	char	*str;
+	size_t	remainder;
+	size_t	k;
+
+	str = (char *)ft_calloc(1, len_of_num2(nbr) + 1);
+	if (str == NULL)
+		return (NULL);
+	if (nbr == 0)
+	{
+		str[0] = '0';
+		return (str);
+	}
+	k = 0;
+	to_hex(str, nbr);
 	return (ft_reverse_str(str));
 }

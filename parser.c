@@ -38,16 +38,6 @@ static char	which_flag(char const *str, int *k)
 	return (flag);
 }
 
-static void	cancel_precision(t_unit *unit)
-{
-	char type;
-
-	type = unit->type;
-	if (unit->flag == '0' && unit->precision >= 0 && (type == 'd' ||
-	type == 'i' || type == 'u' || type == 'x' || type == 'X' || type == 's'))
-		unit->flag = 0;
-}
-
 static char	check_type(char type)
 {
 	if (type == '\0')
@@ -57,6 +47,23 @@ static char	check_type(char type)
 		return (0);
 	else
 		return (type);
+}
+
+static void	cancel_flag_zero_with_precision(t_unit *unit)
+{
+	char type;
+
+	type = unit->type;
+	if (unit->flag == '0' && unit->precision >= 0 && (type == 'd' ||
+	type == 'i' || type == 'u' || type == 'x' || type == 'X'))
+		unit->flag = 0;
+}
+
+static void cansel_flag_zero(t_unit *unit)
+{
+	if (unit->flag == '0' && 
+		(unit->type == 'c' || unit->type == 's' || unit->type == 'p'))
+		unit->flag = 0;
 }
 
 t_unit		*parser(char const *str, va_list *ap)
@@ -103,6 +110,7 @@ t_unit		*parser(char const *str, va_list *ap)
 	if ((unit->type = check_type(str[k])) == 0)
 		return (NULL);
 	unit->length = ++k;
-	cancel_precision(unit);
+	cancel_flag_zero_with_precision(unit);
+	cansel_flag_zero(unit);
 	return (unit);
 }

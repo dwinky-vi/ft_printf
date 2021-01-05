@@ -28,7 +28,7 @@ int		processor(t_unit *unit, va_list *ap)
 	else if (unit->type == 's')
 		res = ft_print_s(unit, va_arg(*ap, char *));
 	else if (unit->type == 'p')
-		res = ft_print_p(unit, va_arg(*ap, int));
+		res = ft_print_p(unit, va_arg(*ap, unsigned int));
 	else if (unit->type == '%')
 		res = ft_print_percent(unit);
 	else if (unit->type == 0)

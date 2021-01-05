@@ -88,5 +88,6 @@ int			ft_print_u(t_unit *unit, unsigned int num)
 		flag_zero(num, len_num, unit, &res);
 	else
 		no_flag(num, len_num, unit, &res);
+	free(unit);
 	return (res);
 }

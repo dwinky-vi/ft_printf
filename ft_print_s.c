@@ -41,5 +41,6 @@ int	ft_print_s(t_unit *unit, char *str)
 		k += ft_putchar(str[k]);
 	if (unit->flag == '-')
 		put_counts_char(' ', count_spaces);
+	free(unit);
 	return (len_str + count_spaces);
 }

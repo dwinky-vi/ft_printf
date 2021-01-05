@@ -101,5 +101,6 @@ int			ft_print_d(t_unit *unit, int num)
 		flag_zero(num, len_num, unit, &res);
 	else
 		no_flag(num, len_num, unit, &res);
+	free(unit);
 	return (res);
 }
