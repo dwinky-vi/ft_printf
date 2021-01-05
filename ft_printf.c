@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:46 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/05 18:44:34 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/05 20:26:08 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,14 @@ int		ft_error(va_list *ap)
 	va_end(*ap);
 	return (-1);
 }
+
 int		ft_printf(char const *comand_line, ...)
 {
 	va_list ap;
 	size_t	k;
 	int		was_written;
 	t_unit	*unit;
-	int 	z;
+	int		z;
 
 	if (comand_line == NULL)
 		return (-1);

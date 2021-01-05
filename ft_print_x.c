@@ -6,13 +6,13 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 20:33:30 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/05 20:04:14 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/05 20:43:08 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	flag_minus(char *hex_num, int len_num, t_unit *unit, int *res)
+static void		flag_minus(char *hex_num, int len_num, t_unit *unit, int *res)
 {
 	int z;
 
@@ -29,7 +29,7 @@ static void	flag_minus(char *hex_num, int len_num, t_unit *unit, int *res)
 	}
 }
 
-static void	flag_zero(char *hex_num, int len_num, t_unit *unit, int *res)
+static void		flag_zero(char *hex_num, int len_num, t_unit *unit, int *res)
 {
 	if (unit->width > len_num && unit->precision > len_num)
 	{
@@ -49,7 +49,7 @@ static void	flag_zero(char *hex_num, int len_num, t_unit *unit, int *res)
 	*res += ft_putstr(hex_num);
 }
 
-static void	no_flag(char *hex_num, int len_num, t_unit *unit, int *res)
+static void		no_flag(char *hex_num, int len_num, t_unit *unit, int *res)
 {
 	if (unit->width > len_num)
 	{
@@ -64,21 +64,22 @@ static void	no_flag(char *hex_num, int len_num, t_unit *unit, int *res)
 	*res += ft_putstr(hex_num);
 }
 
-static void		ft_x_to_X(char *hex_num, char ch)
+static void		ft_toupper_hex(char *hex_num, char ch)
 {
 	size_t k;
 
 	k = 0;
-	while (hex_num[k] != '\0')
-	{
-		if (ft_isalpha(hex_num[k]))
-			hex_num[k] += ch;
-		k++;
-	}
+	if (ch == 1)
+		while (hex_num[k] != '\0')
+		{
+			hex_num[k] = ft_toupper(hex_num[k]);
+			k++;
+		}
 }
+
 int				ft_print_x(t_unit *unit, unsigned int num)
 {
-	int 	len_num;
+	int		len_num;
 	int		res;
 	char	*hex_num;
 
@@ -93,7 +94,7 @@ int				ft_print_x(t_unit *unit, unsigned int num)
 	hex_num = ft_dec_to_hex(num);
 	if (hex_num == NULL)
 		return (-1);
-	ft_x_to_X(hex_num, (unit->type == 'X' ? -32 : 0));
+	ft_toupper_hex(hex_num, (unit->type == 'X' ? 1 : 0));
 	len_num = ft_strlen(hex_num);
 	if (unit->flag == '-')
 		flag_minus(hex_num, len_num, unit, &res);

@@ -6,9 +6,16 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 20:30:39 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 21:53:47 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/05 21:12:42 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+**	printf("%t", 1); –– это невалидный случай.
+**	Если после процента (также после флагов, ширины и точности)
+**	не стоит валидный спецификатор, то моя функция прекращает свою работу
+**	и возвращает -1.
+*/
 
 #include "ft_printf.h"
 
@@ -31,7 +38,17 @@ static char	which_flag(char const *str, int *k)
 	return (flag);
 }
 
-static char check_type(char type)
+static void	cancel_precision(t_unit *unit)
+{
+	char type;
+
+	type = unit->type;
+	if (unit->flag == '0' && unit->precision >= 0 && (type == 'd' ||
+	type == 'i' || type == 'u' || type == 'x' || type == 'X' || type == 's'))
+		unit->flag = 0;
+}
+
+static char	check_type(char type)
 {
 	if (type == '\0')
 		return (0);
@@ -82,30 +99,10 @@ t_unit		*parser(char const *str, va_list *ap)
 		}
 		else
 			unit->precision = 0;
-		if (unit->flag == '0' && unit->precision >= 0)
-			unit->flag = 0;
 	}
-	// FIX
-	// FIX
-	// FIX
-	// FIX
-	// FIX
-	// FIX
-	// FIX
-	// FIX
-	// FIX
-	// FIX
-	// FIX
-	while ((unit->type = check_type(str[k])) == 0)
-	{
-		if (str[k] == '\0')
-		{
-			k--;
-			break ;
-		}
-		k++;
-	}
-	k++;
-	unit->length = k;
+	if ((unit->type = check_type(str[k])) == 0)
+		return (NULL);
+	unit->length = ++k;
+	cancel_precision(unit);
 	return (unit);
 }

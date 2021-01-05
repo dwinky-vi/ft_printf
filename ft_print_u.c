@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 20:33:19 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 21:54:14 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/05 20:19:37 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	no_flag(unsigned int num, int len_num, t_unit *unit, int *res)
 	*res += len_num;
 }
 
-int	ft_print_u(t_unit *unit, unsigned int num)
+int			ft_print_u(t_unit *unit, unsigned int num)
 {
 	int len_num;
 	int	res;
