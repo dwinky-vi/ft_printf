@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 20:31:13 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 21:25:19 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/05 18:55:09 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int		processor(t_unit *unit, va_list *ap)
 		res = ft_print_d(unit, va_arg(*ap, int));
 	else if (unit->type == 'u')
 		res = ft_print_u(unit, va_arg(*ap, unsigned int));
-	else if (unit->type == 'x')
-		res = ft_print_x(unit, va_arg(*ap, int));
+	else if (unit->type == 'x' || unit->type == 'X')
+		res = ft_print_x(unit, va_arg(*ap, unsigned int));
 	else if (unit->type == 'c')
 		res = ft_print_c(unit, va_arg(*ap, int));
 	else if (unit->type == 's')

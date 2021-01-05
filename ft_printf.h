@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:51 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 21:26:42 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/05 19:11:23 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int				len_of_num2(long long nbr);
 
 int				put_counts_char(char ch, int count);
 
+char			*ft_dec_to_hex(int nbr);
+
 int				ft_print_c(t_unit *unit, int ch);
 
 int				ft_print_d(t_unit *unit, int num);
@@ -53,7 +55,7 @@ int				ft_print_s(t_unit *unit, char *str);
 
 int				ft_print_u(t_unit *unit, unsigned int num);
 
-int				ft_print_x(t_unit *unit, int num);
+int				ft_print_x(t_unit *unit, unsigned int num);
 
 int				ft_print_percent(t_unit *unit);
 

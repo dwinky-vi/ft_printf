@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:46 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 20:49:01 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/05 18:44:34 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		ft_printf(char const *comand_line, ...)
 	size_t	k;
 	int		was_written;
 	t_unit	*unit;
+	int 	z;
 
 	if (comand_line == NULL)
 		return (-1);
@@ -56,7 +57,10 @@ int		ft_printf(char const *comand_line, ...)
 			if ((unit = parser(comand_line + k + 1, &ap)) == NULL)
 				return (ft_error(&ap));
 			k += unit->length;
-			was_written += processor(unit, &ap);
+			z = processor(unit, &ap);
+			if (z == -1)
+				return (ft_error(&ap));
+			was_written += z;
 		}
 		else
 			was_written += ft_putchar(comand_line[k]);

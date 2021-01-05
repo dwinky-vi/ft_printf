@@ -1,7 +1,7 @@
 
 SRCS	= \
 			ft_printf.c parser.c processor.c \
-			utils.c t_unit.c \
+			utils.c t_unit.c ft_dec_to_hex.c  \
 			ft_print_c.c \
 			ft_print_d.c \
 			ft_print_p.c \
@@ -19,6 +19,7 @@ LIBFT	= ./libft
 CC		= gcc
 
 CFLAGS	= 
+
 OBJS	= 	$(patsubst %.c, %.o, $(SRCS))
 
 NORMI 	= /Users/dwinky/.scripts/colorised_norm.sh

@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 22:35:27 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/05 19:12:59 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -577,8 +577,9 @@ printf("=======\n");
 		printf("|%.5s|\n", str);
 }
 
- void	test_crazy(unsigned int n)
+ void	test_crazy()
 {
+
 	// ft_printf("|%", 1);
 	// printf("\n");
 	// 	printf("|%", 1);
@@ -598,15 +599,31 @@ printf("=======\n");
 	// 	printf("|%d|\n");
 	// ft_printf("|%s|\n", 1);
 	// 	printf("|%s|\n", 1);
+
+	// ft_printf("|%05%|\n");
+	// 	printf("|%05%|\n");
+	// ft_printf("|%05c|\n", 'u');
+	// 	printf("|%05c|\n", 'u');
+	// ft_printf("%0-6.4%\n");
+	// 	printf("%0-6.4%\n");
+	// ft_printf("%01%\n");
+	// 	printf("%01%\n");
+	// ft_printf("%05.3%\n");
+	// 	printf("%05.3%\n");
+	// ft_printf("%05.7%\n");
+	// 	printf("%05.7%\n");
 }
 
 int		main(void)
 {
-	// int ft_z = 0;
-	// int z = 0;
+	int ft_z = 0;
+	int z = 0;
 
 	// Проверить!!!
 	// printf("%D\n", 42);
+	// невалидный случай
+	// ft_printf("%0z5.7zd\n", 3);
+	// 	printf("%0z5.7zd\n", 3);
 
 	
 	// ??!!!!!!!!!!!!!!!!!!!!
@@ -619,9 +636,23 @@ int		main(void)
 	// test_c();
 	// test_s();
 	// test_crazy();
+
+	ft_printf("%05.7x\n", 1234);
+		printf("%05.7x\n", 1234);
+	ft_printf("%0x\n", 1234);
+		printf("%0x\n", 1234);
+	ft_printf("%05.7x\n", 1234);
+		printf("%05.7x\n", 1234);
 	
-	// ft_z = ft_printf("|%4.5i|\n", 42);
-	// 	z =    printf("|%4.5i|\n", 42);
+	ft_printf("%05.X\n", 1234);
+		printf("%05.X\n", 1234);
+	ft_printf("%-X\n", 1234);
+		printf("%-X\n", 1234);
+	ft_printf("%-5.7X\n", 1234);
+		printf("%-5.7X\n", 1234);
+	// printf("%d\n", 'x' - 'X');
+	// ft_z = ft_printf("%05.7%\n");
+	// 	z =    printf("%05.7%\n");
 	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
 
 	
