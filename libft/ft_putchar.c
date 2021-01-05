@@ -6,13 +6,13 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 18:25:31 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 17:49:57 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/05 20:08:05 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putchar(int c)
+size_t	ft_putchar(int c)
 {
 	unsigned char u_ch;
 

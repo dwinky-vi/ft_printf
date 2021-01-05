@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:51 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/05 19:11:23 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/05 19:22:35 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int				len_of_num2(long long nbr);
 
 int				put_counts_char(char ch, int count);
 
-char			*ft_dec_to_hex(int nbr);
+char			*ft_dec_to_hex(long long nbr);
 
 int				ft_print_c(t_unit *unit, int ch);
 

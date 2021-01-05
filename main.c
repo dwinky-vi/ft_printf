@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/05 19:12:59 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/05 19:58:20 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -637,20 +637,24 @@ int		main(void)
 	// test_s();
 	// test_crazy();
 
-	ft_printf("%05.7x\n", 1234);
-		printf("%05.7x\n", 1234);
-	ft_printf("%0x\n", 1234);
-		printf("%0x\n", 1234);
-	ft_printf("%05.7x\n", 1234);
-		printf("%05.7x\n", 1234);
+	// ft_printf("%05.7x\n", 1234);
+	// 	printf("%05.7x\n", 1234);
+	// ft_printf("%0x\n", 1234);
+	// 	printf("%0x\n", 1234);
+	// ft_printf("%05.7x\n", 1234);
+	// 	printf("%05.7x\n", 1234);
 	
-	ft_printf("%05.X\n", 1234);
-		printf("%05.X\n", 1234);
-	ft_printf("%-X\n", 1234);
-		printf("%-X\n", 1234);
-	ft_printf("%-5.7X\n", 1234);
-		printf("%-5.7X\n", 1234);
-	// printf("%d\n", 'x' - 'X');
+	// ft_printf("%05.X\n", 1234);
+	// 	printf("%05.X\n", 1234);
+	// ft_printf("%-X\n", 1234);
+	// 	printf("%-X\n", 1234);
+	// ft_printf("%-5.7X\n", 1234);
+	// 	printf("%-5.7X\n", 1234);
+	// ft_printf("%x\n", 4294967295u);
+	// 	printf("%x\n", 4294967295u);
+	
+	ft_printf("%x\n", 0);
+		printf("%x\n", 0);
 	// ft_z = ft_printf("%05.7%\n");
 	// 	z =    printf("%05.7%\n");
 	// printf("ft_z == %d\n   z == %d\n", ft_z, z);

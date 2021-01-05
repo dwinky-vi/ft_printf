@@ -6,15 +6,22 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 18:27:00 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/05 19:11:57 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/05 20:08:28 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char *s)
+size_t	ft_putstr(char *s)
 {
+	size_t size;
+
 	if (s != NULL)
+	{
+		size = ft_strlen(s);
 		while (*s != '\0')
 			write(1, s++, 1);
+		return (size);
+	}
+	return (0);
 }

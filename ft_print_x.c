@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 20:33:30 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/05 19:12:54 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/05 20:04:14 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,11 @@ static void	flag_minus(char *hex_num, int len_num, t_unit *unit, int *res)
 		put_counts_char('0', unit->precision - len_num);
 		*res += unit->precision - len_num;
 	}
-	ft_putstr(hex_num);
-	*res += len_num;
+	*res += ft_putstr(hex_num);
 	if (unit->width > ft_max(len_num, unit->precision))
 	{
 		z = unit->width - ft_max(len_num, unit->precision);
-		put_counts_char(' ', z);
-		*res += z;
+		*res += put_counts_char(' ', z);
 	}
 }
 
@@ -48,8 +46,7 @@ static void	flag_zero(char *hex_num, int len_num, t_unit *unit, int *res)
 		put_counts_char('0', unit->width - len_num);
 		*res += (unit->width - len_num);
 	}
-	ft_putstr(hex_num);
-	*res += len_num;
+	*res += ft_putstr(hex_num);
 }
 
 static void	no_flag(char *hex_num, int len_num, t_unit *unit, int *res)
@@ -64,8 +61,7 @@ static void	no_flag(char *hex_num, int len_num, t_unit *unit, int *res)
 		put_counts_char('0', unit->precision - len_num);
 		*res += (unit->precision - len_num);
 	}
-	ft_putstr(hex_num);
-	*res += len_num;
+	*res += ft_putstr(hex_num);
 }
 
 static void		ft_x_to_X(char *hex_num, char ch)
@@ -87,6 +83,13 @@ int				ft_print_x(t_unit *unit, unsigned int num)
 	char	*hex_num;
 
 	res = 0;
+	if (unit->width == 0 && unit->precision == 0 && num == 0)
+		return (0);
+	else if (unit->precision == 0 && num == 0)
+	{
+		put_counts_char(' ', unit->width);
+		return (unit->width == -1 ? 0 : unit->width);
+	}
 	hex_num = ft_dec_to_hex(num);
 	if (hex_num == NULL)
 		return (-1);
@@ -98,5 +101,6 @@ int				ft_print_x(t_unit *unit, unsigned int num)
 		flag_zero(hex_num, len_num, unit, &res);
 	else
 		no_flag(hex_num, len_num, unit, &res);
+	free(hex_num);
 	return (res);
 }

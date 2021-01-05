@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 17:26:02 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/05 19:11:08 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/05 20:00:42 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static char		*ft_reverse_str(char *str)
 	return (rev_str);
 }
 
- char		*ft_dec_to_hex(int nbr)
+ char		*ft_dec_to_hex(long long nbr)
 {
 	char	*str;
 	size_t	remainder;
@@ -43,7 +43,12 @@ static char		*ft_reverse_str(char *str)
 	if (str == NULL)
 		return (NULL);
 	k = 0;
-	while (nbr > 16)
+	if (nbr == 0)
+	{
+		str[0] = '0';
+		return (str);
+	}
+	while (nbr > 0)
 	{
 		remainder = nbr % 16;
 		if (remainder == 10)
@@ -63,6 +68,5 @@ static char		*ft_reverse_str(char *str)
 		nbr /= 16;
 		k++;
 	}
-	str[k] = nbr % 16 + '0';
 	return (ft_reverse_str(str));
 }
