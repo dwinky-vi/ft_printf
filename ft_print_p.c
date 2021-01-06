@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 20:33:09 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/06 15:34:01 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/06 17:45:37 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int			ft_print_p(t_unit *unit, unsigned long long num)
 	if (unit->flag == '-')
 		res += put_counts_char(' ', unit->width - ft_strlen("0x")
 												- ft_strlen(hex_num));
-	free(unit);
-	// free(hex_num);
+	free(hex_num);
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 20:32:58 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 21:24:42 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/06 17:41:05 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,5 @@ int	ft_print_c(t_unit *unit, int ch)
 		ft_putchar(ch);
 	}
 	ret = ft_max(unit->width, 1);
-	free(unit);
 	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:51 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/06 13:51:04 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/06 20:48:36 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include "./libft/libft.h"
 # include <stdarg.h>
-# include <stdio.h>
-# define PR printf("\n(****)\n");
+
+// # define malloc(x) NULL
 
 typedef struct	s_unit
 {
@@ -51,7 +51,7 @@ int				ft_print_d(t_unit *unit, int num);
 
 int				ft_print_p(t_unit *unit, unsigned long long num);
 
-int				ft_print_s(t_unit *unit, char *str);
+int				ft_print_s(t_unit *unit, unsigned char *str);
 
 int				ft_print_u(t_unit *unit, unsigned int num);
 

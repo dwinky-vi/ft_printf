@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 21:22:02 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/06 16:21:45 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/06 20:19:08 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_unit	*creat_new_unit(t_unit **unit)
 	return (*unit);
 }
 
+/*
 void	print_unit(t_unit *unit)
 {
 	printf("\n");
@@ -36,3 +37,4 @@ void	print_unit(t_unit *unit)
 	if (unit->length != 0)
 		printf("length = %d\n", unit->length);
 }
+*/

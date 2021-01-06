@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 20:33:30 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/06 16:44:44 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/06 20:01:14 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,10 @@ static void		flag_zero(char *hex_num, int len_num, t_unit *unit, int *res)
 static void		no_flag(char *hex_num, int len_num, t_unit *unit, int *res)
 {
 	if (unit->width > len_num)
-	{
-		*res += put_counts_char(' ', unit->width - ft_max(unit->precision, len_num));
-	}
+		*res += put_counts_char(' ', unit->width -
+										ft_max(unit->precision, len_num));
 	if (unit->precision > len_num)
-	{
 		*res += put_counts_char('0', unit->precision - len_num);
-	}
 	*res += ft_putstr(hex_num);
 }
 
@@ -97,6 +94,5 @@ int				ft_print_x(t_unit *unit, unsigned int num)
 	else
 		no_flag(hex_num, len_num, unit, &res);
 	free(hex_num);
-	free(unit);
 	return (res);
 }
