@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 20:33:30 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/05 20:43:08 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/06 13:38:00 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,7 @@ int				ft_print_x(t_unit *unit, unsigned int num)
 		put_counts_char(' ', unit->width);
 		return (unit->width == -1 ? 0 : unit->width);
 	}
-	hex_num = ft_dec_to_hex(num);
-	if (hex_num == NULL)
+	if ((hex_num = ft_dec_to_hex(num)) == NULL)
 		return (-1);
 	ft_toupper_hex(hex_num, (unit->type == 'X' ? 1 : 0));
 	len_num = ft_strlen(hex_num);

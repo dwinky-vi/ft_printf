@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/05 20:55:41 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/06 15:23:50 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ void		test_d(int n)
 	ft_printf("|%-*d|\n", 10, 123 * n);
 	   printf("|%-*d|\n", 10, 124 * n);
 	printf("===\n");
-	ft_printf("|%-*d|\n", 3, 123 * n);
+	ft_printf("|%-*.*d|\n", 3, 123 * n);
 	   printf("|%-*d|\n", 3, 124 * n);
 	printf("===\n");
 	ft_printf("|%-*d|\n", 4, 123 * n);
@@ -631,16 +631,37 @@ void	test_crazy()
 	// 	printf("%05.7%\n");
 }
 
-void    print_hex(unsigned char value, int index)
+void		test_p()
 {
-    if (index < 2)
-    {
-        print_hex(value / 16, index + 1);
-        if (value % 16 >= 10)
-            ft_putchar('a' + value % 16 % 10);
-        else
-            ft_putchar('0' + value % 16);
-    }
+	// int number = 42;
+	// int *p_number = &number;
+
+	// ft_printf("|%020.10p|\n", (void *)p_number);
+	// 	printf("|%020.10p|\n", (void *)p_number);
+	// ft_printf("|%20p|\n", (void *)p_number);
+	// 	printf("|%20p|\n", (void *)p_number);
+	// ft_printf("|%0.8p|\n", (void *)p_number);
+	// 	printf("|%0.8p|\n", (void *)p_number);
+	// ft_printf("|%.8p|\n", (void *)p_number);
+	// 	printf("|%.8p|\n", (void *)p_number);
+	// ft_printf("|%020p|\n", (void *)p_number);
+	// 	printf("|%020p|\n", (void *)p_number);
+	// ft_printf("|%020p|\n", (void *)p_number);
+	// 	printf("|%020p|\n", (void *)p_number);
+	// ft_printf("|%020p|\n", (void *)p_number);
+	// 	printf("|%020p|\n", (void *)p_number);
+	// ft_printf("|%-20p|\n", (void *)p_number);
+	// 	printf("|%-20p|\n", (void *)p_number);
+	// ft_printf("|%p|\n", (void *)p_number);
+	// 	printf("|%p|\n", (void *)p_number);
+	// ft_printf("|%20p|\n", (void *)p_number);
+	// 	printf("|%20p|\n", (void *)p_number);
+	// ft_printf("|%-20p|\n", (void *)p_number);
+	// 	printf("|%-20p|\n", (void *)p_number);
+	// ft_printf("|%.20p|\n", (void *)p_number);
+	// 	printf("|%.20p|\n", (void *)p_number);
+	// ft_printf("|%020p|\n", (void *)p_number);
+		// printf("|%020p|\n", (void *)p_number);
 }
 
 int		main(void)
@@ -660,22 +681,11 @@ int		main(void)
 	// test_c();
 	// test_s();
 	// test_x();
+	// test_p();
 	// test_crazy();
 	
-	int number = 42;
-	int *p_number = &number;
-
-	char *ptr = (char *)p_number;
-	ft_putstr("|0x");
-	ft_putstr(ft_dec_to_hex(ptr));
-	
-	printf("|\n|%p|\n", (void *)p_number);
-	// ft_printf("%t", 1);
-	// 	printf("%t", 1);
-	// ft_z = ft_printf("%05.7%\n");
-	// 	z =    printf("%05.7%\n");
-	// printf("ft_z == %d\n   z == %d\n", ft_z, z);
-
-	
+	// ft_z = ft_printf("%2.9p\n", 1234);
+	// 	z =    printf("%2.9p\n", 1234);
+	// printf("ft_z == %d\n   z == %d\n", ft_z, z);	
 	return (0);
 }

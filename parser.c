@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 20:30:39 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/05 21:12:42 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/06 15:05:42 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static char	which_flag(char const *str, int *k)
 	{
 		if (str[k2] == '-')
 			flag = '-';
-		else if (str[k2] == '0' && flag == 0)
+		else if (str[k2] == '0' && flag != '-')
 			flag = '0';
 		k2++;
 	}
@@ -59,9 +59,9 @@ static void	cancel_flag_zero_with_precision(t_unit *unit)
 		unit->flag = 0;
 }
 
-static void cansel_flag_zero(t_unit *unit)
+static void	cansel_flag_zero(t_unit *unit)
 {
-	if (unit->flag == '0' && 
+	if (unit->flag == '0' &&
 		(unit->type == 'c' || unit->type == 's' || unit->type == 'p'))
 		unit->flag = 0;
 }

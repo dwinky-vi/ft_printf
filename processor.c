@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 20:31:13 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/05 18:55:09 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/06 14:37:43 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ int		processor(t_unit *unit, va_list *ap)
 	else if (unit->type == 's')
 		res = ft_print_s(unit, va_arg(*ap, char *));
 	else if (unit->type == 'p')
-		res = ft_print_p(unit, va_arg(*ap, unsigned int));
+		res = ft_print_p(unit, va_arg(*ap, unsigned long long));
 	else if (unit->type == '%')
 		res = ft_print_percent(unit);
-	else if (unit->type == 0)
+	else if (unit->type == 0) // проверить. может тоже выводить ошибку и возвращать -1
 		return (0);
 	return (res);
 }
