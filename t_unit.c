@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 21:22:02 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/02 19:58:03 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/06 16:21:45 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@ t_unit	*creat_new_unit(t_unit **unit)
 
 void	print_unit(t_unit *unit)
 {
+	printf("\n");
 	if (unit->flag != 0)
-		printf("\nflag = %c ", unit->flag);
+		printf("flag = %c \n", unit->flag);
 	if (unit->width != 0)
-		printf("width = %d ", unit->width);
+		printf("width = %d \n", unit->width);
 	if (unit->precision != 0)
-		printf("precision = %d ", unit->precision);
+		printf("precision = %d \n", unit->precision);
 	if (unit->type != 0)
 		printf("type = %c\n", unit->type);
 	if (unit->length != 0)

@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 20:33:19 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/05 20:19:37 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/06 16:29:49 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,14 @@ static void	flag_minus(unsigned int num, int len_num, t_unit *unit, int *res)
 
 	if (unit->precision > len_num)
 	{
-		put_counts_char('0', unit->precision - len_num);
-		*res += unit->precision - len_num;
+		*res += put_counts_char('0', unit->precision - len_num);
 	}
 	ft_putnbr_u_int(num);
 	*res += len_num;
 	if (unit->width > ft_max(len_num, unit->precision))
 	{
 		z = unit->width - ft_max(len_num, unit->precision);
-		put_counts_char(' ', z);
-		*res += z;
+		*res += put_counts_char(' ', z);
 	}
 }
 
@@ -35,18 +33,15 @@ static void	flag_zero(unsigned int num, int len_num, t_unit *unit, int *res)
 {
 	if (unit->width > len_num && unit->precision > len_num)
 	{
-		put_counts_char(' ', unit->width - unit->precision);
-		*res += (unit->width - unit->precision);
+		*res += put_counts_char(' ', unit->width - unit->precision);
 	}
 	if (unit->precision > len_num)
 	{
-		put_counts_char('0', unit->precision - len_num);
-		*res += (unit->precision - len_num);
+		*res += put_counts_char('0', unit->precision - len_num);
 	}
 	else if (unit->width > len_num)
 	{
-		put_counts_char('0', unit->width - len_num);
-		*res += (unit->width - len_num);
+		*res += put_counts_char('0', unit->width - len_num);
 	}
 	ft_putnbr_u_int(num);
 	*res += len_num;
@@ -56,13 +51,11 @@ static void	no_flag(unsigned int num, int len_num, t_unit *unit, int *res)
 {
 	if (unit->width > len_num)
 	{
-		put_counts_char(' ', unit->width - ft_max(unit->precision, len_num));
-		*res += (unit->width - ft_max(unit->precision, len_num));
+		*res += put_counts_char(' ', unit->width - ft_max(unit->precision, len_num));
 	}
 	if (unit->precision > len_num)
 	{
-		put_counts_char('0', unit->precision - len_num);
-		*res += (unit->precision - len_num);
+		*res += put_counts_char('0', unit->precision - len_num);
 	}
 	ft_putnbr_u_int(num);
 	*res += len_num;
