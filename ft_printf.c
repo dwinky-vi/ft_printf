@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:46 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/06 19:56:20 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/06 21:51:02 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,31 @@
 
 #include "ft_printf.h"
 
-int		ft_error(va_list *ap)
+static int	ft_error(va_list *ap)
 {
 	va_end(*ap);
 	return (-1);
 }
 
-int		ft_printf(char const *comand_line, ...)
+static int	ft_parse_process(va_list *ap, size_t *k, char const *comand_line)
+{
+	t_unit	*unit;
+	int		z;
+
+	z = -1;
+	if ((unit = parser(comand_line + (*k) + 1, ap)) == NULL)
+		return (ft_error(ap));
+	*k += unit->length;
+	if ((z = processor(unit, ap)) == -1)
+		return (ft_error(ap));
+	return (z);
+}
+
+int			ft_printf(char const *comand_line, ...)
 {
 	va_list ap;
 	size_t	k;
 	int		was_written;
-	t_unit	*unit;
 	int		z;
 
 	if (comand_line == NULL)
@@ -55,11 +68,9 @@ int		ft_printf(char const *comand_line, ...)
 	{
 		if (comand_line[k] == '%')
 		{
-			if ((unit = parser(comand_line + k + 1, &ap)) == NULL)
-				return (ft_error(&ap));
-			k += unit->length;
-			if ((z = processor(unit, &ap)) == -1)
-				return (ft_error(&ap));
+			z = ft_parse_process(&ap, &k, comand_line);
+			if (z == -1)
+				return (-1);
 			was_written += z;
 		}
 		else

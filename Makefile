@@ -18,7 +18,7 @@ LIBFT	= ./libft
 
 CC		= gcc
 
-CFLAGS	= 
+CFLAGS	= -Wall -Wextra -Werror
 
 OBJS	= 	$(patsubst %.c, %.o, $(SRCS))
 
@@ -40,7 +40,6 @@ $(NAME): 	$(OBJS)
 
 %.o:		%.c Makefile
 			@$(CC) $(CFLAGS) -I ft_printf.h -c $<
-			@echo "$(LIGHT_PURPLE)$(UNDER_LINE)Compiling: $@ $(NO_COLOR)"
 
 run:		
 			@echo "$(YELLOW)gcc -Wall -Werror -Wextra -L. -lftprintf main.c && ./a.out$(NO_COLOR)"

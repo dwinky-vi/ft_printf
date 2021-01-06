@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 20:33:09 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/06 17:45:37 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/06 21:33:10 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ static int	print_only_0x(char flag, int width)
 
 	res = 0;
 	if (flag != '-')
-		res += put_counts_char(' ', width - ft_strlen("0x"));
+		res += put_counts_char(' ', width - (int)ft_strlen("0x"));
 	res += ft_putstr("0x");
 	if (flag == '-')
-		res += put_counts_char(' ', width - ft_strlen("0x"));
+		res += put_counts_char(' ', width - (int)ft_strlen("0x"));
 	return (res);
 }
 

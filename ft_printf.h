@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:51 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/06 20:48:36 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/06 21:31:58 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "./libft/libft.h"
 # include <stdarg.h>
-
-// # define malloc(x) NULL
 
 typedef struct	s_unit
 {
@@ -37,9 +35,9 @@ t_unit			*creat_new_unit(t_unit **unit);
 
 void			print_unit(t_unit *unit);
 
-int				len_of_num(char const *str);
+size_t			len_of_num(char const *str);
 
-int				len_of_num2(long long nbr);
+size_t			len_of_num2(long long nbr);
 
 int				put_counts_char(char ch, int count);
 

@@ -6,13 +6,13 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 16:00:47 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/06 20:40:58 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/06 21:38:23 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		len_of_num(char const *str)
+size_t	len_of_num(char const *str)
 {
 	int k;
 
@@ -22,7 +22,7 @@ int		len_of_num(char const *str)
 	return (k);
 }
 
-int		len_of_num2(long long nbr)
+size_t	len_of_num2(long long nbr)
 {
 	int k;
 

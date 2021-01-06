@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:55:03 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/05 20:07:56 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/06 21:29:16 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,9 +134,9 @@ t_list				*ft_lstmap(t_list *lst,
 								void *(*f)(void *),
 								void (*del)(void *));
 
-int					ft_max(long long x, long long y);
+long long			ft_max(long long x, long long y);
 
-int					ft_min(long long x, long long y);
+long long			ft_min(long long x, long long y);
 
 int					ft_isspace(int c);
 

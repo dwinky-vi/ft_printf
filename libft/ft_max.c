@@ -6,13 +6,13 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 15:03:46 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/04 19:55:43 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/06 21:29:01 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_max(long long x, long long y)
+long long	ft_max(long long x, long long y)
 {
 	return (x > y ? x : y);
 }
