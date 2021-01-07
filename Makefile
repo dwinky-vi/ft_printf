@@ -1,6 +1,7 @@
 
 SRCS	= \
-			ft_printf.c parser.c processor.c \
+			ft_printf.c \
+			parser.c parser_utils.c processor.c \
 			utils.c t_unit.c ft_dec_to_hex.c  \
 			ft_print_c.c \
 			ft_print_d.c \
@@ -16,13 +17,18 @@ LIBS	= libft.h
 
 LIBFT	= ./libft
 
+HEADER	= ft_printf.h
+
 CC		= gcc
 
 CFLAGS	= -Wall -Wextra -Werror
 
-OBJS	= 	$(patsubst %.c, %.o, $(SRCS))
+OBJS_DIR =		.obj
+OBJS	 = 		$(addprefix $(OBJS_DIR)/, $(patsubst %.c, %.o, $(SRCS)))
+CRT_DIR =		.
+CRT = 			$(addprefix $(OBJS_DIR)/, $(CRT_DIR))
 
-NORMI 	= /Users/dwinky/.scripts/colorised_norm.sh
+NORMI 	= ~/.scripts/colorised_norm.sh
 
 all:		make_libft $(NAME)
 
@@ -32,21 +38,25 @@ make_libft:
 
 $(NAME): 	$(OBJS)
 			@ar rc $(NAME) $(OBJS)
-			@echo "$(LIGHT_GREEN)$(UNDER_LINE)ft_printf is done!$(NO_COLOR)"
+# @echo "$(LIGHT_GREEN)$(UNDER_LINE)ft_printf is done!$(NO_COLOR)\n"
 
 # bonus:		$(BONUS_OBJS) $(OBJS)
 # 			@echo "$(LIGHT_GREEN)$(UNDER_LINE)Bonuses are made!$(NO_COLOR)"
 # 			@ar rc $(NAME) $(BONUS_OBJS) $(OBJS)
 
-%.o:		%.c Makefile
-			@$(CC) $(CFLAGS) -I ft_printf.h -c $<
+$(OBJS_DIR)/%.o:		%.c Makefile $(HEADER)
+				@printf "\033[0;32m\033[1m[ft_printf] Compilation [$<]\033[0;0m\r"
+				@mkdir -p $(CRT) 2> /dev/null || true
+# @$(CC) $(CFLAGS) -I $(HEADER) -c $<
+				@$(CC) $(CFLAGS) -c $< -o $@
+				@printf "\033[0;32m\033[1m[ft_printf] Compilation [OK]\033[0;0m"
 
 run:		
-			@echo "$(YELLOW)gcc -Wall -Werror -Wextra -L. -lftprintf main.c && ./a.out$(NO_COLOR)"
 			@gcc $(CFLAGS) -L. -lftprintf main.c && ./a.out
+			@echo "$(YELLOW)gcc -Wall -Werror -Wextra -L. -lftprintf main.c && ./a.out$(NO_COLOR)"
 
 normi:		
-			@$(NORMI) $(SRCS) ft_printf.h
+			@$(NORMI) $(SRCS) $(HEADER)
 
 normi_lib:	
 			@cd $(LIBFT) && make normi
@@ -54,7 +64,7 @@ normi_lib:
 clean:
 			@rm -rf $(OBJS) $(BONUS_OBJS)
 			@cd $(LIBFT) && make clean
-#			@echo "$(RED)$(UNDER_LINE)Object files deleted.$(NO_COLOR)" 
+#			@echo "$(RED)$(UNDER_LINE)Object files deleted.$(NO_COLOR)"
 
 fclean: 	clean
 			@rm -rf $(NAME)
@@ -62,6 +72,22 @@ fclean: 	clean
 			@echo "$(RED)$(UNDER_LINE)$(NAME) deleted.$(NO_COLOR)"
 
 re: 		fclean all
+
+
+# source_dirs  := . Editor TextLine
+
+#     search_wildcards := $(addsuffix /*.c, $(source_dirs)) 
+
+#     iEdit: $(notdir $(patsubst %.c,%.o,$(wildcard $(search_wildcards))))
+#         gcc $^ -o $@ 
+
+#     VPATH := $(source_dirs)
+     
+#     %.o: %.c
+#         gcc -c -MD $(addprefix -I,$(source_dirs)) $<
+
+#     include $(wildcard *.d)
+
 
 .PHONY: $(NAME)	all bonus clean fclean re
 .PHONY: SRCS BONUS_SRCS LIBS LIBFT CC CFLAGS OBJS BONUS_OBJS

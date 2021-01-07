@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/06 21:40:40 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/07 13:34:16 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -696,8 +696,8 @@ int		main(void)
 	// test_p();
 	// test_crazy();
 	
-	ft_z = ft_printf("", -2147483649);
-		// z =    printf("", -2147483649);
+	ft_z = ft_printf("%d\n", (int)-2147483649);
+		z =    printf("%d\n", (int)-2147483649);
 	printf("ft_z == %d\n   z == %d\n", ft_z, z);
 	// scanf("%d", &z);
 	return (0);

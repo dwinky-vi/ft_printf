@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:51 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/06 21:31:58 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/07 13:31:51 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ typedef struct	s_unit
 int				ft_printf(char const *comand_line, ...);
 
 t_unit			*parser(char const *str, va_list *ap);
+
+char			which_flag(char const *str, int *k);
+
+void			parse_width(va_list *ap, t_unit *unit, int *k, const char *s);
+
+void			parse_precision(va_list *ap, t_unit *u, int *k, char const *s);
 
 int				processor(t_unit *unit, va_list *ap);
 
