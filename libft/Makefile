@@ -40,11 +40,11 @@ NORMI 	=			~/.scripts/colorised_norm.sh
 all:		$(NAME)
 
 $(NAME): 	$(OBJS) $(HEADER)
-			@ar rc libft.a $(OBJS)
+			@ar rc $(NAME) $?
 			@echo "$(LIGHT_GREEN)Libft is done!$(NO_COLOR)"
 
-$(OBJS_DIR)/%.o:	%.c Makefile libft.h
-					@mkdir -p $(CRT) 2> /dev/null || true
+$(OBJS_DIR)/%.o:	%.c Makefile $(HEADER)
+					@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
 					@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
 
 clean:
@@ -63,7 +63,7 @@ re: 		fclean all
 .PHONY: SRCS SRCS LIBS LIBFT CC CFLAGS OBJS
 
 UNDER_LINE	= \033[4m
-BOULD	 	= \033[1m
+BOLD	 	= \033[1m
 
 ################
 ##   COLORS   ##

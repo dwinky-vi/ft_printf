@@ -45,8 +45,8 @@ make_libft:
 			@cp libft/libft.a ./$(NAME)
 
 $(NAME): 	$(OBJS) $(HEADER)
-			@ar rc $(NAME) $(OBJS)
-			@printf "$(GREEN)$(BOULD)[Success compiling]$(CLEAR)"
+			@ar rc $(NAME) $?
+			@printf "$(GREEN)$(BOLD)[Success compiling]$(CLEAR)"
 
 # bonus:		$(BONUS_OBJS) $(OBJS)
 # 			@echo "$(LIGHT_GREEN)$(UNDER_LINE)Bonuses are made!$(NO_COLOR)"
@@ -54,25 +54,24 @@ $(NAME): 	$(OBJS) $(HEADER)
 
 $(OBJS_DIR)/%.o:		%.c Makefile $(HEADER)
 				@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
-				@printf "$(GREEN)$(BOULD)[ft_printf] Compilation $(YELLOW)[$<]$(CLEAR)\r"
+				@printf "$(GREEN)$(BOLD)Compilation $(YELLOW)[$<]$(CLEAR)\r"
 				@sleep 0.05
 				@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
 
-run:		
+run:
 			@gcc $(CFLAGS) -L. -lftprintf main.c && ./a.out
 			@echo "$(YELLOW)gcc -Wall -Werror -Wextra -L. -lftprintf main.c && ./a.out$(NO_COLOR)"
 
 normi:		
 			@$(NORMI) $(SRCS) $(HEADER)
 
-normi_lib:	
+normi_lib:
 			@cd $(LIBFT) && make normi
 
 clean:
 			@rm -rf $(OBJS) $(BONUS_OBJS)
 			@/bin/rm -rf $(OBJS_DIR)
 			@cd $(LIBFT) && make clean
-#			@echo "$(RED)$(UNDER_LINE)Object files deleted.$(NO_COLOR)"
 
 fclean: 	clean
 			@rm -rf $(NAME)
@@ -85,7 +84,7 @@ re: 		fclean all
 .PHONY: SRCS BONUS_SRCS LIBS LIBFT CC CFLAGS OBJS BONUS_OBJS
 
 UNDER_LINE	= \033[4m
-BOULD	 	= \033[1m
+BOLD	 	= \033[1m
 CLEAR		= \033[0;0m
 
 ################

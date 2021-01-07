@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/07 17:42:34 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/07 18:07:17 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -695,35 +695,35 @@ int		main(void)
 	// test_x();
 	// test_p();
 	// test_crazy();
-	int 		a = -4;
-	int	 	b = 14;
-	char		c = 'a';
-	int		d = 2147483647;
-	int		e = -2147483648;
-	int		f = 42;
-	int		g = 25;
-	int		h = 4200;
-	int		i = 8;
-	int		j = -12;
-	int		k = 123456789;
-	int		l = 0;
-	int		m = -12345678;
-	char	*n = "abcdefghijklmnop";
-	char	*o = "-a";
-	char	*p = "-12";
-	char	*q = "0";
-	char	*r = "%%";
-	char	*s = "-2147483648";
-	char	*t = "0x12345678";
-	char	*u = "-0";
-	a = -4;
-	while (a < 5) //T187-213
-	{
-		PRINT(" --- Return : %d\n", PRINT("%*s, %*s, %*s, %*s, %*s, %*s, %*s, %*s", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u));
-		PRINT(" --- Return : %d\n", PRINT("%-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u));
-		PRINT(" --- Return : %d\n", PRINT("%.*s, %.*s, %.*s, %.*s, %.*s, %.*s, %.*s, %.*s", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u));
-		a++;
-	}
+	// int 		a = -4;
+	// int	 	b = 14;
+	// char		c = 'a';
+	// int		d = 2147483647;
+	// int		e = -2147483648;
+	// int		f = 42;
+	// int		g = 25;
+	// int		h = 4200;
+	// int		i = 8;
+	// int		j = -12;
+	// int		k = 123456789;
+	// int		l = 0;
+	// int		m = -12345678;
+	// char	*n = "abcdefghijklmnop";
+	// char	*o = "-a";
+	// char	*p = "-12";
+	// char	*q = "0";
+	// char	*r = "%%";
+	// char	*s = "-2147483648";
+	// char	*t = "0x12345678";
+	// char	*u = "-0";
+	// a = -4;
+	// while (a < 5) //T187-213
+	// {
+	// 	PRINT(" --- Return : %d\n", PRINT("%*s, %*s, %*s, %*s, %*s, %*s, %*s, %*s", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u));
+	// 	PRINT(" --- Return : %d\n", PRINT("%-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u));
+	// 	PRINT(" --- Return : %d\n", PRINT("%.*s, %.*s, %.*s, %.*s, %.*s, %.*s, %.*s, %.*s", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u));
+	// 	a++;
+	// }
 	// scanf("%d", &z);
 	return (0);
 }
