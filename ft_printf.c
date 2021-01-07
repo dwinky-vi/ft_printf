@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:46 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/06 21:51:02 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/07 17:38:06 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ static int	ft_parse_process(va_list *ap, size_t *k, char const *comand_line)
 	int		z;
 
 	z = -1;
-	if ((unit = parser(comand_line + (*k) + 1, ap)) == NULL)
+	if (*comand_line == '\0')
+		return (ft_error(ap));
+	if ((unit = parser(comand_line, ap)) == NULL)
 		return (ft_error(ap));
 	*k += unit->length;
 	if ((z = processor(unit, ap)) == -1)
@@ -68,14 +70,14 @@ int			ft_printf(char const *comand_line, ...)
 	{
 		if (comand_line[k] == '%')
 		{
-			z = ft_parse_process(&ap, &k, comand_line);
+			z = ft_parse_process(&ap, &k, comand_line + k + 1);
 			if (z == -1)
 				return (-1);
 			was_written += z;
 		}
 		else
 			was_written += ft_putchar(comand_line[k]);
-		k++;
+		k += (comand_line[k] == '\0') ? 0 : 1;
 	}
 	va_end(ap);
 	return (was_written);

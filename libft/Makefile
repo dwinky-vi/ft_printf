@@ -13,7 +13,7 @@ SRCS	= \
 
 NAME	= libft.a
 
-LIBS	= libft.h
+HEADER	= libft.h
 
 CC		= gcc
 
@@ -26,27 +26,33 @@ CFLAGS	= -Wall -Wextra -Werror
 #  -ftrapv переполнение целовего числа
 # -Wunreachable-code # 
 
-OBJS	= 	$(patsubst %.c, %.o, $(SRCS))
+# создаём скрытую директорию, в которой будут .o файлы
+OBJS_DIR =			.obj
 
-NORMI 	= /Users/dwinky/.scripts/colorised_norm.sh
+# прописываем (добавляем) путь для каждого .o файла
+OBJS	= 			$(addprefix $(OBJS_DIR)/, $(patsubst %.c, %.o, $(SRCS)))
+
+# в начало каждого пути добавляем точку
+CRT		= 			$(addsuffix . , $(OBJS_DIR)/)
+
+NORMI 	=			~/.scripts/colorised_norm.sh
 
 all:		$(NAME)
 
-$(NAME): 	$(OBJS) libft.h
+$(NAME): 	$(OBJS) $(HEADER)
 			@ar rc libft.a $(OBJS)
 			@echo "$(LIGHT_GREEN)Libft is done!$(NO_COLOR)"
 
-%.o:		%.c Makefile libft.h
-			@$(CC) $(CFLAGS) -I $(LIBS) -c $<
-#			@echo "$(LIGHT_BLUE)Compiling: $@ $(NO_COLOR)"
+$(OBJS_DIR)/%.o:	%.c Makefile libft.h
+					@mkdir -p $(CRT) 2> /dev/null || true
+					@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
 
 clean:
 			@rm -rf $(OBJS)
-#			@echo "$(LIGHT_RED)Object files deleted.$(NO_COLOR)" 
+			@/bin/rm -rf $(OBJS_DIR)
 
 fclean: 	clean
 			@rm -rf $(NAME)
-#			@echo "$(LIGHT_RED)$(NAME) deleted.$(NO_COLOR)"
 
 normi:		
 			@$(NORMI) $(SRCS) libft.h

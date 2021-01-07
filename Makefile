@@ -1,19 +1,21 @@
 
 SRCS	= \
+			utils.c \
+			t_unit.c \
+			parser.c \
 			ft_printf.c \
-			parser.c parser_utils.c processor.c \
-			utils.c t_unit.c ft_dec_to_hex.c  \
+			processor.c  \
 			ft_print_c.c \
 			ft_print_d.c \
 			ft_print_p.c \
 			ft_print_s.c \
 			ft_print_u.c \
 			ft_print_x.c \
-			ft_print_percent.c\
+			parser_utils.c \
+			ft_dec_to_hex.c \
+			ft_print_percent.c
 
 NAME	= libftprintf.a
-
-LIBS	= libft.h
 
 LIBFT	= ./libft
 
@@ -21,35 +23,40 @@ HEADER	= ft_printf.h
 
 CC		= gcc
 
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= 
 
+# создаём скрытую директорию, в которой будут .o файлы
 OBJS_DIR =		.obj
+
+# прописываем (добавляем) путь для каждого .o файла
 OBJS	 = 		$(addprefix $(OBJS_DIR)/, $(patsubst %.c, %.o, $(SRCS)))
-CRT_DIR =		.
-CRT = 			$(addprefix $(OBJS_DIR)/, $(CRT_DIR))
+
+# в начало каждого пути добавляем точку
+CRT = 			$(addsuffix . , $(OBJS_DIR)/)
 
 NORMI 	= ~/.scripts/colorised_norm.sh
 
 all:		make_libft $(NAME)
 
 make_libft:
+			@echo "$(BLUE)"
 			@make -C ./libft
+			@echo "$(CLEAR)"
 			@cp libft/libft.a ./$(NAME)
 
-$(NAME): 	$(OBJS)
+$(NAME): 	$(OBJS) $(HEADER)
 			@ar rc $(NAME) $(OBJS)
-# @echo "$(LIGHT_GREEN)$(UNDER_LINE)ft_printf is done!$(NO_COLOR)\n"
+			@printf "$(GREEN)$(BOULD)[Success compiling]$(CLEAR)"
 
 # bonus:		$(BONUS_OBJS) $(OBJS)
 # 			@echo "$(LIGHT_GREEN)$(UNDER_LINE)Bonuses are made!$(NO_COLOR)"
 # 			@ar rc $(NAME) $(BONUS_OBJS) $(OBJS)
 
 $(OBJS_DIR)/%.o:		%.c Makefile $(HEADER)
-				@printf "\033[0;32m\033[1m[ft_printf] Compilation [$<]\033[0;0m\r"
-				@mkdir -p $(CRT) 2> /dev/null || true
-# @$(CC) $(CFLAGS) -I $(HEADER) -c $<
-				@$(CC) $(CFLAGS) -c $< -o $@
-				@printf "\033[0;32m\033[1m[ft_printf] Compilation [OK]\033[0;0m"
+				@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
+				@printf "$(GREEN)$(BOULD)[ft_printf] Compilation $(YELLOW)[$<]$(CLEAR)\r"
+				@sleep 0.05
+				@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
 
 run:		
 			@gcc $(CFLAGS) -L. -lftprintf main.c && ./a.out
@@ -63,6 +70,7 @@ normi_lib:
 
 clean:
 			@rm -rf $(OBJS) $(BONUS_OBJS)
+			@/bin/rm -rf $(OBJS_DIR)
 			@cd $(LIBFT) && make clean
 #			@echo "$(RED)$(UNDER_LINE)Object files deleted.$(NO_COLOR)"
 
@@ -73,27 +81,12 @@ fclean: 	clean
 
 re: 		fclean all
 
-
-# source_dirs  := . Editor TextLine
-
-#     search_wildcards := $(addsuffix /*.c, $(source_dirs)) 
-
-#     iEdit: $(notdir $(patsubst %.c,%.o,$(wildcard $(search_wildcards))))
-#         gcc $^ -o $@ 
-
-#     VPATH := $(source_dirs)
-     
-#     %.o: %.c
-#         gcc -c -MD $(addprefix -I,$(source_dirs)) $<
-
-#     include $(wildcard *.d)
-
-
 .PHONY: $(NAME)	all bonus clean fclean re
 .PHONY: SRCS BONUS_SRCS LIBS LIBFT CC CFLAGS OBJS BONUS_OBJS
 
 UNDER_LINE	= \033[4m
 BOULD	 	= \033[1m
+CLEAR		= \033[0;0m
 
 ################
 ##   COLORS   ##
