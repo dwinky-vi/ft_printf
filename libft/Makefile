@@ -35,20 +35,20 @@ OBJS	= 			$(addprefix $(OBJS_DIR)/, $(patsubst %.c, %.o, $(SRCS)))
 # в начало каждого пути добавляем точку
 CRT		= 			$(addsuffix . , $(OBJS_DIR)/)
 
-NORMI 	=			norminette
+NORM 	=			norminette
 # ~/.scripts/colorised_norm.sh
 
 all:		$(NAME)
 
-$(NAME): 	$(OBJS) $(HEADER)
+$(NAME): 	$(OBJS)
 			@ar rc $(NAME) $?
-			@printf "$(GREEN)$(BOLD)libft –– [Success compiling]    $(CLEAR)"
+			@printf "$(GREEN)$(BOLD)libft –– [Success compiling]    $(CLEAR)$(NO_COLOR)"
 
 $(OBJS_DIR)/%.o:	%.c Makefile $(HEADER)
 					@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
-					@printf "$(GREEN)$(BOLD)Compilation $(YELLOW)[$<]          $(CLEAR)\r"
+					@printf "$(GREEN)$(BOLD)Compilation $(YELLOW)[$<]          $(CLEAR)$(NO_COLOR)\r"
 					@sleep 0.05
-					@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
+					@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 			@rm -rf $(OBJS)
@@ -58,12 +58,12 @@ fclean: 	clean
 			@rm -rf $(NAME)
 
 normi:		
-			@$(NORMI) $(SRCS) $(HEADER)
+			@$(NORM) $(SRCS) $(HEADER)
 
 re: 		fclean all
 
 .PHONY:	all clean fclean re
-.PHONY: SRCS SRCS CC CFLAGS OBJS OBJS_DIR HEADER
+.PHONY: SRCS SRCS CC CFLAGS OBJS OBJS_DIR HEADER NORM
 
 
 ################

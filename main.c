@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/08 18:20:51 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/08 20:30:57 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -694,7 +694,14 @@ int		main(void)
 	// test_x();
 	// test_p();
 	// test_crazy();
+	char *str;
+	int x = 11;
 
+	str = malloc(x);
+	if (str == NULL)
+	{
+		ft_putstr("wa;osgdkpaodf");
+	}
 	// scanf("%d", &z);
 	return (0);
 }

@@ -23,7 +23,7 @@ HEADER		= ft_printf.h
 
 CC			= gcc
 
-CFLAGS		= -Wall -Werror -Wextra
+CFLAGS		=
 
 # создаём скрытую директорию, в которой будут .o файлы
 OBJS_DIR =		.obj
@@ -34,7 +34,7 @@ OBJS	 = 		$(addprefix $(OBJS_DIR)/, $(patsubst %.c, %.o, $(SRCS)))
 # в начало каждого пути добавляем точку
 CRT = 			$(addsuffix . , $(OBJS_DIR)/)
 
-NORMI 	= norminette
+NORM 	= norminette
 
 all:		make_libft $(NAME)
 
@@ -43,15 +43,15 @@ make_libft:
 			@echo "$(CLEAR)"
 			@cp libft/libft.a ./$(NAME)
 
-$(NAME): 	$(OBJS) $(HEADER)
+$(NAME): 	$(OBJS)
 			@ar rc $(NAME) $?
-			@printf "$(GREEN)$(BOLD)ft_printf –– [Success compiling]$(CLEAR)"
+			@printf "$(GREEN)$(BOLD)ft_printf –– [Success compiling]$(CLEAR)$(NO_COLOR)"
 
 $(OBJS_DIR)/%.o:	%.c Makefile $(HEADER)
 					@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
-					@printf "$(GREEN)$(BOLD)Compilation $(YELLOW)[$<]$(CLEAR)\r"
+					@printf "$(GREEN)$(BOLD)Compilation $(YELLOW)[$<]$(CLEAR)$(NO_COLOR)\r"
 					@sleep 0.05
-					@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
+					@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 			@rm -rf $(OBJS) $(BONUS_OBJS)
@@ -65,8 +65,8 @@ fclean: 	clean
 
 re: 		fclean all
 
-.PHONY: $(NAME)	all bonus clean fclean re
-.PHONY: SRCS BONUS_SRCS LIBS LIBFT_PATH CC CFLAGS OBJS BONUS_OBJS OBJS_DIR CRT HEADER
+.PHONY: $(NAME)	all bonus clean fclean re make_libft
+.PHONY: SRCS BONUS_SRCS LIBS LIBFT_PATH CC CFLAGS OBJS BONUS_OBJS OBJS_DIR CRT HEADER NORM
 
 
 ################
@@ -100,8 +100,11 @@ run:
 			@gcc $(CFLAGS) -L. -lftprintf main.c && ./a.out
 			@echo "$(YELLOW)gcc -Wall -Werror -Wextra -L. -lftprintf main.c && ./a.out$(NO_COLOR)"
 
-normi:		
-			@$(NORMI) $(SRCS) $(HEADER)
+norm:		
+			@$(NORM) $(SRCS) $(HEADER)
 
-normi_lib:
-			@cd $(LIBFT_PATH) && make normi
+norm_lib:
+			@cd $(LIBFT_PATH) && make norm
+
+.PHONY:
+		run norm norm_lib

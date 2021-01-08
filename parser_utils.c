@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 13:24:50 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/07 15:26:18 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/08 18:57:30 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		parse_width(va_list *ap, t_unit *unit, int *k, const char *str)
 	}
 	else if (ft_isdigit(str[k2]))
 	{
-		unit->width = atoi(str + k2);
+		unit->width = ft_atoi(str + k2);
 		k2 += len_of_num(str + k2);
 	}
 	*k = k2;
@@ -70,7 +70,7 @@ void		parse_precision(va_list *ap, t_unit *unit, int *k, char const *str)
 		}
 		else if (ft_isdigit(str[k2]))
 		{
-			unit->precision = atoi(str + k2);
+			unit->precision = ft_atoi(str + k2);
 			k2 += len_of_num(str + k2);
 		}
 		else
