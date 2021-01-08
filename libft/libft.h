@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:55:03 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/06 21:29:16 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/08 21:14:36 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 # include <stdlib.h>
 
 # ifndef INT_MAX
-#  define INT_MAX  2147483647
+#  define INT_MAX  (int)2147483647
 # endif
 
 # ifndef INT_MIN
-#  define INT_MIN  -2147483648
+#  define INT_MIN  (int)-2147483648
 # endif
 
 # ifndef TRUE

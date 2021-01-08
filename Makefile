@@ -23,16 +23,13 @@ HEADER		= ft_printf.h
 
 CC			= gcc
 
-CFLAGS		=
+CFLAGS		= -Wall -Werror -Wextra
 
 # создаём скрытую директорию, в которой будут .o файлы
 OBJS_DIR =		.obj
 
 # прописываем (добавляем) путь для каждого .o файла
 OBJS	 = 		$(addprefix $(OBJS_DIR)/, $(patsubst %.c, %.o, $(SRCS)))
-
-# в начало каждого пути добавляем точку
-CRT = 			$(addsuffix . , $(OBJS_DIR)/)
 
 NORM 	= norminette
 
@@ -96,9 +93,10 @@ LIGHT_PURPLE= \033[1;35m
 LIGHT_CYAN	= \033[1;36m
 WHITE 		= \033[1;37m
 
-run:
-			@gcc $(CFLAGS) -L. -lftprintf main.c && ./a.out
+run:		all
 			@echo "$(YELLOW)gcc -Wall -Werror -Wextra -L. -lftprintf main.c && ./a.out$(NO_COLOR)"
+			@gcc $(CFLAGS) -L. -lftprintf main.c && ./a.out
+			@rm a.out
 
 norm:		
 			@$(NORM) $(SRCS) $(HEADER)

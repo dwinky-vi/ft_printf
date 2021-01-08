@@ -32,9 +32,6 @@ OBJS_DIR =			.obj
 # прописываем (добавляем) путь для каждого .o файла
 OBJS	= 			$(addprefix $(OBJS_DIR)/, $(patsubst %.c, %.o, $(SRCS)))
 
-# в начало каждого пути добавляем точку
-CRT		= 			$(addsuffix . , $(OBJS_DIR)/)
-
 NORM 	=			norminette
 # ~/.scripts/colorised_norm.sh
 
