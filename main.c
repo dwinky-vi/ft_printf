@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:52:56 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/08 21:16:12 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/08 21:54:51 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -687,12 +687,12 @@ int		main(void)
 	// ft_printf("%0z5.7zd\n", 3);
 	// 	printf("%0z5.7zd\n", 3);
 
-	test_d(-1);
-	test_d(1);
-	test_c();
-	test_s();
-	test_x();
-	test_p();
+	// test_d(-1);
+	// test_d(1);
+	// test_c();
+	// test_s();
+	// test_x();
+	// test_p();
 	// test_crazy();
 
 	// scanf("%d", &z);

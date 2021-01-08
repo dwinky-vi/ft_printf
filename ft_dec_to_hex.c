@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 17:26:02 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/08 19:29:42 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/08 21:39:07 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,14 @@ char			*ft_dec_to_hex(unsigned long long nbr)
 {
 	char	*str;
 
-	if (nbr == 0)
-		return ((char *)ft_calloc(1, 1));
 	str = (char *)ft_calloc(1, len_of_num2(nbr) + 1);
 	if (str == NULL)
 		return (NULL);
+	if (nbr == 0)
+ 	{
+ 		str[0] = '0';
+ 		return (str);
+	}
 	to_hex(str, nbr);
 	return (ft_reverse_str(str));
 }
