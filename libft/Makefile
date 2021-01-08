@@ -35,16 +35,19 @@ OBJS	= 			$(addprefix $(OBJS_DIR)/, $(patsubst %.c, %.o, $(SRCS)))
 # в начало каждого пути добавляем точку
 CRT		= 			$(addsuffix . , $(OBJS_DIR)/)
 
-NORMI 	=			~/.scripts/colorised_norm.sh
+NORMI 	=			norminette
+# ~/.scripts/colorised_norm.sh
 
 all:		$(NAME)
 
 $(NAME): 	$(OBJS) $(HEADER)
 			@ar rc $(NAME) $?
-			@echo "$(LIGHT_GREEN)Libft is done!$(NO_COLOR)"
+			@printf "$(GREEN)$(BOLD)libft –– [Success compiling]    $(CLEAR)"
 
 $(OBJS_DIR)/%.o:	%.c Makefile $(HEADER)
 					@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
+					@printf "$(GREEN)$(BOLD)Compilation $(YELLOW)[$<]          $(CLEAR)\r"
+					@sleep 0.05
 					@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
 
 clean:
@@ -55,19 +58,20 @@ fclean: 	clean
 			@rm -rf $(NAME)
 
 normi:		
-			@$(NORMI) $(SRCS) libft.h
+			@$(NORMI) $(SRCS) $(HEADER)
 
 re: 		fclean all
 
 .PHONY:	all clean fclean re
-.PHONY: SRCS SRCS LIBS LIBFT CC CFLAGS OBJS
+.PHONY: SRCS SRCS CC CFLAGS OBJS OBJS_DIR HEADER
 
-UNDER_LINE	= \033[4m
-BOLD	 	= \033[1m
 
 ################
 ##   COLORS   ##
 ################
+
+UNDER_LINE	= \033[4m
+BOLD	 	= \033[1m
 
 NO_COLOR 	= \033[0m
 BLACK	 	= \033[0;30m

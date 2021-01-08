@@ -15,15 +15,15 @@ SRCS	= \
 			ft_dec_to_hex.c \
 			ft_print_percent.c
 
-NAME	= libftprintf.a
+NAME		= libftprintf.a
 
-LIBFT	= ./libft
+LIBFT_PATH	= ./libft
 
-HEADER	= ft_printf.h
+HEADER		= ft_printf.h
 
-CC		= gcc
+CC			= gcc
 
-CFLAGS	= 
+CFLAGS		= -Wall -Werror -Wextra
 
 # создаём скрытую директорию, в которой будут .o файлы
 OBJS_DIR =		.obj
@@ -34,62 +34,48 @@ OBJS	 = 		$(addprefix $(OBJS_DIR)/, $(patsubst %.c, %.o, $(SRCS)))
 # в начало каждого пути добавляем точку
 CRT = 			$(addsuffix . , $(OBJS_DIR)/)
 
-NORMI 	= ~/.scripts/colorised_norm.sh
+NORMI 	= norminette
 
 all:		make_libft $(NAME)
 
 make_libft:
-			@echo "$(BLUE)"
-			@make -C ./libft
+			@make -C $(LIBFT_PATH)
 			@echo "$(CLEAR)"
 			@cp libft/libft.a ./$(NAME)
 
 $(NAME): 	$(OBJS) $(HEADER)
 			@ar rc $(NAME) $?
-			@printf "$(GREEN)$(BOLD)[Success compiling]$(CLEAR)"
+			@printf "$(GREEN)$(BOLD)ft_printf –– [Success compiling]$(CLEAR)"
 
-# bonus:		$(BONUS_OBJS) $(OBJS)
-# 			@echo "$(LIGHT_GREEN)$(UNDER_LINE)Bonuses are made!$(NO_COLOR)"
-# 			@ar rc $(NAME) $(BONUS_OBJS) $(OBJS)
-
-$(OBJS_DIR)/%.o:		%.c Makefile $(HEADER)
-				@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
-				@printf "$(GREEN)$(BOLD)Compilation $(YELLOW)[$<]$(CLEAR)\r"
-				@sleep 0.05
-				@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
-
-run:
-			@gcc $(CFLAGS) -L. -lftprintf main.c && ./a.out
-			@echo "$(YELLOW)gcc -Wall -Werror -Wextra -L. -lftprintf main.c && ./a.out$(NO_COLOR)"
-
-normi:		
-			@$(NORMI) $(SRCS) $(HEADER)
-
-normi_lib:
-			@cd $(LIBFT) && make normi
+$(OBJS_DIR)/%.o:	%.c Makefile $(HEADER)
+					@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
+					@printf "$(GREEN)$(BOLD)Compilation $(YELLOW)[$<]$(CLEAR)\r"
+					@sleep 0.05
+					@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
 
 clean:
 			@rm -rf $(OBJS) $(BONUS_OBJS)
 			@/bin/rm -rf $(OBJS_DIR)
-			@cd $(LIBFT) && make clean
+			@cd $(LIBFT_PATH) && make clean
 
 fclean: 	clean
 			@rm -rf $(NAME)
-			@cd $(LIBFT) && make fclean
+			@cd $(LIBFT_PATH) && make fclean
 			@echo "$(RED)$(UNDER_LINE)$(NAME) deleted.$(NO_COLOR)"
 
 re: 		fclean all
 
 .PHONY: $(NAME)	all bonus clean fclean re
-.PHONY: SRCS BONUS_SRCS LIBS LIBFT CC CFLAGS OBJS BONUS_OBJS
+.PHONY: SRCS BONUS_SRCS LIBS LIBFT_PATH CC CFLAGS OBJS BONUS_OBJS OBJS_DIR CRT HEADER
 
-UNDER_LINE	= \033[4m
-BOLD	 	= \033[1m
-CLEAR		= \033[0;0m
 
 ################
 ##   COLORS   ##
 ################
+
+UNDER_LINE	= \033[4m
+BOLD	 	= \033[1m
+CLEAR		= \033[0;0m
 
 NO_COLOR 	= \033[0m
 BLACK	 	= \033[0;30m
@@ -109,3 +95,13 @@ LIGHT_BLUE	= \033[1;34m
 LIGHT_PURPLE= \033[1;35m
 LIGHT_CYAN	= \033[1;36m
 WHITE 		= \033[1;37m
+
+run:
+			@gcc $(CFLAGS) -L. -lftprintf main.c && ./a.out
+			@echo "$(YELLOW)gcc -Wall -Werror -Wextra -L. -lftprintf main.c && ./a.out$(NO_COLOR)"
+
+normi:		
+			@$(NORMI) $(SRCS) $(HEADER)
+
+normi_lib:
+			@cd $(LIBFT_PATH) && make normi

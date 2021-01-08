@@ -10,6 +10,6 @@ libftprintf.a
 pft_2019
 42TESTERS-PRINTF/*
 pft_2019/*
-pft_2019/
+pft_2019
 pft
 ft_printftest

@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 20:30:39 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/07 17:34:03 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/07 19:29:07 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ t_unit		*parser(char const *str, va_list *ap)
 	parse_precision(ap, unit, &k, str);
 	if ((unit->type = check_type(str[k])) == 0)
 		return (NULL);
-	unit->length = ++k;
+	k++;
+	unit->length = k;
 	cancel_flag_zero_with_precision(unit);
 	cansel_flag_zero(unit);
 	return (unit);
