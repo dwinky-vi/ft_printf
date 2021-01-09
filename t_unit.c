@@ -6,13 +6,13 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 21:22:02 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/09 15:13:48 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/09 15:59:48 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_unit	*creat_new_unit()
+t_unit	*creat_new_unit(void)
 {
 	t_unit *new_unit;
 
