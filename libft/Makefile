@@ -39,12 +39,12 @@ all:		$(NAME)
 
 $(NAME): 	$(OBJS)
 			@ar rc $(NAME) $?
-			@printf "$(GREEN)$(BOLD)libft –– [Success compiling]    $(CLEAR)$(NO_COLOR)"
+			@printf "$(GREEN)$(BOLD)libft –– [Success compiling]    $(CLEAR)$(NO_COLOR)\r"
 
 $(OBJS_DIR)/%.o:	%.c Makefile $(HEADER)
 					@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
 					@printf "$(GREEN)$(BOLD)Compilation $(YELLOW)[$<]          $(CLEAR)$(NO_COLOR)\r"
-					@sleep 0.05
+					@sleep 0.04
 					@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

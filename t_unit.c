@@ -6,18 +6,20 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 21:22:02 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/08 18:22:15 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/09 15:13:48 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_unit	*creat_new_unit(t_unit **unit)
+t_unit	*creat_new_unit()
 {
-	*unit = (t_unit *)ft_calloc(1, (1 + sizeof(int)) * 2 + sizeof(int));
-	if (*unit == NULL)
+	t_unit *new_unit;
+
+	new_unit = (t_unit *)ft_calloc(1, sizeof(t_unit));
+	if (new_unit == NULL)
 		return (NULL);
-	(*unit)->width = -1;
-	(*unit)->precision = -1;
-	return (*unit);
+	new_unit->width = -1;
+	new_unit->precision = -1;
+	return (new_unit);
 }

@@ -690,8 +690,8 @@ int		main(void)
 	// test_d(-1);
 	// test_d(1);
 	// test_c();
-	// test_s();
-	// test_x();
+	 test_s();
+	 test_x();
 	// test_p();
 	// test_crazy();
 

@@ -33,19 +33,21 @@ OBJS	 = 		$(addprefix $(OBJS_DIR)/, $(patsubst %.c, %.o, $(SRCS)))
 
 NORM 	= norminette
 
-all:		$(NAME)
+all:		make_lib $(NAME)
 
-$(NAME): 	$(OBJS)
+make_lib:
 			@make -C $(LIBFT_PATH)
-			@echo "$(CLEAR)"
+			@echo "\r"
 			@cp libft/libft.a $(NAME)
+
+$(NAME): 	$(OBJS)			
 			@ar rc $(NAME) $?
 			@printf "$(GREEN)$(BOLD)ft_printf –– [Success compiling]$(CLEAR)$(NO_COLOR)"
 
-$(OBJS_DIR)/%.o:	%.c Makefile $(HEADER)
+$(OBJS_DIR)/%.o:	%.c Makefile $(HEADER) libft/.obj
 					@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
 					@printf "$(GREEN)$(BOLD)Compilation $(YELLOW)[$<]$(CLEAR)$(NO_COLOR)\r"
-					@sleep 0.05
+					@sleep 0.04
 					@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

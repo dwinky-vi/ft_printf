@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 20:30:39 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/07 19:29:07 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/09 15:01:03 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_unit		*parser(char const *str, va_list *ap)
 	int		k;
 	t_unit	*unit;
 
-	if (creat_new_unit(&unit) == NULL)
+	if ((unit = creat_new_unit()) == NULL)
 		return (NULL);
 	k = 0;
 	unit->flag = which_flag(str, &k);

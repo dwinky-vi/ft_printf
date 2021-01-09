@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:00:51 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/08 20:59:49 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/09 14:55:43 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void			parse_precision(va_list *ap, t_unit *u, int *k, char const *s);
 
 int				processor(t_unit *unit, va_list *ap);
 
-t_unit			*creat_new_unit(t_unit **unit);
+t_unit			*creat_new_unit();
 
 void			print_unit(t_unit *unit);
 
