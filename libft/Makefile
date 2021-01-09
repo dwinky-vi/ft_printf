@@ -54,12 +54,12 @@ clean:
 fclean: 	clean
 			@rm -rf $(NAME)
 
-normi:		
+norm:		
 			@$(NORM) $(SRCS) $(HEADER)
 
 re: 		fclean all
 
-.PHONY:	all clean fclean re
+.PHONY:	all clean fclean re norm
 .PHONY: SRCS SRCS CC CFLAGS OBJS OBJS_DIR HEADER NORM
 
 

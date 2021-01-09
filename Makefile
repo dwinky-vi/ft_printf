@@ -1,18 +1,18 @@
 
 SRCS	= \
-			utils.c \
 			t_unit.c \
-			parser.c \
+			ft_utils.c \
+			ft_parser.c \
 			ft_printf.c \
-			processor.c  \
 			ft_print_c.c \
 			ft_print_d.c \
 			ft_print_p.c \
 			ft_print_s.c \
 			ft_print_u.c \
 			ft_print_x.c \
-			parser_utils.c \
+			ft_processor.c \
 			ft_dec_to_hex.c \
+			ft_parser_utils.c \
 			ft_print_percent.c
 
 NAME		= libftprintf.a
@@ -100,9 +100,10 @@ run:		all
 
 norm:		
 			@$(NORM) $(SRCS) $(HEADER)
+			@cd $(LIBFT_PATH) && make norm
 
 norm_lib:
-			@cd $(LIBFT_PATH) && make norm
+			
 
 .PHONY:
 		run norm norm_lib
