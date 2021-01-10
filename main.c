@@ -680,8 +680,8 @@ void		test_p()
 */
 int		main(void)
 {
-	// int ft_z = 0;
-	// int z = 0;
+	int ft_z = 0;
+	int z = 0;
 
 	// test_d(-1);
 	// test_d(1);
@@ -691,8 +691,27 @@ int		main(void)
 	// test_p();
 	// test_crazy();
 
-	   printf("%-30p\n" , (void *)10666263235098132856lu);
-	ft_printf("%-30p\n" , (void *)10666263235098132856lu);
+	ft_z = ft_printf("%05%\n");
+	   z =	  printf("%05%\n");
+	printf("ft_z == %d\n   z == %d\n", ft_z, z);
+
+	ft_z = ft_printf("%05.0%\n");
+	   z =	  printf("%05.0%\n");
+	printf("ft_z == %d\n   z == %d\n", ft_z, z);
+
+	ft_z = ft_printf("%010%\n");
+	   z =	  printf("%010%\n");
+	printf("ft_z == %d\n   z == %d\n", ft_z, z);
+
+	ft_z = ft_printf("%10%\n");
+	   z =	  printf("%10%\n");
+	printf("ft_z == %d\n   z == %d\n", ft_z, z);
+
+	ft_z = ft_printf("%-05%\n");
+	   z =	  printf("%-05%\n");
+	printf("ft_z == %d\n   z == %d\n", ft_z, z);
+	//    printf("%-30p\n" , (void *)10666263235098132856lu);
+	// ft_printf("%-30p\n" , (void *)10666263235098132856lu);
 	// scanf("%d", &z);
 	return (0);
 }
