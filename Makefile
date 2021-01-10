@@ -23,7 +23,7 @@ HEADER		= ft_printf.h
 
 CC			= gcc
 
-CFLAGS		= -Wall -Werror -Wextra
+CFLAGS		=
 
 # создаём скрытую директорию, в которой будут .o файлы
 OBJS_DIR =		.obj
@@ -47,7 +47,6 @@ $(NAME): 	$(OBJS)
 $(OBJS_DIR)/%.o:	%.c Makefile $(HEADER) libft/.obj
 					@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
 					@printf "$(GREEN)$(BOLD)Compilation $(YELLOW)[$<]$(CLEAR)$(NO_COLOR)\r"
-					@sleep 0.04
 					@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
@@ -101,9 +100,6 @@ run:		all
 norm:		
 			@$(NORM) $(SRCS) $(HEADER)
 			@cd $(LIBFT_PATH) && make norm
-
-norm_lib:
-			
 
 .PHONY:
 		run norm norm_lib

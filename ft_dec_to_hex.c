@@ -12,28 +12,21 @@
 
 #include "ft_printf.h"
 
-static char		*ft_reverse_str(char *str)
+static void		ft_reverse_str(char *str)
 {
-	char	*rev_str;
 	size_t	k;
 	size_t	len;
+	char buf;
 
 	len = ft_strlen(str);
-	rev_str = (char *)ft_calloc(1, len + 1);
-	if (rev_str == NULL)
-	{
-		free(str);
-		return (NULL);
-	}
 	k = 0;
-	len--;
-	while (k <= len)
+	while (k < (len / 2))
 	{
-		rev_str[k] = str[len - k];
+		buf = str[k];
+		str[k] = str[len - k - 1];
+		str[len - k - 1] = buf;
 		k++;
 	}
-	free(str);
-	return (rev_str);
 }
 
 static void		to_hex(char *str, long long nbr)
@@ -45,18 +38,8 @@ static void		to_hex(char *str, long long nbr)
 	while (nbr > 0)
 	{
 		remainder = nbr % 16;
-		if (remainder == 10)
-			str[k] = 'a';
-		else if (remainder == 11)
-			str[k] = 'b';
-		else if (remainder == 12)
-			str[k] = 'c';
-		else if (remainder == 13)
-			str[k] = 'd';
-		else if (remainder == 14)
-			str[k] = 'e';
-		else if (remainder == 15)
-			str[k] = 'f';
+		if (10 <= remainder && remainder <= 15)
+			str[k] = 'a' + (remainder - 10);
 		else
 			str[k] = nbr % 16 + '0';
 		nbr /= 16;
@@ -77,5 +60,6 @@ char			*ft_dec_to_hex(unsigned long long nbr)
 		return (str);
 	}
 	to_hex(str, nbr);
-	return (ft_reverse_str(str));
+	ft_reverse_str(str);
+	return (str);
 }

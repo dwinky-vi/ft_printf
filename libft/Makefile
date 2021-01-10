@@ -11,6 +11,7 @@ SRCS	= \
 		ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_front.c ft_lstadd_back.c \
 		ft_lstiter.c ft_lstdelone.c ft_lstclear.c ft_lstmap.c
 
+
 NAME	= libft.a
 
 HEADER	= libft.h
@@ -44,7 +45,6 @@ $(NAME): 	$(OBJS)
 $(OBJS_DIR)/%.o:	%.c Makefile $(HEADER)
 					@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
 					@printf "$(GREEN)$(BOLD)Compilation $(YELLOW)[$<]          $(CLEAR)$(NO_COLOR)\r"
-					@sleep 0.04
 					@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
