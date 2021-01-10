@@ -29,7 +29,7 @@ static void		ft_reverse_str(char *str)
 	}
 }
 
-static void		to_hex(char *str, long long nbr)
+static void		to_hex(char *str, unsigned long long nbr)
 {
 	size_t	k;
 	size_t	remainder;
@@ -47,11 +47,24 @@ static void		to_hex(char *str, long long nbr)
 	}
 }
 
+static int	len_of_num3(unsigned long long num)
+{
+	int k;
+
+	k = 1;
+	while (num > 9)
+	{
+		num /= 10;
+		k++;
+	}
+	return (k);
+}
+
 char			*ft_dec_to_hex(unsigned long long nbr)
 {
 	char	*str;
 
-	str = (char *)ft_calloc(1, len_of_num2(nbr) + 1);
+	str = (char *)ft_calloc(1, len_of_num3(nbr) + 1);
 	if (str == NULL)
 		return (NULL);
 	if (nbr == 0)

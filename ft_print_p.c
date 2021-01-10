@@ -27,55 +27,6 @@ static int	print_only_point(char *hex_num)
 	return (res);
 }
 
-// static int	len_of_num3(unsigned long long num)
-// {
-// 	int k;
-
-// 	k = 1;
-// 	while (num > 9)
-// 	{
-// 		num /= 10;
-// 		k++;
-// 	}
-// 	return (k);
-// }
-
-// static int	print_only_point_2(unsigned long long num)
-// {
-// 	int		res;
-// 	char	*str;
-// 	size_t	k;
-// 	size_t	remainder;
-// 	size_t	len;
-
-// 	str = (char *)ft_calloc(1, len_of_num3(num) + 1);
-// 	if (str == NULL)
-// 		return (-1);
-// 	k = 0;
-// 	while (num > 0)
-// 	{
-// 		remainder = num % 16;
-// 		if (10 <= remainder && remainder <= 15)
-// 			str[k] = 'a' + (remainder - 10);
-// 		else
-// 			str[k] = num % 16 + '0';
-// 		num /= 16;
-// 		k++;
-// 	}
-// 	len = ft_strlen(str);
-// 	k = 0;
-// 	len--;
-// 	res = ft_putstr("0x");
-// 	while (k <= len)
-// 	{
-// 		res += ft_putchar(str[len - k]);
-// 		k++;
-// 	}
-// 	free(str);
-// 	return (res);
-// }
-
-
 static int	print_only_0x(char flag, int width)
 {
 	int	res;

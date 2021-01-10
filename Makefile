@@ -26,10 +26,10 @@ CC			= gcc
 CFLAGS		=
 
 # создаём скрытую директорию, в которой будут .o файлы
-OBJS_DIR =		.obj
+OBJS_DIR =		.obj/
 
 # прописываем (добавляем) путь для каждого .o файла
-OBJS	 = 		$(addprefix $(OBJS_DIR)/, $(patsubst %.c, %.o, $(SRCS)))
+OBJS	 = 		$(addprefix $(OBJS_DIR), $(patsubst %.c, %.o, $(SRCS)))
 
 NORM 	= norminette
 
@@ -37,16 +37,15 @@ all:		make_lib $(NAME)
 
 make_lib:
 			@make -C $(LIBFT_PATH)
-			@echo "\r"
 			@cp libft/libft.a $(NAME)
 
-$(NAME): 	$(OBJS)			
+$(NAME): 	$(OBJS)
 			@ar rc $(NAME) $?
-			@printf "$(GREEN)$(BOLD)ft_printf –– [Success compiling]$(CLEAR)$(NO_COLOR)"
+			@printf "$(GREEN)$(BOLD)ft_printf –– [Success compiling] $(NO_COLOR)\n"
 
-$(OBJS_DIR)/%.o:	%.c Makefile $(HEADER) libft/.obj
+$(OBJS_DIR)%.o:		%.c $(HEADER) libft/.obj/*
 					@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
-					@printf "$(GREEN)$(BOLD)Compilation $(YELLOW)[$<]$(CLEAR)$(NO_COLOR)\r"
+					@printf "$(GREEN)$(BOLD)Compilation: $(YELLOW)[$<]$(NO_COLOR)\r"
 					@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

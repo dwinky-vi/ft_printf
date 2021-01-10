@@ -14,6 +14,7 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
+/*
 void		test_d(int n)
 {
 	ft_printf("%dd\n", 0);
@@ -676,25 +677,22 @@ void		test_p()
 	printf("=======\n");
 }
 
-
+*/
 int		main(void)
 {
 	// int ft_z = 0;
-	int z = 0;
-	// Проверить!!!
-	// printf("%D\n", 42);
-	// невалидный случай
-	// ft_printf("%0z5.7zd\n", 3);
-	// 	printf("%0z5.7zd\n", 3);
+	// int z = 0;
 
 	// test_d(-1);
 	// test_d(1);
 	// test_c();
-	 test_s();
-	 test_x();
+	// test_s();
+	// test_x();
 	// test_p();
 	// test_crazy();
 
+	   printf("%-30p\n" , (void *)10666263235098132856lu);
+	ft_printf("%-30p\n" , (void *)10666263235098132856lu);
 	// scanf("%d", &z);
 	return (0);
 }
