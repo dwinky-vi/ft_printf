@@ -13,6 +13,7 @@
 
 #include "ft_printf.h"
 #include <stdio.h>
+#include <limits.h>
 
 /*
 void		test_d(int n)
@@ -712,6 +713,5 @@ int		main(void)
 	printf("ft_z == %d\n   z == %d\n", ft_z, z);
 	//    printf("%-30p\n" , (void *)10666263235098132856lu);
 	// ft_printf("%-30p\n" , (void *)10666263235098132856lu);
-	// scanf("%d", &z);
 	return (0);
 }
