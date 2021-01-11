@@ -44,7 +44,7 @@ $(NAME): 	$(OBJS)
 
 $(OBJS_DIR)/%.o:	%.c $(HEADER)
 					@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
-					@printf "$(GREEN)$(BOLD)Compilation: $(YELLOW)[$<]      $(NO_COLOR)\r"
+					@printf "$(GREEN)$(BOLD)Compilation: $(YELLOW)[$<]         $(NO_COLOR)\r"
 					@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

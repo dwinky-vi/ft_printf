@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 17:26:02 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/09 15:44:24 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/11 16:22:03 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void		ft_reverse_str(char *str)
 {
 	size_t	k;
 	size_t	len;
-	char buf;
+	char	buf;
 
 	len = ft_strlen(str);
 	k = 0;
@@ -47,7 +47,7 @@ static void		to_hex(char *str, unsigned long long nbr)
 	}
 }
 
-static int	len_of_num3(unsigned long long num)
+static int		len_of_num3(unsigned long long num)
 {
 	int k;
 
