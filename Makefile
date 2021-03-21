@@ -2,7 +2,7 @@
 SRCS	= \
 			ft_utils.c \
 			ft_parser.c \
-			ft_printf.c \
+			ft_printf.c  \
 			ft_print_c.c \
 			ft_print_d.c \
 			ft_print_p.c \
