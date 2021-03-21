@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 14:00:31 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/31 13:51:47 by dwinky           ###   ########.fr       */
+/*   Created: 2020/11/12 22:00:00 by dwinky            #+#    #+#             */
+/*   Updated: 2021/01/29 16:30:59 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t num)
+void		ft_clear_tail(char **s_tail)
 {
-	size_t			k;
-	unsigned char	*str;
-
-	str = (unsigned char *)s;
-	k = 0;
-	while (k != num)
-		*(str + k++) = 0;
+	free(*s_tail);
+	*s_tail = NULL;
 }

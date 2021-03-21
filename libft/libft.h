@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:55:03 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/08 21:14:36 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/03/16 20:31:10 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 
 char				*ft_strjoin(char const *s1, char const *s2);
 
-char				*ft_strtrim(char const *s1, char const *set);
+char				*ft_strtrim(char const *s, char const *set);
 
 char				**ft_split(char const *s, char c);
 
@@ -145,5 +145,13 @@ void				ft_swap(long long *x, long long *y);
 int					ft_abs(int nbr);
 
 long long			ft_abs_ll(long long nbr);
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
+
+int					get_next_line(int fd, char **line);
+
+void				ft_clear_tail(char **s_tail);
 
 #endif

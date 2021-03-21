@@ -23,7 +23,7 @@ HEADER		= ft_printf.h
 
 CC			= gcc
 
-CFLAGS		=
+CFLAGS		= -Wall -Werror -Wextra
 
 # создаём скрытую директорию, в которой будут .o файлы
 OBJS_DIR =		.obj/
@@ -36,17 +36,18 @@ NORM 	= norminette
 all:		make_lib $(NAME)
 
 make_lib:
-			@make -C $(LIBFT_PATH)
+			@$(MAKE) -C $(LIBFT_PATH)
 			@cp libft/libft.a $(NAME)
 
 $(NAME): 	$(OBJS)
 			@ar rc $(NAME) $?
-			@printf "$(GREEN)$(BOLD)ft_printf –– [Success compiling] $(NO_COLOR)\n"
+			@printf "$(GREEN)$(BOLD)$(LIGHT_PURPLE)ft_printf –– [Success compiling]        $(NO_COLOR)\n"
 
 $(OBJS_DIR)%.o:		%.c $(HEADER) libft/.obj/*
 					@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
-					@printf "$(GREEN)$(BOLD)Compilation: $(YELLOW)[$<]$(NO_COLOR)\r"
+					@printf "$(GREEN)$(BOLD)Compilation $(UNDER_LINE)$(YELLOW)$<$(NO_COLOR)  $(BOLD)–– $(RED)[KO]        $(NO_COLOR)\r"
 					@$(CC) $(CFLAGS) -c $< -o $@
+					@printf "$(GREEN)$(BOLD)Compilation $(UNDER_LINE)$(YELLOW)$<$(NO_COLOR)  $(BOLD)–– $(GREEN)[OK]$(NO_COLOR)\n"
 
 clean:
 			@rm -rf $(OBJS) $(BONUS_OBJS)
@@ -56,13 +57,16 @@ clean:
 fclean: 	clean
 			@rm -rf $(NAME)
 			@cd $(LIBFT_PATH) && make fclean
-			@echo "$(RED)$(UNDER_LINE)$(NAME) deleted.$(NO_COLOR)"
+			@printf "$(UNDER_LINE)$(BOLD)$(NAME)$(NO_COLOR)$(LIGHT_RED) deleted$(NO_COLOR)\n"
 
 re: 		fclean all
+norm:		
+			@$(NORM) $(SRCS) $(HEADER)
+			@cd $(LIBFT_PATH) && make norm
 
-.PHONY: $(NAME)	all bonus clean fclean re
-.PHONY: SRCS BONUS_SRCS LIBS LIBFT_PATH CC CFLAGS OBJS BONUS_OBJS OBJS_DIR CRT HEADER NORM
-
+.PHONY:	all clean fclean re norm norm_lib
+.PHONY: NAME SRCS LIBS LIBFT_PATH CC CFLAGS OBJS OBJS_DIR HEADER NORM
+.PHONY: UNDER_LINE BOLD NO_COLOR RED GREEN LIGHT_RED YELLOW LIGHT_PURPLE WHITE
 
 ################
 ##   COLORS   ##
@@ -70,35 +74,12 @@ re: 		fclean all
 
 UNDER_LINE	= \033[4m
 BOLD	 	= \033[1m
-CLEAR		= \033[0;0m
-
 NO_COLOR 	= \033[0m
-BLACK	 	= \033[0;30m
 RED 	 	= \033[0;31m
 GREEN 	 	= \033[0;32m
-BROWN 	 	= \033[0;33m
-BLUE 		= \033[0;34m
-PURPLE 	 	= \033[0;35m
-CYAN 	 	= \033[0;36m
-LIGHT_GRAY	= \033[0;37m
-
-DARK_GRAY	= \033[1;30m
 LIGHT_RED	= \033[1;31m
-LIGHT_GREEN	= \033[1;32m
 YELLOW 		= \033[1;33m
-LIGHT_BLUE	= \033[1;34m
 LIGHT_PURPLE= \033[1;35m
-LIGHT_CYAN	= \033[1;36m
 WHITE 		= \033[1;37m
 
-run:		all
-			@echo "$(YELLOW)gcc -Wall -Werror -Wextra -L. -lftprintf main.c && ./a.out$(NO_COLOR)"
-			@gcc $(CFLAGS) -L. -lftprintf main.c && ./a.out
-			@rm a.out
-
-norm:		
-			@$(NORM) $(SRCS) $(HEADER)
-			@cd $(LIBFT_PATH) && make norm
-
-.PHONY:
-		run norm norm_lib
+# gcc -L. -lftprintf main.c && ./a.out
