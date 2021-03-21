@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 21:45:39 by dwinky            #+#    #+#             */
-/*   Updated: 2021/01/06 20:03:23 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/03/21 22:03:38 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,7 @@ int			ft_print_d(t_unit *unit, int num)
 	if (unit->width == 0 && unit->precision == 0 && num == 0)
 		return (0);
 	else if (unit->precision == 0 && num == 0)
-	{
-		put_counts_char(' ', unit->width);
-		return (unit->width == -1 ? 0 : unit->width);
-	}
+		return (put_counts_char(' ', unit->width));
 	if (unit->flag == '-')
 		flag_minus(num, len_num, unit, &res);
 	else if (unit->flag == '0')

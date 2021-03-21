@@ -1,6 +1,5 @@
 
 SRCS	= \
-			t_unit.c \
 			ft_utils.c \
 			ft_parser.c \
 			ft_printf.c \
@@ -13,7 +12,8 @@ SRCS	= \
 			ft_processor.c \
 			ft_dec_to_hex.c \
 			ft_parser_utils.c \
-			ft_print_percent.c
+			ft_print_percent.c \
+			ft_creat_new_unit.c \
 
 NAME		= libftprintf.a
 
@@ -25,10 +25,8 @@ CC			= gcc
 
 CFLAGS		= -Wall -Werror -Wextra
 
-# создаём скрытую директорию, в которой будут .o файлы
 OBJS_DIR =		.obj/
 
-# прописываем (добавляем) путь для каждого .o файла
 OBJS	 = 		$(addprefix $(OBJS_DIR), $(patsubst %.c, %.o, $(SRCS)))
 
 NORM 	= norminette
