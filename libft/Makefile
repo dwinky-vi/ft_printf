@@ -20,20 +20,13 @@ CC		= gcc
 
 CFLAGS	= -Wall -Wextra -Werror
 
-# about other flags
-# -Wfloat-equal выдаст ошибку при сравнении чисел с плавующей точкой
-# -Wundef предупреждать, если неинициализированный идентификатор оценивается в случае
-# -Wconversion неявное приведение типов
-#  -ftrapv переполнение целовего числа
-# -Wunreachable-code # 
-
 # создаём скрытую директорию, в которой будут .o файлы
 OBJS_DIR =			.obj
 
 # прописываем (добавляем) путь для каждого .o файла
 OBJS	= 			$(addprefix $(OBJS_DIR)/, $(patsubst %.c, %.o, $(SRCS)))
 
-NORM 	=			~/.scripts/colorised_norm.sh
+NORM 	=			norminette
 
 all:		$(NAME)
 
@@ -42,10 +35,10 @@ $(NAME): 	$(OBJS)
 			@printf "$(GREEN)$(BOLD)$(LIGHT_PURPLE)libft –– [Success compiling]        $(NO_COLOR)\n"
 
 $(OBJS_DIR)/%.o:	%.c $(HEADER)
-					@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
-					@printf "$(GREEN)$(BOLD)Compilation $(UNDER_LINE)$(YELLOW)$<$(NO_COLOR)  $(BOLD)–– $(RED)[KO]        $(NO_COLOR)\r"
-					@$(CC) $(CFLAGS) -c $< -o $@
-					@printf "$(GREEN)$(BOLD)Compilation $(UNDER_LINE)$(YELLOW)$<$(NO_COLOR)  $(BOLD)–– $(GREEN)[OK]$(NO_COLOR)\n"
+			@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
+			@printf "$(GREEN)$(BOLD)Compilation $(UNDER_LINE)$(YELLOW)$<$(NO_COLOR)  $(BOLD)–– $(RED)[KO]        $(NO_COLOR)\r"
+			@$(CC) $(CFLAGS) -c $< -o $@
+			@printf "$(GREEN)$(BOLD)Compilation $(UNDER_LINE)$(YELLOW)$<$(NO_COLOR)  $(BOLD)–– $(GREEN)[OK]$(NO_COLOR)\n"
 
 clean:
 			@rm -rf $(OBJS)
