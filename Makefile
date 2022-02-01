@@ -25,11 +25,13 @@ CC			= gcc
 
 CFLAGS		= -Wall -Werror -Wextra
 
-OBJS_DIR =		.obj/
+OBJS_DIR 	= .obj/
 
-OBJS	 = 		$(addprefix $(OBJS_DIR), $(patsubst %.c, %.o, $(SRCS)))
+OBJS	 	= $(addprefix $(OBJS_DIR), $(patsubst %.c, %.o, $(SRCS)))
 
-NORM 	= norminette
+NORM 		= norminette
+
+
 
 all:		make_lib $(NAME)
 
@@ -39,14 +41,13 @@ make_lib:
 
 $(NAME): 	$(OBJS)
 			@ar rc $(NAME) $?
-			@printf "$(GREEN)$(BOLD)$(LIGHT_PURPLE)ft_printf –– [Success compiling]        $(NO_COLOR)\n"
+			@printf "$(GREEN)$(BOLD)$(LIGHT_PURPLE)$(NAME): [Success compiling]$(NO_COLOR)\n"
 
 $(OBJS_DIR)%.o:		%.c $(HEADER) libft/.obj/*
 					@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
-					@printf "$(GREEN)$(BOLD)Compilation $(UNDER_LINE)$(YELLOW)$<$(NO_COLOR)  $(BOLD)–– $(RED)[KO]        $(NO_COLOR)\r"
-					@$(CC) $(CFLAGS) -c $< -o $@
-					@printf "$(GREEN)$(BOLD)Compilation $(UNDER_LINE)$(YELLOW)$<$(NO_COLOR)  $(BOLD)–– $(GREEN)[OK]$(NO_COLOR)\n"
-
+					@printf "$(GREEN)$(BOLD)Compilation $(UNDER_LINE)$(YELLOW)$<$(NO_COLOR)$(BOLD): wait..."
+					@$(CC) $(CFLAGS) -c $< -o $@ && printf "\b\b\b\b\b\b\b       \b\b\b\b\b\b\b$(GREEN)[OK] $(NO_COLOR)\n" || \
+						printf "\b\b\b\b\b\b\b       \b\b\b\b\b\b\b$(RED)[KO]$(NO_COLOR)\n"
 clean:
 			@rm -rf $(OBJS) $(BONUS_OBJS)
 			@/bin/rm -rf $(OBJS_DIR)
@@ -55,16 +56,13 @@ clean:
 fclean: 	clean
 			@rm -rf $(NAME)
 			@cd $(LIBFT_PATH) && make fclean
-			@printf "$(UNDER_LINE)$(BOLD)$(NAME)$(NO_COLOR)$(LIGHT_RED) deleted$(NO_COLOR)\n"
+			@printf "$(BOLD)$(NAME)$(NO_COLOR)$(LIGHT_RED) deleted$(NO_COLOR)\n"
 
 re: 		fclean all
+
 norm:		
 			@$(NORM) $(SRCS) $(HEADER)
 			@cd $(LIBFT_PATH) && make norm
-
-.PHONY:	all clean fclean re norm norm_lib
-.PHONY: NAME SRCS LIBS LIBFT_PATH CC CFLAGS OBJS OBJS_DIR HEADER NORM
-.PHONY: UNDER_LINE BOLD NO_COLOR RED GREEN LIGHT_RED YELLOW LIGHT_PURPLE WHITE
 
 ################
 ##   COLORS   ##
@@ -81,3 +79,7 @@ LIGHT_PURPLE= \033[1;35m
 WHITE 		= \033[1;37m
 
 # gcc -L. -lftprintf main.c && ./a.out
+
+.PHONY:	all clean fclean re norm norm_lib
+.PHONY: NAME SRCS LIBS LIBFT_PATH CC CFLAGS OBJS OBJS_DIR HEADER NORM
+.PHONY: UNDER_LINE BOLD NO_COLOR RED GREEN LIGHT_RED YELLOW LIGHT_PURPLE WHITE

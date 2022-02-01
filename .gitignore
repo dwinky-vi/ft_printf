@@ -1,4 +1,5 @@
 **/*.a
 **/*.o
 .vscode
+.idea
 **/.DS_Store
